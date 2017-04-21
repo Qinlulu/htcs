@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .img{
+            width:200px;
+            height:110px;
+            margin:50px auto;
+            overflow:hidden;
+            border:1px solid #ccc;
+            position:relative;
+
+        }
+        .imgs{
+            width:200px;
+            height:110px;
+        }
+        .imgs img{
+            width:100%;
+            display:inline-block;
+        }
+        .text{
+            position:absolute;
+            width:200px;
+            height:30px;
+            text-align:center;
+            line-height:30px;
+            font-size:45px;
+            color:blue;
+            top:50%;
+            left:50%;
+            margin-top:-15px;
+            margin-left:-100px;
+            display:none;
+        }
+    </style>
+</head>
+<body>
+<div id="box">
+    <span @click="increment">点击图片变大</span>
+    <span @click="increments">点击图片变小</span>
+    <span>{{store.state.count}}</span>
+    <div class="img">
+    <div class="imgs">
+        <img src="gf.jpg">
+        <div class="text">
+            师兄
+        </div>
+    </div>
+    </div>
+</div>
+<script src="vue.min.js"></script>
+<script src="vuex.min.js"></script>
+<script>
+for(var i=0,k=0;i<10,k<6;i++,k++){
+    c=i+k
+
+    console.log(c)
+}
+
+
+    const store = new Vuex.Store({
+        state: {
+            count: 0
+        },
+        mutations: {
+            increment (state) {
+                state.count+=10
+                let img=document.querySelector(".img")
+                let imgs=document.querySelector(".imgs")
+                imgs.style.width=(200*1)+state.count+"px"
+                 imgs.style.height=(110*1)+state.count+"px"
+
+                    imgs.style.marginLeft="-"+state.count/2+"px"
+                    imgs.style.marginTop="-"+state.count/2+"px"
+
+                    if( state.count>500){
+                        let text=document.querySelector(".text")
+                        text.style.display="block"
+                    }
+
+
+            },
+            increments(state) {
+                state.count-=10
+                let img=document.querySelector(".img")
+                let imgs=document.querySelector(".imgs")
+
+                if( state.count<500){
+                    let text=document.querySelector(".text")
+                    text.style.display="none"
+                }
+
+                if(state.count<0){
+                    state.count=0
+                }else{
+                    imgs.style.width=(200*1)+state.count+"px"
+                    imgs.style.height=(110*1)+state.count+"px"
+                    imgs.style.marginLeft="-"+state.count/2+"px"
+                    imgs.style.marginTop="-"+state.count/2+"px"
+                }
+
+            }
+        }
+    })
+
+    new Vue({
+        el: "#box",
+        store,
+        methods: {
+            increment: function () {
+                this.$store.commit("increment")
+
+            },
+            increments: function () {
+                this.$store.commit("increments")
+
+            }
+        }
+    })
+</script>
+</body>
+</html>

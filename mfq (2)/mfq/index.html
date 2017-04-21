@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/cart.css">
+    <link rel="stylesheet" href="font/iconfont.css">
+</head>
+<body>
+<div class="container" id="shop-cart">
+    <comp-header v-bind:title="'我的购物车'"></comp-header>
+    <div class="section">
+        <p class="tips">分期提示：在项目上左滑可删除项目</p>
+        <hospital-services
+                v-for="(x,index) in hospital_data"
+                :key="index"
+                :hospital="x.title"
+                :list="x.con"
+        >
+        </hospital-services>
+    </div>
+    <div class="footer">
+        <span class="left">总金额：{{total_cost}}</span>
+        <span class="right mfq">申请分期</span>
+    </div>
+</div>
+
+<script src="lib/vue.js"></script>
+<script src="lib/vue-resource.js"></script>
+<script src="lib/vuex.js"></script>
+<script src="component/header.js"></script>
+<script src="component/medicine-service.js"></script>
+<script>
+    /*const store = new Vuex.Store({
+        state: {
+            count:1
+        },
+        mutations: {
+            changed (state) {
+                // 变更状态
+                state.count++
+            }
+        },
+        actions: {
+            add (context) {
+                context.commit('changed')
+            }
+        }
+    });*/
+
+    let bus = new Vue();
+
+    new Vue({
+        el: '#shop-cart',
+        data: {
+            hospital_data: null,
+            total_cost:0
+        },
+        components: {
+            'hospital-services': hs
+        },
+        created: function () {
+            this.$http.get('data/data.json')
+                .then((data) => {
+                    this.hospital_data = data.data;
+                });
+
+
+            this.$children.shift();
+
+            let hs_arr = this.$children;
+
+
+            bus.$on('changed', (data)=> {
+
+                let count = 0;
+                Array.from(hs_arr).forEach((hs,index)=>{
+                    Array.from(hs.$children).forEach((value,i)=>{
+                        count+=value.cost;
+                    });
+                });
+
+                this.total_cost = count;
+            })
+        },
+        updated:function () {
+        }
+    })
+
+</script>
+</body>
+</html>

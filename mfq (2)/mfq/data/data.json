@@ -1,0 +1,42 @@
+[
+  {
+    "title":"北京佳美口腔医院(三里屯店)",
+    "con":[
+      {
+        "name": "牙齿矫正牙齿矫正牙齿1",
+        "price": 12000.00,
+        "num": 1,
+        "check": false
+      },
+      {
+        "name": "牙齿矫正牙齿矫正牙齿2",
+        "price": 12000.00,
+        "num": 2,
+        "check": false
+      },
+      {
+        "name": "牙齿矫正牙齿矫正牙齿3",
+        "price": 15000.00,
+        "num": 4,
+        "check": false
+      }
+    ]
+  },
+  {
+    "title": "北京XX口腔医院(三里屯店)",
+    "con": [
+      {
+        "name": "瘦脸针",
+        "price": 3000.00,
+        "num": 1,
+        "check": false
+      },
+      {
+        "name": "厚唇",
+        "price": 800.00,
+        "num": 1,
+        "check": false
+      }
+    ]
+  }
+]

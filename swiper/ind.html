@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<div id="scrollbox">
+</div>
+<script src="jquery-2.1.1.min.js"></script>
+	<script>
+	var data1 = [];
+		for (var i = 0; i < 20; i++) {
+		data1.push(i);
+	}
+		$("#scrollbox").EasyScrollBox({
+fontSize: 32,
+fontFamily: '',
+color: '#000',
+lineHeight: 1.5,
+spaceRows: 2,
+value: '4',
+data: data1,
+onSelected: function (index, value) {
+$("#Text1").val(value);
+}
+});
+$("#dialog-link1").click(function (event) {
+$("#dialog").dialog("open").dialog('center');
+event.preventDefault();
+});
+
+	</script>
+</body>
+</html>

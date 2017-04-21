@@ -1,0 +1,43 @@
+
+@font-face {font-family: "iconfont";
+  src: url('iconfont.eot?t=1491889392963'); /* IE9*/
+  src: url('iconfont.eot?t=1491889392963#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('iconfont.woff?t=1491889392963') format('woff'), /* chrome, firefox */
+  url('iconfont.ttf?t=1491889392963') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+  url('iconfont.svg?t=1491889392963#iconfont') format('svg'); /* iOS 4.1- */
+}
+
+.iconfont {
+  font-family:"iconfont" !important;
+  font-size:16px;
+  font-style:normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-checkbox:before { content: "\e600"; }
+
+.icon-plus:before { content: "\e676"; }
+
+
+.icon-checked:before { content: "\e652";
+  color: #36a4cd; }
+
+.icon-checked{
+  position: relative;
+}
+.icon-checked:after{
+  content: "\e600";
+  position: absolute;
+  left: 10px;
+}
+.icon-back:before { content: "\e607"; }
+
+.icon-radio-checked:before { content: "\e60f"; }
+
+.icon-forward:before { content: "\e633"; }
+
+.icon-radio:before { content: "\e602"; }
+
+.icon-minus:before { content: "\e62e"; }
+

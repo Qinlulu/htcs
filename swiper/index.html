@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<title>Document</title>
+	<link rel="stylesheet" href="lib/css/swiper.min.css">
+	<script type="text/javascript">
+    var myScroll;
+    function loaded() {
+        myScroll = new IScroll('#box');
+    }
+    document.addEventListener('DOMContentLoaded', loaded, false);
+</script>
+	<style>
+		.swiper-wrapper .swiper-slide{
+			width:100%;
+		}
+		.swiper-wrapper .swiper-slide{
+			height:10px
+		} 
+		.swiper-wrapper .swiper-slide-active {
+		 height:auto
+		}
+		.swiper-container img{
+			width:100%;
+		}
+		
+		
+		
+		
+	</style>
+</head>
+<body>
+	<div id="box">
+	<div class="iscroll">
+		<div class="swiper-container">
+		<div class="swiper-wrapper">
+			<div class="swiper-slide">
+				<img src="gf.jpg" />
+				<img src="gf.jpg" />
+				<img src="gf.jpg" />
+				<img src="gf.jpg" />
+				<img src="gf.jpg" />
+			</div>
+			<div class="swiper-slide">
+				<img src="gf.jpg" />
+				<div>
+					dfkgjdfikojiojgiodj
+				</div>
+			</div>
+			<div class="swiper-slide">
+				<img src="gf.jpg" />
+				<img src="gf.jpg" />
+				<div>
+					dfkgjdfikojiojgiodj
+				</div>
+			</div>
+			
+		</div>
+		</div>
+		</div>
+	</div>
+	<script src="lib/js/swiper.min.js"></script>
+	<script src="iscroll.js"></script>
+	<script>
+			new Swiper(".swiper-container")
+		
+	</script>
+</body>
+</html>
