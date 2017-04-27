@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="24c446b4-9530-42ca-832b-e31a2573a8d1" name="默认" comment="" />
+    <list default="true" id="f850698c-9b25-40d5-ae93-52873c4d7684" name="默认" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -15,14 +15,12 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="腾讯Api.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/腾讯Api.html">
+      <file leaf-file-name="angular.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/angular.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="203">
-              <caret line="90" column="14" lean-forward="false" selection-start-line="90" selection-start-column="14" selection-end-line="90" selection-end-column="14" />
-              <folding>
-                <marker date="1492743778610" expanded="true" signature="3649:3722" ph="..." />
-              </folding>
+            <state relative-caret-position="175">
+              <caret line="55" column="1" lean-forward="true" selection-start-line="55" selection-start-column="1" selection-end-line="55" selection-end-column="1" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -32,7 +30,7 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/腾讯Api.html" />
+        <option value="$PROJECT_DIR$/angular.html" />
       </list>
     </option>
   </component>
@@ -62,28 +60,28 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="腾讯地图定位" />
+              <option name="myItemId" value="路由" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="腾讯地图定位" />
+              <option name="myItemId" value="路由" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="nodejs_interpreter_path" value="D:/node/node" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/project" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../tj" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
   </component>
   <component name="RunDashboard">
@@ -103,26 +101,24 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="24c446b4-9530-42ca-832b-e31a2573a8d1" name="默认" comment="" />
-      <created>1492735679905</created>
+      <changelist id="f850698c-9b25-40d5-ae93-52873c4d7684" name="默认" comment="" />
+      <created>1492775417785</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1492735679905</updated>
-      <workItem from="1492735681285" duration="410000" />
-      <workItem from="1492738720369" duration="888000" />
-      <workItem from="1492741418345" duration="2984000" />
-      <workItem from="1492763641293" duration="32000" />
+      <updated>1492775417785</updated>
+      <workItem from="1492775419195" duration="1601000" />
+      <workItem from="1493000497274" duration="39000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4314000" />
+    <option name="totallyTimeSpent" value="1640000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="0" width="1370" height="735" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1403904" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15915915" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -151,43 +147,27 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/腾讯Api.html">
+    <entry file="file://$PROJECT_DIR$/angular.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1492743778610" expanded="true" signature="3649:3722" ph="..." />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/腾讯Api.html">
+    <entry file="file://$PROJECT_DIR$/angular-ui-router.min.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1492743778610" expanded="true" signature="3649:3722" ph="..." />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/腾讯Api.html">
+    <entry file="file://$PROJECT_DIR$/angular.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1492743778610" expanded="true" signature="3649:3722" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/腾讯Api.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="203">
-          <caret line="90" column="14" lean-forward="false" selection-start-line="90" selection-start-column="14" selection-end-line="90" selection-end-column="14" />
-          <folding>
-            <marker date="1492743778610" expanded="true" signature="3649:3722" ph="..." />
-          </folding>
+        <state relative-caret-position="175">
+          <caret line="55" column="1" lean-forward="true" selection-start-line="55" selection-start-column="1" selection-end-line="55" selection-end-column="1" />
+          <folding />
         </state>
       </provider>
     </entry>

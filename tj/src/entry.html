@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-CN" ng-app="app">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="favicon.ico">
+
+    <title>信息管理</title>
+
+    <!-- Bootstrap core CSS -->
+    <!--<link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">-->
+    <link rel="stylesheet" href="../dist/css/bootstrap.css">
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+
+    <!--font-->
+    <link rel="stylesheet" href="../font/iconfont.css">
+    <!-- Custom styles for this template -->
+    <link href="css/dashboard.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/activity.css">
+
+</head>
+
+<body>
+<div class="container-fluid">
+    <!--导航-->
+    <div class="navbar-fixed-top nav-header">
+
+        <nav class="navbar col-sm-7 col-md-8" style="padding-left: 0;">
+            <ul class="nav navbar-nav">
+                <li ui-sref="simplePlatform" ui-sref-active="on"><a href="#">一口式受理平台</a></li>
+                <li ui-sref="gridPlatform" ui-sref-active="on"><a href="#">网格化管理平台</a></li>
+                <li ui-sref="publicPlatform" ui-sref-active="on"><a href="#">公共服务平台</a></li>
+            </ul>
+        </nav>
+
+
+        <nav class="navbar col-sm-5 col-md-4">
+            <ul class="nav navbar-nav navbar-right nav-admin">
+                <li><a href="#" class="icon iconfont icon-bell">&nbsp;</a></li>
+                <li><a href="#" class="icon iconfont icon-email">&nbsp;</a></li>
+                <li><a href="#" class="icon iconfont icon-admin">&nbsp;</a></li>
+                <li>
+                    <!--<a href="#" class="admin-name">管理员 张鑫</a>-->
+                    <div class="dropdown">
+                            <span class="admin-name" id="admin-name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                管理员 张鑫
+                                <span class="caret"></span>
+                            </span>
+                        <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="admin-name">
+                            <li>
+                                <a href="#">登录</a>
+                            </li>
+                            <li>
+                                <a href="#">退出</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="row" ui-view></div>
+</div>
+
+
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<!--<script src="js/ie10-viewport-bug-workaround.js"></script>-->
+<script src="lib/jquery.min.js"></script>
+<script src="lib/bootstrap.min.js"></script>
+<script src="lib/angular.min.js"></script>
+<script src="lib/angular-ui-router.min.js"></script>
+<script src="js/app.js"></script>
+<script src="js/config.js"></script>
+<script src="js/directive.js"></script>
+
+<script src="js/infoHandler.js"></script>
+</body>
+</html>

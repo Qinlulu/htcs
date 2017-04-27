@@ -1,0 +1,79 @@
+webpack的 配置
+设置入口文件
+设置输出目录
+
+运用loader来进行编译等
+
+
+
+vue中生命周期 就是回调函数  执行自己的逻辑
+
+
+mothed  与 计算属性的区别   需要手动执行
+
+computed 计算属性 有缓存 不使用时不会调用 用的上一次的缓存 不需要手动执行
+
+
+而method 只要使用就会执行一次
+
+两者里面的值  都是函数
+
+
+
+vuex  mutations 就是写在 vuex中的事件
+ 但是是通过vue中 motheds中的事件 ；来进行commit 的拍派发事件
+
+派发时 进行传参的话 可以进行对象的写法
+
+
+mutations 就是写在 vuex中的事件
+State   数据源
+Getters 相当于是vuex的计算属性 
+Action 类似于 mutation，不同在于：
+
+		Action 提交的是 mutation，而不是直接变更状态。
+		Action 可以包含任意异步操作。
+
+Modules 模块化
+
+
+
+
+null和 undefined区别
+JavaScript的最初版本是这样区分的：
+null是一个表示"无"的对象，转为数值时为0；
+undefined是一个表示"无"的原始值，转为数值时为NaN。
+
+
+null表示"没有对象"，即该处不应该有值。
+undefined表示"缺少值"，就是此处应该有一个值，但是还没有定义
+
+
+js性能的优化 
+	减少http请求
+减少页面元素的渲染
+代码重用
+事件委托
+
+
+
+jQ deferred 对象
+处理异步操作
+更改了ajax的写法
+$.ajax("test.html")
+
+　　.done(function(){ alert("哈哈，成功了！"); })
+
+　　.fail(function(){ alert("出错啦！"); });
+.done(function(){ alert("第二个回调函数！");} );
+
+可以进行第二次的回调
+
+$.when($.ajax("test1.html"), $.ajax("test2.html"))
+多个操作执行回调
+
+
+
+ajax  原理 通过xmlhttp  向服务器发送的异步请求   一种监听机制
+核心 xmlhtttp  request
+

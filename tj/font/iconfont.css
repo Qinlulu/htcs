@@ -1,0 +1,40 @@
+
+@font-face {font-family: "iconfont";
+  src: url('iconfont.eot?t=1492690459290'); /* IE9*/
+  src: url('iconfont.eot?t=1492690459290#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('iconfont.woff?t=1492690459290') format('woff'), /* chrome, firefox */
+  url('iconfont.ttf?t=1492690459290') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+  url('iconfont.svg?t=1492690459290#iconfont') format('svg'); /* iOS 4.1- */
+}
+
+.iconfont {
+  font-family:"iconfont" !important;
+  font-size:16px;
+  margin: 0 10px;
+  font-style:normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-search:before { content: "\e6ae"; }
+
+.icon-close:before { content: "\e633"; }
+
+.icon-add:before { content: "\e640"; }
+
+.icon-pension:before { content: "\e707"; }
+
+.icon-uploading:before { content: "\e629"; }
+
+.icon-forward:before { content: "\e775"; }
+
+.icon-email:before { content: "\e652"; }
+
+.icon-list:before { content: "\e683"; }
+
+.icon-triangle:before { content: "\e65a"; }
+
+.icon-bell:before { content: "\e60b"; }
+
+.icon-admin:before { content: "\e625"; }
+

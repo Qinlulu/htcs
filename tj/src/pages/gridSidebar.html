@@ -1,0 +1,42 @@
+<!--侧边栏-->
+<div class="col-sm-3 col-md-2 sidebar">
+    <div class="admin-info">
+        <h2 class="admin-title">三鑫智慧社区</h2>
+        <h3 class="admin-sub-title">公共管理平台</h3>
+        <dl>
+            <dt class="admin-portrait"><img src="images/i.png" alt=""></dt>
+            <dd>管理员 张鑫</dd>
+        </dl>
+    </div>
+
+    <div class="admin-list nav-sidebar">
+        <div class="">
+            <div class="admin-list-wrap" role="tab" id="headingOne">
+                <p class="admin-list-title" role="button" data-toggle="collapse" data-parent="#accordion"
+                   href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    <span class="icon iconfont icon-pension"></span>
+                    <span>网格式服务管理</span>
+                    <span class="icon iconfont icon-forward"></span>
+                </p>
+            </div>
+            <div id="collapseOne" class="panel-collapse collapse" role="tabpanel"
+                 aria-labelledby="headingOne">
+                <ul class="sup-menu list-group">
+                    <li class="active list-group-item">
+                        <a href="#"><span class="icon iconfont icon-list"></span>社区生日会</a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="#"><span class="icon iconfont icon-list"></span>Reports</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!--右边主体-->
+<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 right-area">
+    <!--main-->
+    <div class="main" ui-view>
+
+    </div>
+</div>

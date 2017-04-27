@@ -1,0 +1,109 @@
+.activity-content {
+    padding: 0;
+    border: 1px solid #ddd;
+}
+.activity-content > .nav > li {
+    height: 41px;
+}
+.activity-content > .nav > li > span {
+    margin: 0;
+    padding: 10px 40px;
+    border-radius: 0;
+    border: none;
+    border-right: 1px solid #ddd;
+    background: #eee;
+    color: #898989;
+    float: left;
+    cursor: pointer;
+}
+.activity-content > .nav-tabs > li:hover > span{
+    background: #fff;
+    border-radius: 0;
+    border: none;
+    border-right: 1px solid #ddd;
+    color: #212121;
+}
+.activity-content > .nav-tabs > li.active > span{
+    background: #fff;
+    border-radius: 0;
+    border: none;
+    border-right: 1px solid #ddd;
+    color: #212121;
+}
+.activity-content > .tab-content {
+    padding: 20px;
+    background: #ffffff;
+}
+.sub-header {
+    position: relative;
+}
+.sub-header .no-release {
+    position: absolute;
+    top: 3px;
+    right: 0px;
+    font-size: 14px;
+    color: #999;;
+}
+.sub-header .no-release:hover{
+    text-decoration: inherit;
+}
+.file-input-wrap .right{
+    padding-left: 20px;
+}
+.file-input-wrap .right p{
+    font-size: 14px;
+    color: #999;
+    margin-bottom: 5px;
+}
+.file-input-wrap .right input{
+    height:36px;
+    width:100%;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin: 0 0 10px 0;
+    padding: 0 10px;
+    outline: none;
+}
+.file-input-wrap .right .dropdown {
+    padding: 0 15px 0 0;
+}
+.file-input-wrap .right .dropdown:last-child{
+    padding: 0;
+}
+.file-input-wrap .right .dropdown .btn{
+    width:100%;
+    color: #999;
+    text-align: left;
+}
+.file-input-wrap .right .dropdown .btn:hover{
+    background: #fff;
+    border-color: #ccc;
+}
+.file-input-wrap .right .dropdown .btn:focus{
+    background: #fff;
+    border-color: #ccc;
+}
+.file-input-wrap .right .dropdown .btn .caret{
+    float: right;
+    display: inline-block;
+    margin-top:9px;
+    color: #000;
+}
+.file-input-wrap .views {
+    color: #01b0b9;
+}
+.file-input-wrap .delete {
+    color: #ff4500;
+    margin-left: 10px;
+    cursor: pointer;
+}
+.file-input-wrap > div {
+    padding: 0;
+}
+.file-upload-init.activity{
+    height: 200px;
+    line-height:189px;
+}
+.activity-content .file-input-wrap:first-child .file-upload-init{
+    height: 200px;
+}

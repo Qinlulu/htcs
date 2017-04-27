@@ -1,0 +1,99 @@
+<div class="info-content" ng-hide="contentSwitch">
+    <h4 class="sub-header">基本信息</h4>
+    <div class="row">
+        <div class="col-sm-6 col-md-6">
+            <div class="form-group">
+                <div class="form-title">
+                    <span>责任人</span>
+                    <div class="dropdown right response-role">
+                                        <span id="responsible" data-toggle="dropdown" aria-haspopup="true"
+                                              aria-expanded="false">
+                                            选择责任人
+                                            <span class="caret"></span>
+                                        </span>
+                        <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="responsible">
+                            <li class="form-group response-search">
+                                <input type="text" class="form-control" placeholder="search">
+                                <span class="icon iconfont icon-search" onclick="return false;"></span>
+                            </li>
+                            <li>
+                                <small data-text="张鑫，13261556155，街道办事处">张鑫，13261556155，街道办事处</small>
+                            </li>
+                            <li>
+                                <small data-text="张三，13261556155，街道办事处">张三，13261556155，街道办事处</small>
+                            </li>
+                            <li>
+                                <small data-text="李四，13261556155，街道办事处">李四，13261556155，街道办事处</small>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <input class="form-control response-role-input" type="text" placeholder="Readonly input here…" readonly>
+            </div>
+        </div>
+        <div class="col-sm-6 col-md-6">
+            <div class="form-group">
+                <div class="form-title">
+                    <span>责任人单位</span>
+                    <div class="dropdown right">
+                        <span id="work-unit" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            选择责任人单位
+                            <span class="caret"></span>
+                        </span>
+                        <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="work-unit">
+                            <li class="form-group work-unit-search">
+                                <input type="text" class="form-control" placeholder="search">
+                                <span class="icon iconfont icon-search"></span>
+                            </li>
+                            <li>
+                                <small>张鑫，13261556155，街道办事处</small>
+                            </li>
+                            <li>
+                                <small>张鑫，13261556155，街道办事处</small>
+                            </li>
+                            <li>
+                                <small>张鑫，13261556155，街道办事处</small>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <input class="form-control" type="text" placeholder="Readonly input here…" readonly>
+            </div>
+        </div>
+        <div class="col-sm-12 col-md-12 form-group">
+            <div class="form-title">温馨提示</div>
+            <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Email">
+        </div>
+        <div class="col-sm-12 col-md-12 form-group file-input-wrap">
+            <p class="info">
+                <span class="title">请输入栏目名称</span>
+                <span class="edit">编辑</span>
+                <span class="add">添加</span>
+                <span class="prev-view">预览</span>
+            </p>
+            <input-file init-class="{{1}}"></input-file>
+            <p>
+                <small>图片格式：jpg/png</small>
+                <small>图片大小：小于200KB</small>
+                <small>建议尺寸：宽度大于800px</small>
+            </p>
+        </div>
+        <div class="col-sm-12 col-md-12 form-group file-input-wrap">
+            <p class="info">
+                <span class="title">请输入栏目名称</span>
+                <span class="edit">编辑</span>
+                <span class="add">添加</span>
+                <span class="prev-view">预览</span>
+            </p>
+            <input-file init-class="{{0}}"></input-file>
+            <p>
+                <small>图片格式：jpg/png</small>
+                <small>图片大小：小于200KB</small>
+                <small>建议尺寸：宽度大于800px</small>
+            </p>
+        </div>
+    </div>
+    <p class="text-center">
+        <button type="button" class="btn btn-info">保存并发布</button>
+    </p>
+</div>

@@ -1,0 +1,242 @@
+<div class="activity-content">
+
+    <ul class="nav nav-tabs" role="tablist">
+        <!-- 活动介绍 -->
+        <li role="presentation" class="active"><span href="#event-introduction" aria-controls="event-introduction" role="tab" data-toggle="tab">活动介绍</span></li>
+        <!-- 邀请居民 -->
+        <li role="presentation" class=""><span href="#invite-resident" aria-controls="invite-resident" role="tab" data-toggle="tab">邀请居民</span></li>
+        <!-- 居民报名 -->
+        <li role="presentation" class=""><span href="#resident-enroll" aria-controls="resident-enroll" role="tab" data-toggle="tab">居民报名</span></li>
+        <!-- 活动总结 -->
+        <li role="presentation" class=""><span href="#activity-summary" aria-controls="activity-summary" role="tab" data-toggle="tab">活动总结</span></li>
+    </ul>
+    <div class="tab-content">
+        <!-- 活动介绍 -->
+        <div role="tabpanel" class="tab-pane active" id="event-introduction">
+            <h4 class="sub-header">基本信息 <a href="#" class="no-release">未发布</a></h4>
+            <div class="row">
+                <div class="col-sm-12 col-md-12 form-group file-input-wrap">
+                    <div class="col-sm-4 col-md-4">
+                        <input-file init-class="{{1}}"></input-file>
+                        <p><small>图片格式：jpg/png</small><small>图片大小：小于200KB</small><small>建议尺寸：宽度大于800px</small></p>
+                    </div>
+                    <div class="right col-sm-8 col-md-8">
+                        <p class="tit">活动名称</p>
+                        <input type="text">
+                        <p class="tit">活动时间</p>
+                        <input type="date">
+                        <p class="tit">请选择地址</p>
+                        <div class="dropdown col-sm-3 col-md-3">
+                            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                请选择小区
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                <li><a href="#">Action</a></li>
+                                <li><a href="#">Another action</a></li>
+                                <li><a href="#">Something else here</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="#">Separated link</a></li>
+                            </ul>
+                        </div>
+                        <div class="dropdown col-sm-3 col-md-3">
+                            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                请选择楼宇
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                <li><a href="#">Action</a></li>
+                                <li><a href="#">Another action</a></li>
+                                <li><a href="#">Something else here</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="#">Separated link</a></li>
+                            </ul>
+                        </div>
+                        <div class="dropdown col-sm-3 col-md-3">
+                            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                请选择门栋
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                <li><a href="#">Action</a></li>
+                                <li><a href="#">Another action</a></li>
+                                <li><a href="#">Something else here</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="#">Separated link</a></li>
+                            </ul>
+                        </div>
+                        <div class="dropdown col-sm-3 col-md-3">
+                            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                请选择房号
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                <li><a href="#">Action</a></li>
+                                <li><a href="#">Another action</a></li>
+                                <li><a href="#">Something else here</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="#">Separated link</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-12 form-group file-input-wrap">
+                    <p class="info"><span class="title">请输入栏目名称</span><span class="edit">编辑</span><span class="add">添加栏目</span><span class="prev-view">预览</span><span class="delete">删除</span></p>
+                    <input-file init-class="{{1}}"></input-file>
+                    <p><small>图片格式：jpg/png</small><small>图片大小：小于200KB</small><small>建议尺寸：宽度大于800px</small></p>
+                </div>
+                <div class="col-sm-12 col-md-12 form-group file-input-wrap">
+                    <p class="info"><span class="title">请输入栏目名称</span><span class="edit">编辑</span><span class="add">添加栏目</span><span class="prev-view views">预览</span><span class="delete">删除</span></p>
+                    <input-file init-class="{{1}}"></input-file>
+                    <p><small>图片格式：jpg/png</small><small>图片大小：小于200KB</small><small>建议尺寸：宽度大于800px</small></p>
+                </div>
+            </div>
+        </div>
+        <!--- End 活动介绍 -->
+        <!-- 邀请居民 -->
+        <div role="tabpanel" class="tab-pane" id="invite-resident">
+            <h4 class="sub-header">邀请居民 <a href="#" class="no-release">添加居民</a><span>短信通知</span></h4>
+            <div class="row">
+                <table class="table table-condensed">
+                    <thead>
+                    <tr>
+                        <td>
+                            <input type="checkbox">
+                        </td>
+                        <td>居民姓名</td>
+                        <td>联系电话</td>
+                        <td>性别</td>
+                        <td>年龄</td>
+                        <td>短信通知</td>
+                        <td>备注信息</td>
+                        <td>操作</td>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td><input type="checkbox"></td>
+                        <td>张三</td>
+                        <td>12312312332</td>
+                        <td>男</td>
+                        <td>65</td>
+                        <td>已通知</td>
+                        <td>张大爷强烈要求参加此活动</td>
+                        <td><span class="editable">备注</span><span class="editable">查看详情</span><span class="editable">删除</span></td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox"></td>
+                        <td>张三</td>
+                        <td>12312312332</td>
+                        <td>男</td>
+                        <td>65</td>
+                        <td class="text-remind">未通知</td>
+                        <td>-</td>
+                        <td><span class="editable">备注</span><span class="editable">查看详情</span><span class="editable">删除</span></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <!--分页-->
+            <nav aria-label="Page navigation" class="clearfix">
+                <ul class="pagination right">
+                    <li class="active">
+                        <span aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                        </span>
+                    </li>
+                    <li><span>1</span></li>
+                    <li><span>2</span></li>
+                    <li><span>3</span></li>
+                    <li><span>4</span></li>
+                    <li><span>5</span></li>
+                    <li>
+                        <a href="#" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <!--- End 邀请居民 -->
+        <!-- 居民报名 -->
+        <div role="tabpanel" class="tab-pane" id="resident-enroll">
+            <h4 class="sub-header">报名名单 <a href="#" class="no-release">短信通知</a></h4>
+            <div class="row">
+                <table class="table table-condensed">
+                    <thead>
+                    <tr>
+                        <td>
+                            <input type="checkbox">
+                        </td>
+                        <td>居民姓名</td>
+                        <td>联系电话</td>
+                        <td>性别</td>
+                        <td>年龄</td>
+                        <td>短信通知</td>
+                        <td>备注信息</td>
+                        <td>操作</td>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td><input type="checkbox"></td>
+                        <td>张三</td>
+                        <td>12312312332</td>
+                        <td>男</td>
+                        <td>65</td>
+                        <td>已通知</td>
+                        <td>张大爷强烈要求参加此活动</td>
+                        <td><span class="editable">备注</span><span class="editable">查看详情</span><span class="editable">删除</span></td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox"></td>
+                        <td>张三</td>
+                        <td>12312312332</td>
+                        <td>男</td>
+                        <td>65</td>
+                        <td class="text-remind">未通知</td>
+                        <td>-</td>
+                        <td><span class="editable">备注</span><span class="editable">查看详情</span><span class="editable">删除</span></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <!--分页-->
+            <nav aria-label="Page navigation" class="clearfix">
+                <ul class="pagination right">
+                    <li class="active">
+                        <span aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                        </span>
+                    </li>
+                    <li><span>1</span></li>
+                    <li><span>2</span></li>
+                    <li><span>3</span></li>
+                    <li><span>4</span></li>
+                    <li><span>5</span></li>
+                    <li>
+                        <a href="#" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <!--- End 居民报名 -->
+        <!-- 活动总结 -->
+        <div role="tabpanel" class="tab-pane" id="activity-summary">
+            <div class="col-sm-12 col-md-12 form-group file-input-wrap">
+                <p class="info"><span class="title">请输入栏目名称</span><span class="edit">编辑</span><span class="add">添加栏目</span><span class="prev-view">预览</span><span class="delete">删除</span></p>
+                <input-file init-class="{{1}}"></input-file>
+                <p><small>图片格式：jpg/png</small><small>图片大小：小于200KB</small><small>建议尺寸：宽度大于800px</small></p>
+            </div>
+        </div>
+        <!--- End 活动总结 -->
+
+        <p class="text-center">
+            <button type="button" class="btn btn-info">保存并发布</button>
+        </p>
+    </div>
+
+
+</div>

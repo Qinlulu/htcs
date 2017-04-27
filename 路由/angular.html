@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+
+        .div{
+            width:100px;
+            height:100px;
+            background:#eee;
+            position:absolute;
+            top:200px;
+            left:0;
+        }
+        .tol{
+            left:80%;
+        }
+    </style>
+</head>
+<body>
+<div ng-app="myapp">
+
+    <a href="#/home">跳转</a>
+    <a href="#/list">挑选圈</a>
+    <div ng-view></div>
+
+    <span class="left">去左</span>
+    <span class="right">去右</span>
+
+    <div class="div"></div>
+
+</div>
+<script src="angular.min.js"></script>
+<script src="angular-route.min.js"></script>
+<script src="angular-ui-router.min.js"></script>
+<script>
+    var app=angular.module('myapp',['ngRoute'])
+        app.config(['$routeProvider', function($routeProvider){
+            $routeProvider
+                .when('/home',{template:'这是首页页面'})
+                .when('/list',{template:'这是电脑分类页面'})
+
+        }]);
+
+    var left=document.querySelector(".left")
+    var right=document.querySelector(".right")
+    var div=document.querySelector(".div")
+
+left.onclick=function(){
+        div.classList.add("tol")
+    history.pushState("",null,location.href+"?lll")
+}
+    right.onclick=function(){
+        div.classList.remove("tol")
+    }
+
+    window.addEventListener("popstate",function(){
+        if(location.href.indexOf("lll")>-1){
+            div.classList.add("tol")
+        }else{
+            div.classList.remove("tol")
+        }
+    })
+    
+</script>
+</body>
+</html>
