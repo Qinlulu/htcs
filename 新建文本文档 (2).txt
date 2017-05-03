@@ -1,3 +1,5 @@
+
+
 webpack的 配置
 设置入口文件
 设置输出目录
@@ -77,3 +79,19 @@ $.when($.ajax("test1.html"), $.ajax("test2.html"))
 ajax  原理 通过xmlhttp  向服务器发送的异步请求   一种监听机制
 核心 xmlhtttp  request
 
+
+
+jQ mockjax.js
+一个模拟数据的插件
+依赖于jQuery  先获取源代码
+在mock.js中  配置自己的数据
+原理  在获取数据时 进行拦截 用自己的模拟数据
+上传测试时  删除就可以了 
+
+
+配置￥。mockjax（{url   res}）
+
+
+
+
+H5 新增的拖拽  draggable=true"
