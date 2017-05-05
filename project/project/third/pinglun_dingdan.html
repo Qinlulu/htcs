@@ -1,0 +1,68 @@
+﻿<html>
+<head>
+<title>全部订单</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="apple-touch-fullscreen" content="yes">
+	<meta name="format-detection" content="telephone=no">
+	<meta http-equiv="x-rim-auto-match" content="none"/>
+	<link rel="stylesheet" href="../css/reset.css">
+	<link rel="stylesheet" href="../css/swiper.min.css" />
+	<style>
+	html{font-size: 20px;}
+	body{background: #fff; position: relative;overflow-x: hidden;}
+	a{-webkit-tap-highlight-color: #fff; -webkit-tap-highlight-color:transparent;}
+		#allmap{width:100%;height:100%;}
+		/*头部提示下载模块*/
+	.downApp{height: 2.5rem; width: 100%; background-color: #565a5c; overflow: hidden; position: fixed;top: 0; left: 0; z-index: 100}
+	.downApp_left{height: 100%; width: 11.25rem; float: left; overflow: hidden;}
+	.downApp_right{height: 100%; width: 4.75rem; background: #ff5a5f; float: left; font-size: 0.65rem; color: #fff;line-height: 2.5rem; text-align: center;}
+	.logo{height: 1.75rem; width: 1.75rem; background: url(../images/logo.png) no-repeat; background-size: 100%; margin-left: 0.5rem; margin-top: 0.4rem; float: left;}
+	.downApp_msg{float: left; padding-left: 0.45rem;}
+	.downApp_msg h3{ color: #fff; font-size: 0.6rem; padding-top: 0.625rem;}
+	.downApp_msg p{ color: #cccdce; font-size: 0.45rem;padding-top: 0.25rem;}
+	/*头部标题*/
+	.title{height: 1.8rem; overflow: hidden;width: 100%; background-color: #fbfbfb; margin-top: 2.5rem;}
+	.title img{display: block; height: .7rem; width: .375rem; float: left; margin-top: .55rem; margin-left: .675rem;}
+	.title h1{font-size: .7rem; color: #51575a; float: left; padding-top: .55rem; padding-left: 5.825rem;}
+	.title p{font-size: .65rem; color: #ff5358; float: right; padding-right: .675rem; padding-top: .575rem;}
+	/*文字输入*/
+	.shuru{outline: none;height: 7.5rem; padding-left: .7rem; padding-right: .7rem;line-height: .875rem; border:none; width: 100%; font-size: .65rem; color: #71797e;text-indent: 1em;overflow: hidden; font-family: '微软雅黑'}
+	</style>
+	<script>
+		;(function (win,doc){
+		function change(){
+			doc.documentElement.style.fontSize=20*doc.documentElement.clientWidth/320+'px';
+		}
+		change();
+		
+		win.addEventListener('resize',change,false);
+		})(window,document);
+	</script>
+	
+</head>
+<body>
+	<!--头部提示下载模块-->
+<section class="downApp">
+	<div class="downApp_left">
+		<div class="logo"></div>
+		<div class="downApp_msg">
+			<h3>打开当妈啦App</h3>
+			<p>了解更多优惠服务</p>
+		</div>
+	</div>
+	<div class="downApp_right">立即打开</div>
+</section>
+	<!--头部标题-->
+	<section class="title">
+		<a href="../second/alldingdan.html"><img src="../images/back.png" alt=""></a>
+		<h1>写评论</h1>
+		<p>发布</p>
+	</section>
+	<!--文字输入-->
+	<textarea name="" id="" cols="30" rows="10" class="shuru" placeholder=" 请填写评论内容...（不超过240字）"></textarea>
+</body>
+</html>
+

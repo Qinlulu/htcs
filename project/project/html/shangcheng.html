@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>优选</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<link rel="stylesheet" type="text/css" href="../css/reset.css">
+	<link href="../css/swiper.min.css" rel="stylesheet" />
+	<style>
+	html{font-size: 20px;}
+	body{background: #eee; position: relative;}
+	a{-webkit-tap-highlight-color: #fff; -webkit-tap-highlight-color:transparent;}
+	/*头部提示下载模块*/
+	.downApp{height: 2.5rem; width: 100%; background-color: #565a5c; overflow: hidden;position: fixed;left: 0; top: 0; z-index: 100}
+	.downApp_left{height: 100%; width: 11.25rem; float: left; overflow: hidden;}
+	.downApp_right{height: 100%; width: 4.75rem; background: #ff5a5f; float: left; font-size: 0.65rem; color: #fff;line-height: 2.5rem; text-align: center;}
+	.logo{height: 1.75rem; width: 1.75rem; background: url(../images/logo.png) no-repeat; background-size: 100%; margin-left: 0.5rem; margin-top: 0.4rem; float: left;}
+	.downApp_msg{float: left; padding-left: 0.45rem;}
+	.downApp_msg h3{ color: #fff; font-size: 0.6rem; padding-top: 0.625rem;}
+	.downApp_msg p{ color: #cccdce; font-size: 0.45rem;padding-top: 0.25rem;}
+	/*轮播图*/
+	.swiper-container{ width:100%;height:5.325rem; border-top:1px solid #f0f0f0; margin-top: 2.5rem;}
+	.swiper-slide img{ width: 100%; height: 5.325rem;}
+	/*按钮导航*/
+	nav{height: 7rem; background:#fff; padding-top: 0.55rem; border-bottom: 0.5rem solid #f7f7f7;}
+	nav ul{overflow: hidden;}
+	nav ul a{display: block; height: 3.35rem; width: 25%; float: left; text-align: center;}
+	nav ul a li img{height: 1.85rem; width: 1.85rem; border-radius: 50%; margin:auto; display: block;}
+	nav ul a li p{font-size: 0.5rem; color: #565a5c; padding-top: 0.45rem;}
+	/*商品模块*/
+	.shopping{overflow: hidden; margin-bottom: 3rem;position: relative; padding-right: 0.5rem; background-color: #fff;}
+	.shop_world{height: 24.85rem;width: 100%;}
+	.shop_title{overflow: hidden; height: 2.25rem; line-height: 2.25rem;}
+	.shop_title h1{float: left; font-size: 0.7rem; font-weight: bold; color: #565a5c; padding-left: .5rem}
+	.shop_title p{float:left; font-size: .6rem; color: #ff5a5f; padding-left:9.5rem; }
+	.shop_title span{height: 0.7rem; width: 0.7rem; display: block; float: right; background:url(../images/more.png) no-repeat; background-size: 100%; margin-top: 0.75rem;}
+	.shop_main{overflow: hidden; height: 22.6rem; width: 100%;}
+	.shop_one{width:7.25rem; height: 11.3rem; float: left;  margin-left: .5rem;}
+	.shop_picture{height: 7.25rem; width: 7.25rem;  background-size: 100%; position: relative;}
+	.shop_picture span{height: 0.9rem; width: 1.65rem; border: 0.05rem solid #ff5a5f; color: #ff5a5f; display: block; line-height: .9rem; text-align: center; position: absolute; bottom: 0.175rem; left: 0.175rem; font-size: .5rem;}
+	.shop_one h3{font-size: .6rem; color: #565a5c;  line-height: .9rem; padding-top: 0.225rem; padding-bottom: 0.35rem;}
+	.shop_jiage{overflow: hidden;}
+	.shop_xianjia{float: left; font-size: .6rem; color: #ff5a5f; font-weight: bold; padding-right: 0.4rem;}
+	.shop_yuanjia{float: left; font-size: .4rem; color: #929a9e; border: 1px solid #929a9e; height: 0.55rem; width: 1.65rem; line-height: 0.55rem; text-align: center; border-radius: .2rem;}
+	/*底部模块*/
+	.footer{height: 2.375rem; width: 100%; background-color: #fbfbfb; position: fixed;bottom: 0; left: 0; overflow: hidden; border-top: 1px solid #d1d1d1;z-index: 1000;}
+	.footer figure{float: left; width: 25%; height: 100%; text-align: center; }
+	.footer figure figcaption{color: #595d5f;font-size: 0.5rem;}
+	.fuwu{height: 0.7rem; width: 1.45rem; margin-top: 0.575rem;}
+	.zhibo{height: 0.95rem; width: 1.45rem; margin-top: 0.425rem;}
+	.shangcheng{height: 1.2rem; width: 1.1rem; margin-top: 0.225rem;}
+	.wode{height: 1.25rem; width: 1.25rem; margin-top: 0.225rem;}
+	.word1{padding-top: 0.45rem;}
+	.word2{padding-top: 0.35rem;}
+	.word3{padding-top: 0.3rem;}
+	.word4{padding-top: 0.25rem;}
+	/*购物车按钮*/
+	.buyCar{height: 2.6rem; width: 2.6rem; position: fixed; right: 0.475rem; bottom: 3.125rem; background:url(../images/buyCar.png) no-repeat; background-size: 100%}
+	</style>
+	<script>
+	//rem
+		;(function (win,doc){
+		function change(){
+			doc.documentElement.style.fontSize=20*doc.documentElement.clientWidth/320+'px';
+		}
+		change();
+		
+		win.addEventListener('resize',change,false);
+		})(window,document);
+	</script>
+	<script src="../js/swiper.min.js"></script>
+	<script src="../js/zepto.min.js"></script>
+	<script>
+        $(document).ready(function () {
+            $("body").on("swipeUp", function () {
+                $(".footer").css("display", "block")
+            })
+            $("body").on("swipeDown", function () {
+                $(".footer").css("display", "none")
+            })
+        })
+	</script>
+</head>
+<body>
+<!--头部提示下载模块-->
+<section class="downApp">
+	<div class="downApp_left">
+		<div class="logo"></div>
+		<div class="downApp_msg">
+			<h3>打开当妈啦App</h3>
+			<p>了解更多优惠服务</p>
+		</div>
+	</div>
+	<div class="downApp_right">立即打开</div>
+</section>
+<!--banner-->
+	<div class="swiper-container">
+    	<div class="swiper-wrapper">
+        	<div class="swiper-slide">
+        		<img src="../images/car_shangpin.png" alt="">
+        	</div>
+        	<div class="swiper-slide">
+        		<img src="../images/car_shangpin.png" alt="">
+        	</div>
+        	<div class="swiper-slide">
+        		<img src="../images/car_shangpin.png" alt="">
+        	</div>
+        	<div class="swiper-slide">
+        		<img src="../images/car_shangpin.png" alt="">
+        	</div>
+        	<div class="swiper-slide">
+        		<img src="../images/car_shangpin.png" alt="">
+        	</div>
+        </div>
+        
+        <div class="swiper-pagination" style="z-index:2;"></div>
+    </div>
+    <script>
+	new Swiper('.swiper-container',{
+		spaceBetween:1,		//每个slider之间的间距
+		prevButton:'.swiper-button-prev',	//上一张
+		nextButton:'.swiper-button-next',	//下一张
+		pagination:'.swiper-pagination', 	//生成小圆点
+		paginationClickable:true,			//小圆点可以点击
+		loop:true,							//无缝
+		autoplay:5000,						//自动播放
+	});
+	</script>
+<!--按钮导航-->
+	<nav>
+		<ul>
+			<a href="../second/pingdao.html"><li><img src="../images/shop_picture1.png" alt=""><p>母婴用品</p></li></a>
+			<a href="../second/pingdao.html"><li><img src="" alt=""><p>母婴用品</p></li></a>
+			<a href="../second/pingdao.html"><li><img src="" alt=""><p>母婴用品</p></li></a>
+			<a href="../second/pingdao.html"><li><img src="" alt=""><p>母婴用品</p></li></a>
+			<a href="../second/pingdao.html"><li><img src="" alt=""><p>母婴用品</p></li></a>
+			<a href="../second/pingdao.html"><li><img src="" alt=""><p>母婴用品</p></li></a>
+			<a href="../second/pingdao.html"><li><img src="" alt=""><p>母婴用品</p></li></a>
+			<a href="../second/pingdao.html"><li><img src="" alt=""><p>母婴用品</p></li></a>
+		</ul>
+	</nav>
+<!--商品内容模块-->	
+	<section class="shopping">
+		<section class="shop_world">
+			<div class="shop_title">
+				<h1>全球购</h1>
+				<a href="../second/shangchengerji.html"><p>更多商品</p>
+				<span></span></a>
+			</div>
+			<div class="shop_main">
+				<a href="../second/shangpinxiangqing.html"><div class="shop_one">
+					<div class="shop_picture" style="background:url(../images/shop_picture1.png) no-repeat;">
+						<span>3.5折</span>
+					</div>
+					<h3>因会儿散装奶粉，最健康的优质奶粉</h3>
+					<div class="shop_jiage">
+						<p class="shop_xianjia">¥400</p>
+						<p class="shop_yuanjia">¥600</p>
+					</div>
+				</div></a>
+				<a href="../second/shangpinxiangqing.html"><div class="shop_one">
+					<div class="shop_picture" style="background:url(../images/shop_picture1.png) no-repeat;">
+						<span>3.5折</span>
+					</div>
+					<h3>因会儿散装奶粉，最健康的优质奶粉</h3>
+					<div class="shop_jiage">
+						<p class="shop_xianjia">¥400</p>
+						<p class="shop_yuanjia">¥600</p>
+					</div>
+				</div></a>
+				<a href="../second/shangpinxiangqing.html"><div class="shop_one">
+					<div class="shop_picture" style="background:url(../images/shop_picture1.png) no-repeat;">
+						<span>3.5折</span>
+					</div>
+					<h3>因会儿散装奶粉，最健康的优质奶粉</h3>
+					<div class="shop_jiage">
+						<p class="shop_xianjia">¥400</p>
+						<p class="shop_yuanjia">¥600</p>
+					</div>
+				</div></a>
+				<a href="../second/shangpinxiangqing.html"><div class="shop_one">
+					<div class="shop_picture" style="background:url(../images/shop_picture1.png) no-repeat;">
+						<span>3.5折</span>
+					</div>
+					<h3>因会儿散装奶粉，最健康的优质奶粉</h3>
+					<div class="shop_jiage">
+						<p class="shop_xianjia">¥400</p>
+						<p class="shop_yuanjia">¥600</p>
+					</div>
+				</div></a>
+				<a href="../second/shangpinxiangqing.html"><div class="shop_one">
+					<div class="shop_picture" style="background:url(../images/shop_picture1.png) no-repeat;">
+						<span>3.5折</span>
+					</div>
+					<h3>因会儿散装奶粉，最健康的优质奶粉</h3>
+					<div class="shop_jiage">
+						<p class="shop_xianjia">¥400</p>
+						<p class="shop_yuanjia">¥600</p>
+					</div>
+				</div></a>
+				<a href="../second/shangpinxiangqing.html"><div class="shop_one">
+					<div class="shop_picture" style="background:url(../images/shop_picture1.png) no-repeat;">
+						<span>3.5折</span>
+					</div>
+					<h3>因会儿散装奶粉，最健康的优质奶粉</h3>
+					<div class="shop_jiage">
+						<p class="shop_xianjia">¥400</p>
+						<p class="shop_yuanjia">¥600</p>
+					</div>
+				</div></a>
+				<a href="../second/shangpinxiangqing.html"><div class="shop_one">
+					<div class="shop_picture" style="background:url(../images/shop_picture1.png) no-repeat;">
+						<span>3.5折</span>
+					</div>
+					<h3>因会儿散装奶粉，最健康的优质奶粉</h3>
+					<div class="shop_jiage">
+						<p class="shop_xianjia">¥400</p>
+						<p class="shop_yuanjia">¥600</p>
+					</div>
+				</div></a>
+				<a href="../second/shangpinxiangqing.html"><div class="shop_one">
+					<div class="shop_picture" style="background:url(../images/shop_picture1.png) no-repeat;">
+						<span>3.5折</span>
+					</div>
+					<h3>因会儿散装奶粉，最健康的优质奶粉</h3>
+					<div class="shop_jiage">
+						<p class="shop_xianjia">¥400</p>
+						<p class="shop_yuanjia">¥600</p>
+					</div>
+				</div></a>
+
+			</div>
+		</section>
+		
+	</section>
+	<!--购物车入口-->
+	<a href="../second/shoppingCart.html"><div class="buyCar"></div></a>
+	<!--底部-->
+	<footer class="footer">
+		<a href="fuwu.html">
+			<figure>
+				<img src="../images/fuwu1.png" alt="" class="fuwu">
+				<figcaption class="word1">服务</figcaption>
+			</figure>
+		</a>	
+		<a href="zhibo.html">
+			<figure>
+				<img src="../images/zhibo.png" alt="" class="zhibo">
+				<figcaption class="word2">直播</figcaption>
+			</figure>
+		</a>
+		<a href="">
+			<figure>
+				<img src="../images/shangcheng1.png" alt="" class="shangcheng">
+				<figcaption class="word3">优选</figcaption>
+			</figure>
+		</a>
+		<a href="wode.html">
+			<figure>
+				<img src="../images/wode.png" alt="" class="wode">
+				<figcaption class="word4">我的</figcaption>
+			</figure>
+		</a>
+	</footer>
+</body>
+</html>

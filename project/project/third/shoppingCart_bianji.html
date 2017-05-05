@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>购物车-编辑</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="apple-touch-fullscreen" content="yes">
+	<meta name="format-detection" content="telephone=no">
+	<meta http-equiv="x-rim-auto-match" content="none"/>
+	<link rel="stylesheet" type="text/css" href="../css/reset.css">
+	<style>
+	input[type=button], input[type=submit], input[type=file], button { cursor: pointer; -webkit-appearance: none; } 
+	html{font-size: 20px;}
+	body{background: #f7f7f7; position: relative;-webkit-user-select:none;
+    -webkit-text-size-adjust:none;}
+	a{-webkit-tap-highlight-color: #fff; -webkit-tap-highlight-color:transparent;}
+	/*头部提示下载模块*/
+	.downApp{height: 2.5rem; width: 100%; background-color: #565a5c; overflow: hidden; position: fixed;left: 0; top: 0;  z-index: 100;}
+	.downApp_left{height: 100%; width: 11.25rem; float: left; overflow: hidden;}
+	.downApp_right{height: 100%; width: 4.75rem; background: #ff5a5f; float: left; font-size: 0.65rem; color: #fff;line-height: 2.5rem; text-align: center;}
+	.logo{height: 1.75rem; width: 1.75rem; background: url(../images/logo.png) no-repeat; background-size: 100%; margin-left: 0.5rem; margin-top: 0.4rem; float: left;}
+	.downApp_msg{float: left; padding-left: 0.45rem;}
+	.downApp_msg h3{ color: #fff; font-size: 0.6rem; padding-top: 0.625rem;}
+	.downApp_msg p{ color: #cccdce; font-size: 0.45rem;padding-top: 0.25rem;}
+	/*头部返回*/
+	.back{height: 1.275rem;padding-left: .675rem;padding-top: .6rem; overflow: hidden; z-index: 1; background: #fbfbfb; margin-top: 2.5rem;}
+	.back a{height: .7rem; width: .375rem; display: block; background: url(../images/back.png) no-repeat; background-size: 100%; display: block;float:left;}
+	.back h1{font-size: .7rem; color: #3e4347; float: left; padding-left: 5.875rem;}
+	
+	/*更改*/
+	.cont{width: 100%; background: #fff;}
+	.cont_goods{width: 100%}
+	.cont_goods_title{height: 2rem; border-bottom: 1px solid #f0f0f0; overflow: hidden;}
+	.shop_picture{float: left; height: .7rem; width: .7rem; background: url(../images/shop_picture.png) no-repeat; background-size: 100%; margin-left: .5rem; margin-top: .675rem;}
+	.shop_name{font-size: .65rem; color: #686c6d; padding-top: .7rem; padding-left: .55rem; display: block; margin-left: 2.3rem;}
+	.cont_goods_commodity li{overflow: hidden;}
+	.xuanze{float: left; height: .875rem; width: .875rem; background: url(../images/balance_all.png) no-repeat; background-size: 100%; margin-top: 2.2rem; margin-left: .675rem;}
+	.msg{float: left; padding-left: .55rem; padding-top: .5rem; padding-bottom: .6rem; border-bottom: 1px solid #f0f0f0; overflow: hidden;}
+	.msg img{display: block; float: left; height: 3.55rem; width: 4.05rem;}
+
+		
+	/*底部结算*/
+
+
+	</style>
+	<script src="../js/jquery-2.1.1.min.js"></script>
+	<script>
+		;(function (win,doc){
+		function change(){
+			doc.documentElement.style.fontSize=20*doc.documentElement.clientWidth/320+'px';
+		}
+		change();
+		
+		win.addEventListener('resize',change,false);
+		})(window,document);
+	</script>
+	<script>
+        $(document).ready(function () {
+
+
+
+
+
+
+        })
+	/*//改变所有数量
+    function nums(val){
+    for(var i=0;i<$(".text").length;i++){
+        $(".text").eq(i).val(val)
+    }
+    }
+
+
+
+    var les=true;
+    //点击确定
+        $(".buy_sure").on("click", function () {
+            $(".buy").eq(0).css("display", "none")
+            if(les){
+                $(".zhezhao").css("display", "none")
+                $(".buy3").css("display","none")
+            }else{
+                $(".buy3").css("display","block")
+                $(".zhezhao").css("display", "block")
+                les=true
+            }
+
+            // $(".buy3").css("display","block")
+        })*/
+	</script>
+</head>
+<body>
+<!--头部提示下载模块-->
+<section class="downApp">
+	<div class="downApp_left">
+		<div class="logo"></div>
+		<div class="downApp_msg">
+			<h3>打开当妈啦App</h3>
+			<p>了解更多优惠服务</p>
+		</div>
+	</div>
+	<div class="downApp_right">立即打开</div>
+</section>
+<!--头部返回-->
+<header class="back">
+	<a href="../second/shoppingCart.html"></a>
+	<h1>购物车</h1>
+</header>
+<!--更改-->
+<section class="cont">
+	<div class="cont_goods">
+		<div class="cont_goods_title">
+			<div class="balance_left_all_picture"></div>
+			<div class="shop_picture"></div>
+			<div class="shop_name">美琪玩具</div>
+		</div>
+		<ul class="cont_goods_commodity">
+			<a><li>
+				<div class="xuanze"></div>
+				<div class="msg">
+					<img src="../images/shangpin_picture.png" alt="">
+
+				</div>
+			</li></a>
+		</ul>
+	</div>
+</section>
+
+<!--底部结算-->
+
+
+
+
+
+</body>
+</html>

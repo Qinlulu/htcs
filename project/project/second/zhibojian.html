@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>直播间</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<link rel="stylesheet" type="text/css" href="../css/reset.css">
+	<link rel="stylesheet" href="../css/swiper.min.css" />
+	<style>
+	html{font-size: 20px;}
+	body{background: #fff; position: relative;}
+	a{-webkit-tap-highlight-color: #fff; -webkit-tap-highlight-color:transparent;}
+	/*头部提示下载模块*/
+	.downApp{height: 2.5rem; width: 100%; background-color: #565a5c; overflow: hidden; position: fixed; left: 0; top: 0; z-index: 100}
+	.downApp_left{height: 100%; width: 11.25rem; float: left; overflow: hidden;}
+	.downApp_right{height: 100%; width: 4.75rem; background: #ff5a5f; float: left; font-size: 0.65rem; color: #fff;line-height: 2.5rem; text-align: center;}
+	.logo{height: 1.75rem; width: 1.75rem; background: url(../images/logo.png) no-repeat; background-size: 100%; margin-left: 0.5rem; margin-top: 0.4rem; float: left;}
+	.downApp_msg{float: left; padding-left: 0.45rem;}
+	.downApp_msg h3{ color: #fff; font-size: 0.6rem; padding-top: 0.625rem;}
+	.downApp_msg p{ color: #cccdce; font-size: 0.45rem;padding-top: 0.25rem;}
+	/*头部标题*/
+	.title{height: 1.875rem; width: 100%; background: #f0f0f0; overflow: hidden; margin-top: 2.5rem;}
+	.title a{display: block;height: .7rem; width: 0.375rem; background: url(../images/back.png) no-repeat; background-size: 100%; margin-left: 0.675rem;float: left; margin-top: .6rem;}
+	.title h1{float: left;font-size: .7rem; color: #565c5f; margin-top: .6rem; margin-left: 3.8rem;}
+	/*直播专家标题*/
+	.man{height: 2.85rem; border-bottom: 1px solid #f0f0f0;overflow: hidden; padding-left: .675rem; padding-right: 1.2rem;}
+	.man img{display: block;float: left;height: 1.8rem; width: 1.8rem; margin-top: .5rem;}
+	.man .star{font-size: .65rem; color: #febcbe; width: 1.35rem; float: right; padding-top: .75rem;}
+	.man_msg{float: left; padding-left: .65rem;}
+	.man_msg_n1{overflow: hidden;}
+	.name{float: left;font-size: .7rem; color: #3c4143; padding-top: .65rem;}
+	.man_msg_n1 .zhiwei{float: left;font-size: .55rem; color: #323739; padding-top: .75rem; padding-left: .7rem; }
+	.man_msg_n2{overflow: hidden; padding-top: .375rem;}
+	.man_msg_n2 .yiyuan{font-size: .55rem; color: #8f9599;float: left;}
+	.man_msg_n2 .keshi{font-size: .55rem; color: #8f9599; padding-left: .45rem; float: left;}
+	/*直播选项*/
+	.xuanxiang{height: 1.55rem; border-bottom: 1px solid #f0f0f0;overflow: hidden; position: relative;}
+	.zhibo{width: 50%; line-height: 1.55rem; font-size: .65rem; color: #373b3d; text-align: center; float: left;}
+	.liaotianshi_btn{width: 50%; line-height: 1.55rem; font-size: .65rem; color: #373b3d; text-align: center; float: left;}
+	#line1{height: .1rem; width: 3rem; position: absolute;background-color: #ff5254; bottom: 0; left: 2.4rem;}
+	#line2{height: .1rem; width: 3rem; position: absolute;background-color: #ff5254; bottom: 0; left: 10.45rem; display: none}
+	/*底部输入*/
+	footer{position: fixed;bottom: 0; left: 0; height: 2.075rem; z-index: 100;overflow: hidden;	padding-left: .4rem; background-color: #fff;width: 100%;}
+	.yuyin{float: left;height: 1.35rem; width: 1.35rem; background:url(../images/yuyin.png) no-repeat; background-size: 100%; margin-top: .325rem;}
+	footer input{height: 1.5rem; width: 9.85rem; border:1px solid #a0a5a8; border-radius: .2rem; font-size: .6rem; color: #8c9397; margin-left: .4rem; display: block; float: left;text-indent: 1.5em; margin-top: .25rem;}
+	.biaoqing{float: left;height: 1.35rem; width: 1.35rem; background:url(../images/biaoqing.png) no-repeat; background-size: 100%; margin-top: .325rem; margin-left: .45rem;}
+	.jia{float: left;height: 1.35rem; width: 1.35rem; background:url(../images/jia.png) no-repeat; background-size: 100%; margin-top: .325rem; margin-left: .45rem;}
+	/*直播内容*/
+	.neirong{height: 19.175rem; background-color: #f0f0f0;width: 100%; padding-bottom: 2.075rem;}
+	/*聊天室*/
+	.liaotianshi{height: 19.175rem; background-color: #f0f0f0;width: 100%; display: none; padding-bottom: 2.075rem;}
+	</style>
+	<script>
+	//rem
+		;(function (win,doc){
+		function change(){
+			doc.documentElement.style.fontSize=20*doc.documentElement.clientWidth/320+'px';
+		}
+		change();
+		
+		win.addEventListener('resize',change,false);
+		})(window,document);
+	</script>
+	<script>
+	window.onload=function(){
+		var oBtn_zhibo=document.getElementById('zhibo_btn');
+		var oBtn_liaotianshi=document.getElementById('liaotianshi_btn');
+		var oNei=document.getElementById('neirong');
+		var oLt=document.getElementById('liaotianshi');
+		var oLine1=document.getElementById('line1');
+		var oLine2=document.getElementById('line2');
+		oBtn_zhibo.onclick=function(){
+			oNei.style.display='block';
+			oLine1.style.display='block';
+			oLt.style.display='none';
+			oLine2.style.display='none';
+		};
+		oBtn_liaotianshi.onclick=function(){
+			oNei.style.display='none';
+			oLine1.style.display='none';
+			oLt.style.display='block';
+			oLine2.style.display='block';
+		}
+	}
+	</script>
+</head>
+<body>
+	<!--头部提示下载模块-->
+<section class="downApp">
+	<div class="downApp_left">
+		<div class="logo"></div>
+		<div class="downApp_msg">
+			<h3>打开当妈啦App</h3>
+			<p>了解更多优惠服务</p>
+		</div>
+	</div>
+	<div class="downApp_right">立即打开</div>
+</section>
+	<!--头部标题-->
+	<header class="title">
+		<a href="../html/zhibo.html"></a>
+		<h1>专家直播间（<span>428人</span>）</h1>
+	</header>
+	<!--直播专家标题-->
+	<section class="man">
+		<img src="../images/man_head.png" alt="">
+		<div class="man_msg">
+			<div class="man_msg_n1">
+				<h2 class="name">马永闯</h2>
+				<p class="zhiwei">主任医师</p>
+			</div>
+			<div class="man_msg_n2">
+				<h2 class="yiyuan">北京宝岛妇产医院</h2>
+				<p class="keshi">妇产科</p>
+			</div>
+		</div>
+		<p class="star">直播专家</p>
+	</section>
+	<!--直播选项-->
+	<section class="xuanxiang">
+		<div class="zhibo" id="zhibo_btn">直播</div>
+		<div class="liaotianshi_btn" id="liaotianshi_btn">聊天室</div>
+		<div id="line1"></div>
+		<div id="line2"></div>
+	</section>
+	<!--直播内容-->
+	<section class="neirong" id="neirong">
+		
+	</section>
+	<!--聊天室-->
+	<section class="liaotianshi" id="liaotianshi">
+		
+	</section>
+	<!--底部输入-->
+	<footer>
+		<div class="yuyin"></div>
+		<input type="text" placeholder=" 输入新消息" size="22">
+		<div class="biaoqing"></div>
+		<div class="jia"></div>
+	</footer>
+</body>
+</html>

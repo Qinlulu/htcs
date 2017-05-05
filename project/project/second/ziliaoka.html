@@ -1,0 +1,300 @@
+﻿<html>
+<head>
+<title>资料卡</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="apple-touch-fullscreen" content="yes">
+	<meta name="format-detection" content="telephone=no">
+	<meta http-equiv="x-rim-auto-match" content="none"/>
+	<link rel="stylesheet" href="../css/reset.css">
+	<style>
+	html{font-size: 20px;}
+	body{background: #fff; position: relative;overflow-x: hidden;}
+	a{-webkit-tap-highlight-color: #fff; -webkit-tap-highlight-color:transparent;}
+		#allmap{width:100%;height:100%;}
+		/*头部提示下载模块*/
+	.downApp{height: 2.5rem; width: 100%; background-color: #565a5c; overflow: hidden; position: fixed;left: 0; top: 0; z-index: 100;}
+	.downApp_left{height: 100%; width: 11.25rem; float: left; overflow: hidden;}
+	.downApp_right{height: 100%; width: 4.75rem; background: #ff5a5f; float: left; font-size: 0.65rem; color: #fff;line-height: 2.5rem; text-align: center;}
+	.logo{height: 1.75rem; width: 1.75rem; background: url(../images/logo.png) no-repeat; background-size: 100%; margin-left: 0.5rem; margin-top: 0.4rem; float: left;}
+	.downApp_msg{float: left; padding-left: 0.45rem;}
+	.downApp_msg h3{ color: #fff; font-size: 0.6rem; padding-top: 0.625rem;}
+	.downApp_msg p{ color: #cccdce; font-size: 0.45rem;padding-top: 0.25rem;}
+	/*头部*/
+	header{height: 6.95rem; position: relative; width: 100%; margin-top: 2.5rem;}
+	.bj{height: 4.55rem; width: 100%; background:pink;}
+	header a{display: block; background: url(../images/back3.png) no-repeat; background-size: 100%; height: .7rem; width: .35rem;position: absolute;top: .5rem; left: .75rem;}
+	header img{display: block; height: 3.85rem; width: 3.85rem; position: absolute;left: 6.075rem; top: 2.65rem; border-radius: 50%; border: .125rem solid #fff;}
+	/*信息模块*/
+	.msg{padding-left: .75rem; padding-right: .675rem;}
+	.msg a{
+        display:inline-block;
+		width:100%;
+		height: 2.575rem;
+	}
+	.msg li{height: 2.575rem; border-bottom: 1px solid #f3f3f3; overflow: hidden;}
+	.msg li div{float: left;}
+	.msg li div h3{font-size: .55rem; color: #959da1; padding-top: .65rem;}
+	.msg li div p{font-size: .7rem; color: #4b5052; padding-top: .4rem;}
+	.jump{display: block;float: right; background: url(../images/go2.png) no-repeat; background-size: 100%;width: .375rem; height: .7rem; margin-top: 1.05rem;}
+	/*生日模块*/
+.slide-selector {
+  position: absolute;
+  z-index: 100;
+  width: 100%;
+  height: 100%;
+  left: 0;
+    top: -2.76rem;
+  background: rgba(0, 0, 0, 0.7);
+	overflow: hidden}
+.slide-selector .header {
+  display: flex;
+  background:#f7f7f7;
+  height:1.8rem;
+  color:#FF585B;
+  line-height:1.8rem;
+  text-align:center;
+  font-size:.7rem;
+}
+.slide-selector .header span{
+  flex:1;
+}
+.slide-selector .header span:nth-child(2){
+  flex:5;
+}
+.slide-selector .slide-wrapper {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 35%;
+  background: #fff;
+ }
+.slide-items{
+  overflow: hidden;
+  width:100%;
+  height:100%;
+}
+.slide-items ul {
+  width:33.3%;
+    height: 7rem;
+  float: left;
+    text-align: center;
+    font-size:0.7rem;
+    overflow: auto;
+    margin-top:.2rem;
+}
+.slide-items ul li{
+    height:2.25rem;
+    line-height:2.25rem;
+    border-top:1px solid #ccc;
+}
+
+.slide-selected {
+  background: #24AEF2;
+  color: #fff; }
+/*拍照*/
+.change{width:100%;height:8rem;position:absolute;bottom:-8rem;display:none;}
+.paizhao{height: 2.55rem; width: 100%; background-color: #fff; border-bottom: 1px solid #f0f0f0; font-size: .7rem; color: #303a3d; line-height: 2.55rem; text-align: center;}
+.xiangce{height: 2.55rem; width: 100%; background-color: #fff; border-bottom: .25rem solid #f7f7f7; font-size: .7rem; color: #303a3d; line-height: 2.55rem; text-align: center;}
+.quxiao{height: 2.55rem; width: 100%; background-color: #f9f9f9; font-size: .7rem; color: #303a3d; line-height: 2.55rem; text-align: center;}
+
+    /*资料卡*/
+    .nicheng {
+        width: 100%;
+        height:100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background:#ccc;
+        z-index:500;
+        display:none;
+    }
+
+    /*头部*/
+    .nicheng .headers {
+        width:100%;
+        height:2.2rem;
+        background: #f0f0f0;
+        margin-top:0;
+
+    }
+
+    .nicheng .headers h1 {
+        width:92%;
+        height:100%;
+        line-height:2.2rem;
+        font-size: .7rem;
+        color: #40474a;
+        float: left;
+        text-align: center;
+    }
+
+    .nicheng .headers a {
+        height: .7rem;
+        width: .375rem;
+        background: url(../images/back.png) no-repeat;
+        display: block;
+        background-size: cover;
+        float: left;
+    }
+
+    .nicheng .headers em {
+        font-size: .625rem;
+        line-height:2.2rem;
+        color: #ff4146;
+        float: right;
+    }
+
+    .nicheng .name {
+        background-color: #fff;
+        border: none;
+        height: 2.35rem;
+        width: 100%;
+        display: block;
+        outline: none;
+        font-size: 0.65rem;
+        text-indent: 2em;
+        color: #505356;
+    }
+
+    .nicheng .close {
+        height: .65rem;
+        width: .65rem;
+        background: url(../images/close1.png) no-repeat;
+        background-size: 100%;
+        position: absolute;
+        top: 2.675rem;
+        right: .7rem;
+    }
+
+    </style>
+	<script>
+		;(function (win,doc){
+		function change(){
+			doc.documentElement.style.fontSize=20*doc.documentElement.clientWidth/320+'px';
+		}
+		change();
+		
+		win.addEventListener('resize',change,false);
+		})(window,document);
+	</script>
+	
+</head>
+<body>
+	<!--头部提示下载模块-->
+<section class="downApp">
+	<div class="downApp_left">
+		<div class="logo"></div>
+		<div class="downApp_msg">
+			<h3>打开当妈啦App</h3>
+			<p>了解更多优惠服务</p>
+		</div>
+	</div>
+	<div class="downApp_right">立即打开</div>
+</section>
+	<!--头部-->
+	<header>
+		<div class="bj"></div>
+		<a href="../html/wode.html"></a>
+		<img src="../images/touxiang.png" alt="" class="touxiang">
+	</header>
+	<!--信息模块-->
+	<ul class="msg">
+		<a class="shows"><li>
+			<div>
+				<h3>昵称</h3>
+				<p>董大爷</p>
+			</div>
+			<em class="jump"></em>
+		</li></a>
+		<a href=""><li>
+			<div>
+				<h3>性别</h3>
+				<p>女</p>
+			</div>
+			<em class="jump"></em>
+		</li></a>
+		<a href="../third/ziliaoka_bangphone.html"><li>
+			<div>
+				<h3>手机号码</h3>
+				<p>13282746371</p>
+			</div>
+			<em class="jump"></em>
+		</li></a>
+		<a>
+            <li class="shengrilist">
+			<div>
+				<h3>生日</h3>
+				<p>1991-03-22</p>
+			</div>
+			<em class="jump"></em>
+		</li></a>
+		<a><li>
+			<div>
+				<h3>常居地</h3>
+				<p>朝阳区</p>
+			</div>
+			<em class="jump"></em>
+		</li></a>
+	</ul>
+	<!--拍照换头像-->
+	<section class="change">
+		<div class="paizhao">拍照</div>
+		<div class="xiangce">从手机相册选择</div>
+		<div class="quxiao">取消</div>
+	</section>
+
+
+
+    <div class="nicheng">
+        <!--头部-->
+        <header class="headers">
+            <a class="hide"></a>
+            <h1>昵称</h1>
+            <em class="btn">保存</em>
+        </header>
+        <!--输入-->
+        <input type="text" placeholder="" size="22" class="name">
+        <div class="close"></div>
+    </div>
+
+
+    <script src="../js/jquery-2.1.1.min.js"></script>
+	<script src="../js/shengri.js"></script>
+    <script>
+        $(document).ready(function () {
+            $(".shows").on("click", function () {
+                $(".nicheng").css("display","block")
+            })
+            $(".hide").on("click", function () {
+                $(".nicheng").css("display","none")
+            })
+            $(".btn").on("click", function () {
+                if($(".nicheng .name").val()==""){
+                    alert("请输入名称")
+                    return
+                }
+                $(".shows li div p").text($(".nicheng .name").val())
+                $(".nicheng").css("display","none")
+            })
+
+            $(".close").on("click", function () {
+                $(".nicheng .name").val("")
+            })
+
+            $(".touxiang").on("click", function () {
+                $(".change").css("display","block")
+                $(".change").css("bottom","0")
+            })
+            $(".quxiao").on("click", function () {
+                $(".change").css("display","none")
+                $(".change").css("bottom","-8rem")
+            })
+
+        })
+    </script>
+</body>
+</html>
+

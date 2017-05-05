@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>注册</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="apple-touch-fullscreen" content="yes">
+	<meta name="format-detection" content="telephone=no">
+	<meta http-equiv="x-rim-auto-match" content="none"/>
+	<link rel="stylesheet" type="text/css" href="../css/reset.css">
+	<style>
+	html{font-size: 20px;}
+	body{background: #f7f7f7;}
+	a{-webkit-tap-highlight-color: #fff; -webkit-tap-highlight-color:transparent;}
+	
+	
+	.binding{border: 1px solid #ff494e;height: 1.65rem; width:13.25rem; border-radius: 4rem; font-size: 0.65rem; color: #fff; text-align: center;line-height: 1.65rem; background-color: #ff5a5f;; margin-top: .7rem; margin-left: 1.375rem;}
+	/*输入模块*/
+	.shuru{ height: 7.75rem; width: 100%; background:#fff;}
+	.shuru div{height: 2.55rem; width: 100%; border-bottom: 1px solid #d1d1d1; overflow: hidden;}
+	.shuru div:nth-child(3){border-bottom: none;}
+	.shuru div:nth-child(2){position: relative;}
+	.shuru_phone{height: 0.85rem; width: .6rem; margin-top: .85rem; margin-left: 1.5rem; float: left;}
+	.shuru_yanzheng{height: 0.75rem; width: .65rem; margin-top: .9rem; margin-left: 1.475rem; float: left;}
+	.shuru_mima{height: 0.825rem; width: .7rem; margin-top: .85rem; margin-left: 1.45rem; float: left;}
+	.shuru div input{height: .6rem; border: none; font-size: .6rem;float: left;background-color: transparent;outline: none;  padding-left: .65rem; padding-top: 0.95rem; color: #929a9e;}
+	.shuru div .getCode{ position: absolute;top: 0.6rem; right: 1.4rem; height: 1.35rem; width: 3.95rem; font-size: 0.55rem; color: #fff; line-height: 1.35rem; text-align: center;border-radius: 0.15rem; background-color: #ff5a5f;}
+	/*头部提示下载模块*/
+	.downApp{height: 2.5rem; width: 100%; background-color: #565a5c; overflow: hidden;}
+	.downApp_left{height: 100%; width: 11.25rem; float: left; overflow: hidden;}
+	.downApp_right{height: 100%; width: 4.75rem; background: #ff5a5f; float: left; font-size: 0.65rem; color: #fff;line-height: 2.5rem; text-align: center;}
+	.logo{height: 1.75rem; width: 1.75rem; background: url(../images/logo.png) no-repeat; background-size: 100%; margin-left: 0.5rem; margin-top: 0.4rem; float: left;}
+	.downApp_msg{float: left; padding-left: 0.45rem;}
+	.downApp_msg h3{ color: #fff; font-size: 0.6rem; padding-top: 0.625rem;}
+	.downApp_msg p{ color: #cccdce; font-size: 0.45rem;padding-top: 0.25rem;}
+	</style>
+	<script>
+		;(function (win,doc){
+		function change(){
+			doc.documentElement.style.fontSize=20*doc.documentElement.clientWidth/320+'px';
+		}
+		change();
+		
+		win.addEventListener('resize',change,false);
+		})(window,document);
+	</script>
+</head>
+<body>
+<!--头部提示下载模块-->
+<section class="downApp">
+	<div class="downApp_left">
+		<div class="logo"></div>
+		<div class="downApp_msg">
+			<h3>打开当妈啦App</h3>
+			<p>了解更多优惠服务</p>
+		</div>
+	</div>
+	<div class="downApp_right">立即打开</div>
+</section>
+<!--输入模块-->
+	<section class="shuru">
+		<div>
+			<img src="../images/shuru_phone.png" alt="" class="shuru_phone">
+			<input type="text" placeholder=" 手机号" size="22">
+		</div>
+		<div>
+			<img src="../images/shuru_yanzheng.png" alt="" class="shuru_yanzheng">
+			<input type="text" placeholder=" 验证码" size="22">
+			<a href=""><div class="getCode">获取验证码</div></a>
+		</div>
+		<div>
+			<img src="../images/shuru_mima.png" alt="" class="shuru_mima">
+			<input type="text" placeholder=" 密码（6-20位英文或数字）" size="22">
+		</div>
+	</section>
+	<a href=""><section class="binding">确定</section></a>	
+</body>
+</html>

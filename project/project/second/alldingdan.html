@@ -1,0 +1,353 @@
+﻿<html>
+<head>
+<title>全部订单</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="apple-touch-fullscreen" content="yes">
+	<meta name="format-detection" content="telephone=no">
+	<meta http-equiv="x-rim-auto-match" content="none"/>
+	<link rel="stylesheet" href="../css/reset.css">
+	<link rel="stylesheet" href="../css/swiper.min.css" />
+	<style>
+	html{font-size: 20px;}
+	body{background: #fff; position: relative;overflow-x: hidden;}
+	/* #wrapper{ height: 100%;} */
+	a{-webkit-tap-highlight-color: #fff; -webkit-tap-highlight-color:transparent;}
+		#allmap{width:100%;height:100%;}
+		/*头部提示下载模块*/
+	.downApp{height: 2.5rem; width: 100%; background-color: #565a5c; overflow: hidden; position: fixed;top: 0; left: 0; z-index: 100}
+	.downApp_left{height: 100%; width: 11.25rem; float: left; overflow: hidden;}
+	.downApp_right{height: 100%; width: 4.75rem; background: #ff5a5f; float: left; font-size: 0.65rem; color: #fff;line-height: 2.5rem; text-align: center;}
+	.logo{height: 1.75rem; width: 1.75rem; background: url(../images/logo.png) no-repeat; background-size: 100%; margin-left: 0.5rem; margin-top: 0.4rem; float: left;}
+	.downApp_msg{float: left; padding-left: 0.45rem;}
+	.downApp_msg h3{ color: #fff; font-size: 0.6rem; padding-top: 0.625rem;}
+	.downApp_msg p{ color: #cccdce; font-size: 0.45rem;padding-top: 0.25rem;}
+	/*内容选项卡*/
+	.wrap{margin:0 auto; margin-top: 2.5rem;}
+	.tabs{height:1.75rem;background: #fff;width: 100%;text-align: center; border-bottom: 1px solid #f0f0f0; position: relative;}
+	#comeBack{position: absolute; width: .375rem; height: .7rem; background: url(../images/back.png) no-repeat; background-size: 100%;top: .6rem; left: .5rem;}
+	.tabs .part{display:block;float:left;width:3.85rem;text-align:center;height: 1.15rem; border:0.05rem solid #ff5459; line-height: 1.15rem; }
+	#raiders{border-right:none ; border-radius: .2rem 0 0 .2rem; margin-top: .25rem; margin-left: 4.1rem;}
+	#cost{border-left: none;border-radius:0 .2rem .2rem 0; margin-top: .25rem; margin-left: -.1rem;}
+	.tabs a{width:100%;display:block;color:#fe575c;text-align:center;margin:0 auto;font-size:0.6rem;text-decoration:none; height: 1.75rem}
+	.tabs span.active a{color:#fff; background:#ff5a5f; height: 1.16rem; border-radius: .1rem}
+	.swiper-container{width:100%;border-top:0;margin-top:10px!important}
+	.swiper-slide{width:100%;background:#fff;}
+
+	/*内容-套餐部分*/
+	.taocan{background: #fff;}
+	.taocan_title{height: 1.95rem; padding-left: .3rem; padding-right: .7rem; overflow: hidden; border-bottom: 1px solid #f0f0f0;}
+	.taocan_title img{height: .7rem; width: .7rem; display: block;float: left; margin-top: .675rem; margin-left: .65rem;}
+	.taocan_title h1{font-size: .6rem; color: #56595b; padding-left: .375rem; padding-top: .75rem; float: left;}
+	.taocan_title p{font-size: .6rem; color: #ff4a50;  padding-top: .75rem; float: right;}
+	.taocan_msg{height: 5.85rem; border-bottom: 1px solid #f0f0f0; overflow: hidden;}
+	.taocan_msg img{ display: block;height: 4.7rem; width: 4.7rem; float: left; margin-top: .6rem;}
+	.taocan_msg_word{float: left; padding-left: .65rem;}
+	.taocan_msg_word h1{font-size: .7rem; color: #464a4d; padding-top: .55rem; width: 9.75rem; line-height: .825rem;}
+	.taocan_msg_word p{font-size: .5rem; color: #93989c; padding-top: .3rem; width: 9.95rem; line-height: .65rem;}
+	.taocan_jiage{overflow: hidden; padding-top: .8rem;}
+	.taocan_jiage em{display: block;float: left;font-size: .65rem; font-weight: 600; color: #ff454b; padding-right: .7rem;}
+	.taocan_jiage span{font-size: .4rem; color: #5b5d60; display: block;float: left; padding: .125rem .225rem .125rem .25rem; border:1px solid #dbdbdb;}
+	.taocan_jiage strong{display: block;float: left;font-size: .7rem; font-weight: bold; color: #747c81; display: none;}
+	.taocan_footer{height: 1.925rem; border-bottom: .35rem solid #f7f7f7; overflow: hidden;padding-right: .45rem; text-align: right;}
+	.chakan{height: 1.1rem; width: 3.425rem; border:1px solid #9ea4a7; line-height: 1.1rem; text-align: center; font-size: .55rem; color: #3b4042; float: right; margin-top: .35rem; border-radius: .1rem;}
+	.pinglun{height: 1.1rem; width: 3.475rem; border:1px solid #ff484d; line-height: 1.1rem; text-align: center; font-size: .55rem; color: #fff; float: right; margin-top: .35rem; border-radius: .1rem; margin-left: .45rem; background-color: #ff5a5f;}
+	/*内容-商品部分*/
+	.right{
+        width:100%;
+        height:100%;
+        overflow: hidden;
+    }
+    .liost{
+        width:100%;
+        height:1.8rem;
+        line-height:.625rem;
+        text-align:center;
+        border-bottom:1px solid #f0f0f0;
+        line-height: 1.8rem;
+    }
+    .liost  li{
+        width: 20%;
+        float:left;
+    }
+    .liost li span{
+        width:80%;
+        height:1.8rem;
+        display:inline-block;
+        margin:0 auto;
+        font-size: .6rem;
+    }
+    .liost .click span{
+        color:#FF5A5F;
+        border-bottom:2px solid #FF5A5F;
+    }
+	.shangpin{background: #fff;}
+	.shangpin_title{height: 1.95rem; padding-left: .65rem; padding-right: .7rem; overflow: hidden; border-bottom: 1px solid #f0f0f0;}
+	.shangpin_title img{height: .7rem; width: .7rem; display: block;float: left; margin-top: .675rem; margin-left: .65rem;}
+	.shangpin_title h1{font-size: .6rem; color: #56595b; padding-left: .375rem; padding-top: .75rem; float: left;}
+	.shangpin_title p{font-size: .6rem; color: #ff4a50;  padding-top: .75rem; float: right;}
+	.shangpin_msg li{height: 4.5rem; background-color: #f7f7f7;border-bottom: .15rem solid #fff; overflow: hidden; padding-right: .675rem; padding-left: .675rem;}
+	.shangpin_msg li img{display: block; height: 3.7rem; width: 3.7rem; margin-top: .4rem; float: left;}
+	.shangpin_word{float: left; padding-left: .65rem; width: 10.3rem; }
+	.shangpin_word h1{font-size: .6rem; font-weight: 600; color: #242a2c; line-height: .8rem; padding-top: .5rem; width: 10rem;}
+	.shangpin_word p{font-size: .5rem; color: #9aa1a5; padding-top: .15rem; }
+	.shangpin_word div{ overflow: hidden;}
+	.shangpin_word div span{font-size: .5rem; color: #44484b; float: left; padding-top: .55rem;}
+	.shangpin_word div em{font-size: .45rem; color: #3e4245; float: right; padding-top: .55rem;}
+	.shangpin_heji{height: 1.75rem; border-bottom: 1px solid #f0f0f0;overflow: hidden;}
+	.shangpin_heji h3{font-size: .5rem; color: #22282b; padding-top: .65rem; float: right;}
+	.shangpin_heji p{font-size: .55rem; color: #484d4f; padding-top: .625rem; float: right; padding-right: .675rem; padding-left: .75rem;}
+	.shangpin_heji p span{font-size: .55rem; font-weight: 600; color: #4f5356;}
+	.shangpin_btn{overflow: hidden;height: 1.725rem; border-bottom: .35rem solid #f7f7f7; padding-top: .6rem;}
+	.kefu{float: right; height: 1.1rem; width: 3.425rem; border:1px solid #9da3a6; border-radius: .1rem; margin-right:.65rem;  line-height: 1.1rem; text-align: center; font-size: .55rem; color: #3c4042;}
+	.wuliu{float: right; height: 1.1rem; width: 3.425rem; border:1px solid #9da3a6; border-radius: .1rem;  margin-right:.65rem;  line-height: 1.1rem; text-align: center; font-size: .55rem; color: #3c4042;}
+	.ping{float: right; height: 1.15rem; width: 3.425rem; border-radius: .1rem;  margin-right:.65rem;  line-height: 1.1rem; text-align: center; font-size: .55rem; color: #fff; background-color: #ff5a5f;}
+
+	</style>
+	<script>
+		;(function (win,doc){
+		function change(){
+			doc.documentElement.style.fontSize=20*doc.documentElement.clientWidth/320+'px';
+		}
+		change();
+		
+		win.addEventListener('resize',change,false);
+		})(window,document);
+	</script>
+	
+</head>
+<body>
+	<!--头部提示下载模块-->
+<section class="downApp">
+	<div class="downApp_left">
+		<div class="logo"></div>
+		<div class="downApp_msg">
+			<h3>打开当妈啦App</h3>
+			<p>了解更多优惠服务</p>
+		</div>
+	</div>
+	<div class="downApp_right">立即打开</div>
+</section>
+	<!--内容选项卡-->
+	<div id="wrapper">
+		<!--header end-->
+		<div class="wrap">
+			<div class="tabs">
+				<span class=" part active" id="raiders"><a href="#" hidefocus="true" >活动订单</a></span>
+				<span class="part" id="cost"><a href="#" hidefocus="true">商品订单</a></span>
+				<a href="../html/wode.html" id="comeBack"></a>
+			</div>
+			<div class="swiper-container">
+				<div class="swiper-wrapper">
+					<div class="swiper-slide swiper-slide-visible swiper-slide-active">
+						<div class="content-slide">
+							<ul class="taocan">
+                        <li>
+                        	<div class="taocan_title">
+                                <img src="../images/shop_picture.png" alt="">
+                                <h1>北京宝岛妇产医院</h1>
+                                <p>已支付</p>
+                            </div>
+                            <div class="taocan_msg">
+                                <img src="../images/taocan_picture.png" alt="">
+                                <ul>
+                                	<li>
+                                		<div class="taocan_msg_word">
+                                    		<h1>《妈妈咪呀》第四季北京海选报打卡解放路爱上</h1>
+                                    		<p>北京宝岛妇产医院联合当妈啦十月优选活动德里克手机放</p>
+                                    		<div class="taocan_jiage">
+                                        		<em>¥6777</em>
+                                        		<span>¥19382</span>
+                                        		<strong>免费</strong>
+                                    		</div>
+                                		</div>
+                                	</li>
+                                </ul>
+                                
+                            </div>
+                            <div class="taocan_footer">
+                                <a href="../third/pinglun_dingdan.html"><div class="pinglun">去评论</div></a>
+                                <a href="../third/dingdanxiangqing.html"><div class="chakan">查看详情</div></a>
+                            </div>
+                        </li>
+                         <li>
+                        	<div class="taocan_title">
+                                <img src="../images/shop_picture.png" alt="">
+                                <h1>北京宝岛妇产医院</h1>
+                                <p>已支付</p>
+                            </div>
+                            <div class="taocan_msg">
+                                <img src="../images/taocan_picture.png" alt="">
+                                <ul>
+                                	<li>
+                                		<div class="taocan_msg_word">
+                                    		<h1>《妈妈咪呀》第四季北京海选报打卡解放路爱上</h1>
+                                    		<p>北京宝岛妇产医院联合当妈啦十月优选活动德里克手机放</p>
+                                    		<div class="taocan_jiage">
+                                        		<em>¥6777</em>
+                                        		<span>¥19382</span>
+                                        		<strong>免费</strong>
+                                    		</div>
+                                		</div>
+                                	</li>
+                                </ul>
+                                
+                            </div>
+                            <div class="taocan_footer">
+                                <a href="../third/pinglun_dingdan.html"><div class="pinglun">去评论</div></a>
+                                <a href="../third/dingdanxiangqing.html"><div class="chakan">查看详情</div></a>
+                            </div>
+                        </li>
+                         <li>
+                        	<div class="taocan_title">
+                                <img src="../images/shop_picture.png" alt="">
+                                <h1>北京宝岛妇产医院</h1>
+                                <p>已支付</p>
+                            </div>
+                            <div class="taocan_msg">
+                                <img src="../images/taocan_picture.png" alt="">
+                                <ul>
+                                	<li>
+                                		<div class="taocan_msg_word">
+                                    		<h1>《妈妈咪呀》第四季北京海选报打卡解放路爱上</h1>
+                                    		<p>北京宝岛妇产医院联合当妈啦十月优选活动德里克手机放</p>
+                                    		<div class="taocan_jiage">
+                                        		<em>¥6777</em>
+                                        		<span>¥19382</span>
+                                        		<strong>免费</strong>
+                                    		</div>
+                                		</div>
+                                	</li>
+                                </ul>
+                                
+                            </div>
+                            <div class="taocan_footer">
+                                <a href="../third/pinglun_dingdan.html"><div class="pinglun">去评论</div></a>
+                                <a href="../third/dingdanxiangqing.html"><div class="chakan">查看详情</div></a>
+                            </div>
+                        </li>
+                    </ul>
+						</div>
+					</div>
+					<div class="swiper-slide">
+						<div class="content-slide">
+							<div class="right">
+                        		<ul class="liost">
+                            		<li class="li click"><span>全部</span></li>
+                           		 	<li class="li"><span>待付款</span></li>
+                            		<li class="li"><span>待发货</span></li>
+                            		<li class="li"><span>待收货</span></li>
+                            		<li class="li"><span>待评价</span></li>
+                        		</ul>
+                    			<div class="swiper-container conts">
+                        			<div class="swiper-wrapper">
+                            			<div class="swiper-slide">
+                                			<div class="content-slide">
+                                   				<div class="shangpin">
+                                   					<div class="shangpin_title">
+                                   						<img src="../images/shop_picture.png" alt="">
+                                						<h1>美琪玩具</h1>
+                                						<p>待收货</p>
+                                   					</div>
+                                   					<ul class="shangpin_msg">
+                                   						<li>
+                                   							<img src="../images/dingdan_shangpin.png" alt="">
+                                   							<div class="shangpin_word">
+                                   								<h1>商都毛茸茸小狗狗，小朋友的好伙伴，超好玩</h1>
+                                   								<p>规格尺寸： “大型号”</p>
+                                   								<div>
+                                   									<span>¥233</span>
+                                   									<em>×1</em>
+                                   								</div>
+                                   							</div>
+                                   						</li>
+                                   					</ul>
+                                   					<div class="shangpin_heji">	
+                                   						<p>合计：<span>¥1783</span><em>(含运费¥0)</em></p>
+                                   						<h3>共3件商品</h3>
+                                   					</div>
+                                   					<div class="shangpin_btn">
+                                   						<a href="../third/pinglun_dingdan.html"><div class="ping">去评论</div></a>
+                                   						<div class="wuliu">查看物流</div>
+                                   						<div class="kefu">联系客服</div>
+                                   					</div>
+                                   				</div>
+                                			</div>
+                            			</div>
+                            			<div class="swiper-slide">
+                                			<div class="content-slide">
+                                   		 	222222
+                                			</div>
+                            			</div>
+                            			<div class="swiper-slide">
+                                			<div class="content-slide">
+                                    			33333
+                                			</div>
+                            			</div>
+                            			<div class="swiper-slide">
+                                			<div class="content-slide">
+                                   				 44444
+                                			</div>
+                            			</div>
+                            			<div class="swiper-slide">
+                                			<div class="content-slide">
+                                    			5646456456
+                                			</div>
+                            			</div>
+                        			</div>
+                    			</div>
+                			</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>	
+	<script type="text/javascript" src="../js/zepto.min.js"></script>
+	<script type="text/javascript" src="../js/idangerous.swiper.min.js"></script>
+	<script type="text/javascript">
+			$(function() {
+	
+		var tabsSwiper;
+		tabsSwiper = new Swiper('.swiper-container', {
+			speed : 500,
+			onSlideChangeStart : function() {
+				$(".tabs .active").removeClass('active');
+				$(".tabs span").eq(tabsSwiper.activeIndex).addClass('active');
+			}
+		});
+	
+		$(".tabs span").on('touchstart mousedown', function(e) {
+			e.preventDefault()
+			$(".tabs .active").removeClass('active');
+			$(this).addClass('active');
+			tabsSwiper.swipeTo($(this).index());
+	
+		});
+	
+		$(".tabs span").click(function(e) {
+			e.preventDefault();
+		});
+	});//end
+		</script>
+		<script type="text/javascript">
+        $(".tabs span").eq(0).on("click",function(){
+            $(this).addClass("active").siblings().removeClass("active")
+            $(".left").css("display","block")
+            $(".right").css("display","none")
+        })
+        $(".tabs span").eq(1).on("click",function(){
+            $(this).addClass("active").siblings().removeClass("active")
+            $(".right").css("display","block")
+            $(".left").css("display","none")
+        })
+            $('.liost li').on('click', function (e) {
+                $(this).addClass('click').siblings().removeClass('click');
+                $(".conts .swiper-slide").eq($(this).index()).show().siblings().hide()
+            });
+	</script>
+</body>
+</html>
+

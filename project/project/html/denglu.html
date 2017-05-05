@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>登陆</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="apple-touch-fullscreen" content="yes">
+	<meta name="format-detection" content="telephone=no">
+	<meta http-equiv="x-rim-auto-match" content="none"/>
+	<link rel="stylesheet" type="text/css" href="../css/reset.css">
+	<style>
+	html{font-size: 20px;}
+	body{background: #fff; position: relative;}
+	a{-webkit-tap-highlight-color: #fff; -webkit-tap-highlight-color:transparent;}
+	.other1{padding-top: 2.5rem; position: relative; margin-top: 2.5rem;}
+	.icon2{height: 3.05rem; width: 3.05rem; display: block;position: absolute; left: 6.5rem; top: 1.6rem;}
+	.title{height: 4.175rem; position: absolute; top: 5.8rem; left: 6.5rem; font-size: 0.55rem; color: #363b3d;}
+	#account{ position: absolute; top: 7.225rem; left: 3.35rem;}
+	#account input{background-color: transparent;border: none; border-bottom: 0.05rem solid #cdcdcd;height: 1.575rem; width: 9.375rem;display: block; outline: none; font-size: 0.55rem; margin-top: 1rem;}
+	.again{color: #ff6065; padding-top: 0.6rem; display: block; padding-left: 7.1rem; font-size: 0.5rem;}
+	.denglu{border: 1px solid #ff4147;height: 1.425rem; width: 9.375rem;border-radius: 4rem; margin-top: 1.5rem; font-size: 0.6rem; color: #fffcfc; text-align: center;line-height: 1.425rem; background-color: #ff5a5f;position: absolute; top: 13.075rem; left: 3.35rem; color: #ffebec;}
+	.zhuce{border: 1px solid #ff363c;height: 1.425rem; width: 9.375rem;border-radius: 4rem; margin-top: 1.5rem; font-size: 0.6rem; text-align: center;line-height: 1.425rem;position: absolute; top: 15.05rem; left: 3.35rem; color: #ff5056;}
+	.other{height: 6.45rem; position: absolute;left: 0; top: 19.525rem; width: 100%;}
+	.other_title{overflow: hidden;}
+	.other_left{width: 1.3rem; height: 0.05rem;float: left; background-color: #e6e6e6; margin-left: 4.55rem; margin-top: 0.275rem;}
+	.other_title p{float: left; padding-left: 0.475rem; font-size: 0.5rem; color: #a0a7aa;}
+	.other_right{width: 1.3rem; height: 0.05rem;float: right; background-color: #e6e6e6; margin-right: 4.55rem; margin-top: 0.275rem;}
+	.other_icon{overflow: hidden; padding-top: 1rem;}
+	.weixin{height: 1rem; width: 1.225rem; display: block; float: left; padding-left: 3.825rem;}
+	.qq{height: 0.95rem; width: 0.95rem; display: block; float: left; padding-left: 2.5rem;}
+	.weibo{height: 1.05rem; width: 1.325rem; display: block; float: left; padding-left: 2.4rem;}
+	/*头部提示下载模块*/
+	.downApp{height: 2.5rem; width: 100%; background-color: #565a5c; overflow: hidden; position: fixed;left: 0; top: 0;}
+	.downApp_left{height: 100%; width: 11.25rem; float: left; overflow: hidden;}
+	.downApp_right{height: 100%; width: 4.75rem; background: #ff5a5f; float: left; font-size: 0.65rem; color: #fff;line-height: 2.5rem; text-align: center;}
+	.logo{height: 1.75rem; width: 1.75rem; background: url(../images/logo.png) no-repeat; background-size: 100%; margin-left: 0.5rem; margin-top: 0.4rem; float: left;}
+	.downApp_msg{float: left; padding-left: 0.45rem;}
+	.downApp_msg h3{ color: #fff; font-size: 0.6rem; padding-top: 0.625rem;}
+	.downApp_msg p{ color: #cccdce; font-size: 0.45rem;padding-top: 0.25rem;}
+	</style>
+	<script>
+		;(function (win,doc){
+		function change(){
+			doc.documentElement.style.fontSize=20*doc.documentElement.clientWidth/320+'px';
+		}
+		change();
+		
+		win.addEventListener('resize',change,false);
+		})(window,document);
+	</script>
+</head>
+<body>
+<!--头部提示下载模块-->
+<section class="downApp">
+	<div class="downApp_left">
+		<div class="logo"></div>
+		<div class="downApp_msg">
+			<h3>打开当妈啦App</h3>
+			<p>了解更多优惠服务</p>
+		</div>
+	</div>
+	<div class="downApp_right">立即打开</div>
+</section>
+<section class="other1">
+	<img src="../images/icon2.png" alt="" class="icon2">
+	<section class="title">手机号登录</section>
+	<section id="account">
+		<input type="text" placeholder=" 请输入手机号码" size="22">
+		<input type="text" placeholder=" 请输入密码(6-20位数字、英文字母)" size="22">
+		<a href="" class="again">重置密码</a>
+	</section>
+	<a href="fuwu.html"><section class="denglu">登录</section></a>
+	<a href="bangding.html"><section class="zhuce">去注册</section></a>
+	<section class="other">
+		<div class="other_title">
+			<div class="other_left"></div>
+			<p>社交账号登录</p>
+			<div class="other_right"></div>
+		</div>
+		<div class="other_icon">
+			<a href=""><img src="../images/icon_weixin.png" alt="" class="weixin"></a>
+			<a href=""><img src="../images/icon_qq.png" alt="" class="qq"></a>
+			<a href=""><img src="../images/icon_weibo.png" alt="" class="weibo"></a>
+		</div>
+	</section>
+</section>
+	
+</body>
+</html>

@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>服务详情（定金）</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="apple-touch-fullscreen" content="yes">
+	<meta name="format-detection" content="telephone=no">
+	<meta http-equiv="x-rim-auto-match" content="none"/>
+	<link rel="stylesheet" type="text/css" href="../css/reset.css">
+	<style>
+	html{font-size: 20px;}
+	body{background: #fff; position: relative;-webkit-user-select:none;
+    -webkit-text-size-adjust:none;}
+	a{-webkit-tap-highlight-color: #fff; -webkit-tap-highlight-color:transparent;}
+	/*头部提示下载模块*/
+	.downApp{height: 2.5rem; width: 100%; background-color: #565a5c; overflow: hidden; position: fixed; left: 0; top: 0; z-index: 100;}
+	.downApp_left{height: 100%; width: 11.25rem; float: left; overflow: hidden;}
+	.downApp_right{height: 100%; width: 4.75rem; background: #ff5a5f; float: left; font-size: 0.65rem; color: #fff;line-height: 2.5rem; text-align: center;}
+	.logo{height: 1.75rem; width: 1.75rem; background: url(../images/logo.png) no-repeat; background-size: 100%; margin-left: 0.5rem; margin-top: 0.4rem; float: left;}
+	.downApp_msg{float: left; padding-left: 0.45rem;}
+	.downApp_msg h3{ color: #fff; font-size: 0.6rem; padding-top: 0.625rem;}
+	.downApp_msg p{ color: #cccdce; font-size: 0.45rem;padding-top: 0.25rem;}
+	/*头部返回*/
+	.back{height: 1.225rem;padding-left: .675rem;padding-top: .45rem; margin-top: 2.5rem;}
+	.back a{height: .7rem; width: .375rem; display: block; background: url(../images/back.png) no-repeat; background-size: 100%;}
+	/*头部标题*/
+	.title{height: 3.5rem; padding-left: .7rem; padding-bottom: 1rem;}
+	.title h1{font-size: .75rem; font-weight: 600;color: #4c5052; padding-top: .95rem;}
+	.title p{font-size: .5rem;color: #04a89a; padding-top: .675rem;}
+	/*课程图片*/
+	.k_picture{height: 10rem; width: 16rem;}
+	.k_picture img{width: 100%; height: 100%;}
+	/*课程信息*/
+	.k_msg{height: 3.05rem;overflow: hidden; padding-top: 1.3rem; border-bottom: 1px solid #f0f0f0;}
+	.k_msg_word{float: left;}
+	.k_msg_word div{overflow: hidden;}
+	.k_msg_word h3{font-size: 0.65rem; color: #363b3d; padding-left: .675rem;}
+	.k_msg_word p{font-size: 0.75rem; color: #ff4147; padding-left: .625rem; padding-top: .6rem; float: left;}
+	.k_msg_word h2{float: left;font-size: .4rem; color: #626668;    border:1px solid #d9d9d9; margin-top: .6rem; margin-left: .75rem; padding: .1rem .1rem .1rem .1rem}
+	.k_msg_btn{height: 1.425rem; width: 3.925rem; background: #ff5a5f; color: #fff; text-align: center; line-height: 1.425rem; float: right; font-size: .6rem; margin-right: .7rem; border-radius: 1rem;}
+	
+	/*推荐*/
+	.tuijian{ padding-top: 2.075rem;}
+	.tuijian_title{font-size: .75rem; color: #4c5053; font-weight: 500; padding-left: .675rem;}
+	.shangpin{width: 100%; padding-top:.1rem;padding-bottom: 2.1rem; }
+	.shangpin li{height: 4.925rem; border-bottom: 1px solid #dddddd; overflow: hidden; padding-top: .45rem; padding-bottom: .4rem;}
+	.shangpin_picture{height: 4.05rem; width: 4.05rem; float: left; display: block;}
+	.shangpin_msg{float: left;padding-left: .75rem;  }
+	.shangpin_msg h1{font-size: .65rem; color: #2c3234; padding-top: .35rem; width: 10rem; line-height: .75rem;}
+	.shangpin_msg p{font-size: .5rem; color: #474c4e; padding-top: .5rem; width: 10rem; line-height: .75rem;}
+	.shangpin_msg div{overflow: hidden;}
+	.shangpin_msg div strong{display: block;font-size: .65rem; color: #ff4143; float: left; padding-top: 1.05rem;}
+	.shangpin_msg div span{display: block;font-size: .4rem; color: #585b5d; height: .7rem; width: 2.3rem; line-height: .7rem; text-align: center;border: 1px solid #dbdbdb;float: left;margin-left: .7rem; margin-top: 1rem;}
+	/*底部支付收藏功能*/
+	.now{height: 2.1rem; width: 100%; position: fixed; left: 0; bottom: 0; z-index: 100; overflow: hidden; overflow: hidden;}
+	.shoucang{height: 100%; width: 3.55rem;background-color: #f7f7f7; text-align: center; padding-top: .35rem; float: left;}
+	.shoucang img{height: .85rem; width: .85rem;}
+	.shoucang p{font-size: .5rem; color: #ff4d53; padding-top: .15rem;}
+	.mast{height: 100%; width: 12.45rem; background: #ff5a5f; line-height: 2.1rem; text-align: center;font-size: .75rem; color: #fff; float: left;}
+	.mast span{font-size: .6rem; color: #ffdbda;}
+	/*声明*/
+	.shengming{padding-top: .9rem; padding-left: .75rem; padding-right: .8rem;}
+	.shengming p{font-size: .65rem; color: #515456; line-height: 1.1rem; text-indent: 2em;}
+	.neiqian{width: 100%; overflow: hidden; height: .1rem;}
+
+	</style>
+	<script>
+		;(function (win,doc){
+		function change(){
+			doc.documentElement.style.fontSize=20*doc.documentElement.clientWidth/320+'px';
+		}
+		change();
+		
+		win.addEventListener('resize',change,false);
+		})(window,document);
+	</script>
+	<script>
+	window.onload=function(){
+		var oH2=document.getElementById('yuanjia');
+		if(oH2.innerHTML==''){
+			oH2.style.display='none';
+		};
+		
+	}
+	</script>
+</head>
+<body>
+<!--头部提示下载模块-->
+<section class="downApp">
+	<div class="downApp_left">
+		<div class="logo"></div>
+		<div class="downApp_msg">
+			<h3>打开当妈啦App</h3>
+			<p>了解更多优惠服务</p>
+		</div>
+	</div>
+	<div class="downApp_right">立即打开</div>
+</section>
+<!--头部返回-->
+<header class="back">
+	<a href="../html/fuwu.html"></a>
+</header>
+<!--头部标题-->
+<section class="title">
+	<h1>宝岛妇产医院孕期产检套餐</h1>
+	<p>#医疗特惠</p>
+</section>
+<!--课程图片-->
+<div class="k_picture">
+	<img src="../images/kecheng2.png" alt="">
+</div>
+
+<!--课程信息-->
+<section class="k_msg">
+	<div class="k_msg_word">
+		<h3>北京宝岛妇产医院</h3>
+		<div>
+			<p>¥9173</p>
+			<h2 id="yuanjia">¥10129</h2>
+		</div>
+		
+	</div>
+	<a href=""><div class="k_msg_btn">立即购买</div></a>
+</section>
+<!--内嵌-->
+<embed src="" class="neiqian" id="wailian"/>
+<!--推荐-->
+	<section class="tuijian">
+		<h1 class="tuijian_title">为您推荐</h1>
+		<ul class="shangpin">
+			<a href=""><li>
+				<img src="../images/shangpin1.png" alt="" class="shangpin_picture">
+				<div class="shangpin_msg">
+					<h1>宝岛宝岛妇产孕期产检套餐</h1>
+					<p>北京宝岛妇产医院联合当妈啦十月优惠</p>
+					<div>
+						<strong>¥9283</strong>
+						<span>¥2312</span>
+					</div>
+				</div>
+			</li></a>
+		</ul>
+	</section>
+	<!--底部支付-->
+	<footer class="now">
+		<a href=""><div class="shoucang">
+			<img src="../images/shoucang_star.png" alt="">
+			<p>收藏</p>
+		</div></a>
+		<a href="shoppingCart.html"><div class="mast">立即购买<span>（预定金¥500）</span></div></a>
+	</footer>
+
+</body>
+</html>

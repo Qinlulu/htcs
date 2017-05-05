@@ -1,0 +1,1245 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>商品详情</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta http-equiv="x-rim-auto-match" content="none"/>
+    <link rel="stylesheet" type="text/css" href="../css/reset.css">
+    <link href="../css/swiper.min.css" rel="stylesheet"/>
+    <style>
+    input[type=button], input[type=submit], input[type=file], button { cursor: pointer; -webkit-appearance: none; } 
+        html {
+            font-size: 20px;
+        }
+
+        body {
+            background: #fff;
+            width:100%;
+            height:100%;
+            position: relative;
+            -webkit-user-select: none;
+            -webkit-text-size-adjust: none;
+        }
+
+        a {
+            -webkit-tap-highlight-color: #fff;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        /*头部提示下载模块*/
+        .downApp {
+            height: 2.5rem;
+            width: 100%;
+            background-color: #565a5c;
+            overflow: hidden;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 100;
+        }
+
+        .downApp_left {
+            height: 100%;
+            width: 11.25rem;
+            float: left;
+            overflow: hidden;
+        }
+
+        .downApp_right {
+            height: 100%;
+            width: 4.75rem;
+            background: #ff5a5f;
+            float: left;
+            font-size: 0.65rem;
+            color: #fff;
+            line-height: 2.5rem;
+            text-align: center;
+        }
+
+        .logo {
+            height: 1.75rem;
+            width: 1.75rem;
+            background: url(../images/logo.png) no-repeat;
+            background-size: 100%;
+            margin-left: 0.5rem;
+            margin-top: 0.4rem;
+            float: left;
+        }
+
+        .downApp_msg {
+            float: left;
+            padding-left: 0.45rem;
+        }
+
+        .downApp_msg h3 {
+            color: #fff;
+            font-size: 0.6rem;
+            padding-top: 0.625rem;
+        }
+
+        .downApp_msg p {
+            color: #cccdce;
+            font-size: 0.45rem;
+            padding-top: 0.25rem;
+        }
+
+        /*头部商品轮播*/
+        .swiper-container {
+            width: 100%;
+            height: 15rem;
+            position: relative;
+            margin-top: 2.5rem;
+        }
+
+        .swiper-slide {
+            width: 100%;
+            height: 100%;
+            background: #eee;
+            text-align: center;
+        }
+
+        /*头部返回按钮*/
+        .back {
+            display: block;
+            position: absolute;
+            left: .2rem;
+            top: .55rem;
+            height: 1.5rem;
+            width: 1.5rem;
+            background: url(../images/back2.png) no-repeat;
+            background-size: 100%;
+            z-index: 2
+        }
+
+        /*商品信息*/
+        .goods {
+            padding-bottom: .75rem;
+            border-bottom: .325rem solid #f0f0f0;
+            padding-left: .65rem;
+            padding-right: .875rem;
+        }
+
+        .goods h1 {
+            font-size: .75rem;
+            color: #353a3d;
+            line-height: 1.1rem;
+            padding-top: .5rem;
+        }
+
+        .goods h3 {
+            font-size: .55rem;
+            color: #8c9599;
+            line-height: .85rem;
+            padding-top: .1rem;
+        }
+
+        .goods p {
+            font-size: .7rem;
+            font-weight: bold;
+            color: #ff5a5f;
+            padding-top: 1rem;
+        }
+
+        /*规格选择*/
+        .guige {
+            height: 2.15rem;
+            padding-left: .65rem;
+            padding-right: .675rem;
+            border-bottom: .3rem solid #f0f0f0;
+        }
+
+        .guige p {
+            font-size: .6rem;
+            color: #515456;
+            float: left;
+            padding-top: .75rem;
+        }
+
+        .guige p span {
+            font-size: .6rem;
+            color: #979ea2;
+        }
+
+        .guige img {
+            display: block;
+            float: right;
+            height: .65rem;
+            width: .375rem;
+            padding-top: .75rem;
+        }
+
+        /*评论*/
+        .pinglun {
+            border-bottom: .35rem solid #f0f0f0;
+            padding-bottom: .9rem;
+        }
+
+        .pinglun_title {
+            height: 2.125rem;
+            border-bottom: .05rem solid #e6e6e6;
+            overflow: hidden;
+            padding-left: .675rem;
+            padding-right: .7rem;
+        }
+
+        .pinglun_title p {
+            font-size: .7rem;
+            color: #33373a;
+            padding-top: .75rem;
+            float: left;
+        }
+
+        .pinglun_title img {
+            display: block;
+            float: right;
+            height: .65rem;
+            width: .375rem;
+            padding-top: .75rem;
+        }
+
+        .pinglun_cont {
+            position: relative;
+            padding-left: 2.45rem;
+            padding-right: .7rem;
+            padding-top: .4rem;
+        }
+
+        .pinglun_cont_head {
+            height: 1.3rem;
+            width: 1.3rem;
+            display: block;
+            position: absolute;
+            top: .875rem;
+            left: .725rem;
+        }
+
+        .pinglun_cont_msg {
+            overflow: hidden;
+            height: 1.5rem;
+            line-height: 1.5rem;
+        }
+
+        .pinglun_cont_msg h3 {
+            float: left;
+            font-size: .55rem;
+            font-weight: 500;
+            color: #3a3f42;
+        }
+
+        .pinglun_cont_msg p {
+            float: right;
+            font-size: .5rem;
+            color: #7d8489;
+        }
+
+        .pinglun_word {
+            font-size: .55rem;
+            line-height: .85rem;
+            color: #5d6061;
+        }
+
+        .goods_picture {
+            overflow: hidden;
+            padding-top: .45rem;
+            padding-bottom: .95rem;
+        }
+
+        .goods_picture li {
+            float: left;
+            width: 3.325rem;
+            height: 3.325rem;
+            background: url(../images/goods_picture.png) no-repeat;
+            background-size: 100%;
+            margin-right: .425rem;
+        }
+
+        .pinglun_other {
+            padding: .625rem .75rem .85rem .9rem;
+            background: #f5f5f5;
+        }
+
+        .pinglun_other_msg {
+            overflow: hidden;
+        }
+
+        .pinglun_other_msg h3 {
+            font-size: .55rem;
+            color: #868c8f;
+            float: left;
+        }
+
+        .pinglun_other_msg p {
+            font-size: .5rem;
+            color: #878d92;
+            float: right;
+        }
+
+        .pinglun_other_cont {
+            font-size: .6rem;
+            color: #868d91;
+            line-height: .85rem;
+            padding-top: .65rem;
+        }
+
+        /*店铺*/
+        .shop {
+            height: 4.25rem;
+            border-bottom: .35rem solid #f0f0f0;
+            padding-left: .7rem;
+            padding-right: .675rem;
+            overflow: hidden;
+        }
+
+        .shop_picture {
+            float: left;
+            height: 2.5rem;
+            width: 2.5rem;
+            border: 1px solid #efefef;
+            background: url(../images/shop_logo.png) no-repeat;
+            background-size: 100%;
+            margin-top: .85rem;
+        }
+
+        .shop_msg {
+            padding-left: .625rem;
+            padding-top: 1rem;
+            float: left;
+        }
+
+        .shop_msg h3 {
+            font-size: .65rem;
+            color: #2c3133;
+        }
+
+        .shop_msg p {
+            font-size: .55rem;
+            color: #9aa1a5;
+            padding-top: .2rem;
+        }
+
+        .shop_msg h4 {
+            font-size: .55rem;
+            color: #737677;
+            padding-top: .45rem;
+        }
+
+        .shop img {
+            display: block;
+            float: right;
+            height: .65rem;
+            width: .375rem;
+            padding-top: 1.8rem;
+        }
+
+        /*商品推荐*/
+        .tuijian {
+            padding-left: .65rem;
+            padding-bottom: 2.075rem;
+        }
+
+        .tuijian_title {
+            height: 2.25rem;
+            line-height: 2.25rem;
+            font-size: .65rem;
+            color: #414548;
+        }
+
+        .goods_cont {
+            overflow: hidden;
+        }
+
+        .goods_cont li {
+            float: left;
+            padding-right: .75rem;
+        }
+
+        .goods_cont_picture {
+            height: 6.85rem;
+            width: 6.85rem;
+            display: block;
+        }
+
+        .goods_cont li h3 {
+            font-size: .55rem;
+            color: #3c4143;
+            padding-top: 0.125rem;
+            line-height: .8rem;
+            width: 6.25rem;
+        }
+
+        .goods_cont li p {
+            font-size: .5rem;
+            color: #ff4449;
+            padding-top: 0.4rem;
+            font-weight: 500
+        }
+
+        /*底部*/
+        .footer {
+            height: 2.1rem;
+            z-index: 100;
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            background-color: #fff;
+            overflow: hidden;
+        }
+
+        .footer_shoucang {
+            height: 2.075rem;
+            width: 2.375rem;
+            border-top: 1px solid #dfdfdf;
+            text-align: center;
+            float: left;
+            border-right: 1px solid #dfdfdf;
+        }
+
+        .footer_shoucang_picture {
+            height: .85rem;
+            width: .85rem;
+            background: url(../images/footer_shoucang_picture.png) no-repeat;
+            background-size: 100%;
+            margin-top: .35rem;
+            margin-left: .75rem;
+        }
+
+        .footer_shoucang p {
+            font-size: .4rem;
+            color: #5d6263;
+            padding-top: .25rem;
+        }
+
+        .footer_gouwuche {
+            height: 2.075rem;
+            width: 2.375rem;
+            border-top: 1px solid #dfdfdf;
+            text-align: center;
+            float: left;
+        }
+
+        .footer_gouwuche_picture {
+            height: .75rem;
+            width: .8rem;
+            background: url(../images/footer_gouwuche_picture.png) no-repeat;
+            background-size: 100%;
+            margin-top: .45rem;
+            margin-left: .75rem;
+        }
+
+        .footer_gouwuche p {
+            font-size: .4rem;
+            color: #5d6263;
+            padding-top: .25rem;
+        }
+
+        .footer_joinCar {
+            height: 2.1rem;
+            line-height: 2.1rem;
+            text-align: center;
+            color: #fff;
+            background-color: #fba390;
+            font-size: .7rem;
+            float: left;
+            width: 5.6rem;
+        }
+
+        .footer_mustBuy {
+            height: 2.1rem;
+            line-height: 2.1rem;
+            text-align: center;
+            color: #fff9f9;
+            background-color: #ff585b;
+            font-size: .7rem;
+            float: right;
+            width: 5.6rem;
+        }
+.zhezhao{
+    width:100%;
+    height:100%;
+    position:absolute;
+    top:0;
+    left:0;
+    background:rgba(0,0,0,0.7);
+    z-index:100;
+    display:none;
+}
+        /*点击规格出现*/
+        .buy {
+            height: 16.25rem;
+            width: 100%;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            background-color: #fff;
+            z-index: 100;
+            display: none
+        }
+
+        .close {
+            position: absolute;
+            height: 1.05rem;
+            width: 1.075rem;
+            background: url(../images/close.png) no-repeat;
+            background-size: 100%;
+            top: -.5rem;
+            left: 14.25rem;
+        }
+
+        .buy_goods {
+            height: 6.55rem;
+            border-bottom: 1px solid #f0f0f0;
+            width: 14.65rem;
+            margin-left: .675rem;
+            overflow: hidden;
+        }
+
+        .buy_goods img {
+            height: 4.05rem;
+            width: 4.7rem;
+            display: block;
+            float: left;
+            margin-top: 1.1rem;
+        }
+
+        .buy_goods_msg {
+            float: left;
+            padding-left: .75rem;
+            width: 9.175rem;
+            padding-top: 1rem;
+        }
+
+        .buy_goods_msg h1 {
+            font-size: .65rem;
+            color: #272c2f;
+            line-height: .95rem;
+        }
+
+        .buy_goods_msg h3 {
+            font-size: .75rem;
+            color: #ff5358;
+            font-weight: 600;
+            padding-top: .35rem;
+        }
+
+        .buy_goods_msg p {
+            font-size: .6rem;
+            color: #8d969a;
+            padding-top: .75rem;
+        }
+
+        .buy_guige {
+            height: 3.975rem;
+            border-bottom: 1px solid #f0f0f0;
+            width: 14.65rem;
+            margin-left: .675rem;
+        }
+
+        .buy_guige p {
+            font-size: .65rem;
+            color: #494d4f;
+            padding-top: .7rem;
+        }
+
+        .buy_guige_btn {
+            overflow: hidden;
+            padding-top: .6rem;
+        }
+
+        .buy_guige_btn div {
+            height: 1.175rem;
+            width: 2.95rem;
+            background-color: #f0f0f0;
+            border-radius: .2rem;
+            margin-right: .65rem;
+            float: left;
+            font-size: .55rem;
+            color: #535759;
+            line-height: 1.175rem;
+            text-align: center;
+        }
+
+        .buy_guige_btn .btn_active {
+            color: #fff;
+            background-color: #ff5a5f;
+        }
+
+        .buy_number {
+            height: 3.6rem;
+            width: 14.65rem;
+            margin-left: .675rem;
+            overflow: hidden;
+        }
+
+        .buy_number p {
+            font-size: .65rem;
+            color: #474b4e;
+            padding-top: 1.25rem;
+            float: left;
+        }
+
+        .buy_number_btn {
+            float: right;
+            padding-top: .8rem;
+        }
+        .buy_sure {
+            height: 2.075rem;
+            line-height: 2.075rem;
+            width: 100%;
+            background-color: #ff585b;
+            color: #fff;
+            text-align: center;
+            font-size: .7rem;
+        }
+        .btn1 {
+            height: 1.5rem;
+            width: 1.5rem;
+            font-size: .5rem;
+            background-color: #fff;
+            border: 1px solid #f0f0f0;
+            color: #7e8589;
+            outline: medium;
+        }
+
+        .btn2 {
+            height: 1.5rem;
+            width: 1.5rem;
+            font-size: .5rem;
+            background-color: #fff;
+            border: 1px solid #f0f0f0;
+            color: #7e8589;
+            outline: medium;
+        }
+
+        .text {
+            height: 1.5rem;
+            width: 2.55rem;
+            border:1px solid #f0f0f0;
+            font-size: .55rem;
+            color: #363b3d;
+            background-color: #fff;
+            text-align: center;
+            outline: medium;
+        }
+
+        .buy_sure2 {
+            height: 2.075rem;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .buy_sure2_car {
+            float: left;
+            width: 8rem;
+            background-color: #fba390;
+            color: #fff;
+            font-size: .7rem;
+            line-height: 2.075rem;
+            text-align: center;
+        }
+
+        .buy_sure2_buy {
+            float: left;
+            width: 8rem;
+            background-color: #ff585b;
+            color: #fff;
+            font-size: .7rem;
+            line-height: 2.075rem;
+            text-align: center;
+        }
+
+        /*点击购买出现-二级支付*/
+        .buy3 {
+            width: 100%;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            background-color: #fff;
+            z-index: 100;
+            display: none;
+        }
+
+        .close3 {
+            position: absolute;
+            height: 1.05rem;
+            width: 1.075rem;
+            background: url(../images/close.png) no-repeat;
+            background-size: 100%;
+            top: -.5rem;
+            left: 14.25rem;
+        }
+
+        .buy3_msg {
+            overflow: hidden;
+            padding-left: .7rem;
+        }
+
+        .buy3_msg_word {
+            float: left;
+        }
+
+        .buy_sure3 {
+            height: 2.075rem;
+            width: 100%;
+            text-align: center;
+            line-height: 2.075rem;
+            font-size: .7rem;
+            color: #fff;
+            background-color: #ff585b;
+        }
+
+        .nameAndPhone {
+            overflow: hidden;
+        }
+
+        .nameAndPhone img {
+            display: block;
+            height: .825rem;
+            width: .675rem;
+            float: left;
+            padding-top: 1rem;
+        }
+
+        .nameAndPhone h1 {
+            font-size: .65rem;
+            color: #272d2f;
+            padding-top: 1.1rem;
+            padding-left: .3rem;
+            float: left;
+        }
+
+        .nameAndPhone p {
+            float: left;
+            color: #44494b;
+            font-size: .6rem;
+            padding-top: 1.2rem;
+            padding-left: .8rem;
+        }
+
+        .tishi {
+            font-size: .5rem;
+            color: #ff5e63;
+            padding-top: .3rem;
+        }
+
+        .address {
+            font-size: .6rem;
+            color: #8e969b;
+            padding-top: .7rem;
+        }
+
+        .xiugai {
+            float: right;
+            background: url(../images/go2.png) no-repeat;
+            background-size: 100%;
+            height: .7rem;
+            width: .375rem;
+            margin-top: 2rem;
+            margin-right: .675rem;
+        }
+
+        .pay {
+            height: 1.35rem;
+            border-bottom: 2px solid #d0d0d0;
+            overflow: hidden;
+            padding-top: 1.6rem;
+        }
+
+        .pay h3 {
+            font-size: .65rem;
+            color: #404547;
+            padding-left: .7rem;
+            float: left;
+        }
+
+        .pay p {
+            font-size: .7rem;
+            color: #ff5358;
+            padding-right: .7rem;
+            float: right;
+            font-weight: 600;
+        }
+
+        .fangshi {
+            height: 8rem;
+            padding-left: .675rem;
+            padding-right: .7rem;
+        }
+
+        .fangshi_title {
+            height: 2.55rem;
+            line-height: 2.55rem;
+            font-size: .6rem;
+            color: #848d91;
+        }
+
+        .zhifu {
+            overflow: hidden;
+            padding-top: .625rem;
+        }
+
+        .weixin_picture {
+            background: url(../images/weixin.png) no-repeat;
+            background-size: 100%;
+            height: 1.5rem;
+            width: 1.5rem;
+            float: left;
+        }
+        .zhifubao_picture {
+            background: url(../images/zhifubao.png) no-repeat;
+            background-size: 100%;
+            height: 1.5rem;
+            width: 1.5rem;
+            float: left;
+        }
+
+        .zhifu img {
+            display: block;
+            height: .875rem;
+            width: .875rem;
+            float: right;
+            padding-top: .325rem;
+        }
+    i{
+        display: block;
+        height: .875rem;
+        width: .875rem;
+        float: right;
+        background: url(../images/balance_no.png) no-repeat;
+        background-size: 100%;
+}
+    .i{
+        background: url(../images/balance_all.png) no-repeat;
+        background-size: 100%;
+    }
+        .zhifu p {
+            font-size: .6rem;
+            color: #44484a;
+            padding-left: .6rem;
+            float: left;
+            padding-top: .475rem;
+        }
+    </style>
+    <script src="../js/swiper.min.js"></script>
+    <script>
+
+        ;
+        (function (win, doc) {
+            function change() {
+                doc.documentElement.style.fontSize = 20 * doc.documentElement.clientWidth / 320 + 'px';
+            }
+
+            change();
+
+            win.addEventListener('resize', change, false);
+        })(window, document);
+    </script>
+</head>
+<body>
+<!--头部提示下载模块-->
+<section class="downApp">
+    <div class="downApp_left">
+        <div class="logo"></div>
+        <div class="downApp_msg">
+            <h3>打开当妈啦App</h3>
+
+            <p>了解更多优惠服务</p>
+        </div>
+    </div>
+    <div class="downApp_right">立即打开</div>
+</section>
+<!--头部商品轮播-->
+<sectionm class="picture">
+    <div class="swiper-container">
+        <a href="shangchengerji.html" class="back"></a>
+
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">Slide 1</div>
+            <div class="swiper-slide">Slide 2</div>
+            <div class="swiper-slide">Slide 3</div>
+        </div>
+        <div class="swiper-pagination"></div>
+    </div>
+    <script>
+        new Swiper('.swiper-container', {
+            spaceBetween: 0,		//每个slider之间的间距
+            prevButton: '.swiper-button-prev',	//上一张
+            nextButton: '.swiper-button-next',	//下一张
+            pagination: '.swiper-pagination', 	//生成小圆点
+            paginationClickable: true,			//小圆点可以点击
+            loop: true							//无缝
+        });
+    </script>
+    </section>
+    <!--商品信息-->
+    <section class="goods">
+        <h1>美琪经典全人物玩具可多选可随机底下带台座乐高玩具</h1>
+
+        <h3>精致设计，并竭诚制造高品质、安全适龄的产品。极具安全性，为天使们量身定制，突出舒适、美观、时尚与优雅的同时，提现品牌的可信度。</h3>
+
+        <p>¥450</p>
+    </section>
+    <!--规格选择-->
+    <section class="guige" id="guige_btn">
+        <p><span>选择：</span> 请选择规格</p>
+        <img src="../images/go3.png" alt="">
+    </section>
+    <!--评论区-->
+    <section class="pinglun">
+        <div class="pinglun_title">
+            <p>评论（<span>12条</span>）</p>
+            <img src="../images/go3.png" alt="">
+        </div>
+        <div class="pinglun_cont">
+            <img src="../images/quanzi_head.png" alt="" class="pinglun_cont_head">
+
+            <div class="pinglun_cont_msg">
+                <h3>董波</h3>
+
+                <p>3天前</p>
+            </div>
+            <p class="pinglun_word">玩具好好玩，孩子玩了好长时间，质量也很好果然一分钱一分货！</p>
+            <ul class="goods_picture">
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+            <div class="pinglun_other">
+                <div class="pinglun_other_msg">
+                    <h3>董波</h3>
+
+                    <p>3天前</p>
+                </div>
+                <p class="pinglun_other_cont">真的非常的有用啊~而且跟宝宝很开心！</p>
+            </div>
+        </div>
+    </section>
+    <!--店铺-->
+    <a href="">
+        <section class="shop">
+            <div class="shop_picture"></div>
+            <div class="shop_msg">
+                <h3>美琪玩具</h3>
+
+                <p>88个商品</p>
+                <h4>满1000减200</h4>
+            </div>
+            <img src="../images/go3.png" alt="">
+        </section>
+    </a>
+    <!--商品推荐-->
+    <section class="tuijian">
+        <div class="tuijian_title">推荐商品</div>
+        <ul class="goods_cont">
+            <a href="">
+                <li>
+                    <img src="../images/goods_cont_picture.png" alt="" class="goods_cont_picture">
+
+                    <h3>美琪益智拼乐高休闲超好玩具</h3>
+
+                    <p>¥450</p>
+                </li>
+            </a>
+            <a href="">
+                <li>
+                    <img src="../images/goods_cont_picture.png" alt="" class="goods_cont_picture">
+
+                    <h3>美琪益智拼乐高休闲超好玩具</h3>
+
+                    <p>¥450</p>
+                </li>
+            </a>
+            <a href="">
+                <li>
+                    <img src="../images/goods_cont_picture.png" alt="" class="goods_cont_picture">
+
+                    <h3>美琪益智拼乐高休闲超好玩具</h3>
+
+                    <p>¥450</p>
+                </li>
+            </a>
+        </ul>
+    </section>
+    <!--底部-->
+    <section class="footer">
+        <div class="footer_shoucang">
+            <div class="footer_shoucang_picture"></div>
+            <p>收藏</p>
+        </div>
+        <div class="footer_gouwuche">
+            <div class="footer_gouwuche_picture"></div>
+            <p>购物车</p>
+        </div>
+        <div class="footer_joinCar">加入购物车</div>
+        <div class="footer_mustBuy">立即购买</div>
+    </section>
+
+
+    <div class="zhezhao">
+    <!--点击规格出现-->
+    <section class="buy">
+        <div class="close"></div>
+        <div class="buy_goods">
+            <img src="../images/buy_goods.png" alt="">
+            <div class="buy_goods_msg">
+                <h1>美琪经典全人物玩具可多选可随机底下带台座乐高玩具</h1>
+
+                <h3>¥450</h3>
+
+                <p>选择规格尺寸</p>
+            </div>
+        </div>
+        <div class="buy_guige">
+            <p>规格</p>
+
+            <div class="buy_guige_btn">
+                <div class="btn_active">大型号</div>
+                <div>中型号</div>
+                <div>小型号</div>
+            </div>
+        </div>
+        <div class="buy_number">
+            <p>购买数量</p>
+
+            <div class="buy_number_btn">
+                <input type="button" class="btn1" value="-">
+                <input type="text" class="text" value="0">
+                <input type="button" class="btn2" value="+">
+            </div>
+        </div>
+        <div class="buy_sure">确定</div>
+    </section>
+        <section class="buy">
+            <div class="close"></div>
+            <div class="buy_goods">
+                <img src="../images/buy_goods.png" alt="">
+                <div class="buy_goods_msg">
+                    <h1>美琪经典全人物玩具可多选可随机底下带台座乐高玩具</h1>
+
+                    <h3>¥450</h3>
+
+                    <p>选择规格尺寸</p>
+                </div>
+            </div>
+            <div class="buy_guige">
+                <p>规格</p>
+                <div class="buy_guige_btn">
+                    <div class="btn_active">大型号</div>
+                    <div>中型号</div>
+                    <div>小型号</div>
+                </div>
+            </div>
+            <div class="buy_number">
+                <p>购买数量</p>
+                <div class="buy_number_btn">
+                    <input type="button" class="btn1" value="-">
+                    <input type="text" class="text" value="0">
+                    <input type="button" class="btn2" value="+">
+                </div>
+            </div>
+            <div class="buy_sure2">
+                <div class="buy_sure2_car">加入购物车</div>
+                <div class="buy_sure2_buy">立即购买</div>
+            </div>
+        </section>
+
+    <!--点击立即购买出现-第二步-->
+    <section class="buy3">
+        <div class="close3"></div>
+        <div class="buy3_msg">
+            <div class="buy3_msg_word">
+                <div class="nameAndPhone">
+                    <img src="../images/address.png" alt="">
+                    <h1>李玉刚</h1>
+                    <p>13294827389</p>
+                </div>
+                <p class="tishi">(为了保证发货速度，请确保您的姓名真实性)</p>
+                <p class="address">北京市北京市海淀区铸诚大厦</p>
+            </div>
+            <div class="xiugai"></div>
+        </div>
+        <div class="pay">
+            <h3>需支付</h3>
+            <p>¥450</p>
+        </div>
+        <div class="fangshi">
+            <h1 class="fangshi_title">选择支付方式</h1>
+
+
+            <div class="zhifu">
+                <div class="weixin_picture"></div>
+                <p>微信支付</p>
+                <i class="i"></i>
+            </div>
+            <div class="zhifu">
+                <div class="zhifubao_picture"></div>
+                <p>支付宝支付</p>
+                <i></i>
+            </div>
+        </div>
+        <div class="buy_sure3">确认支付</div>
+    </section>
+    </div>
+    <script src="../js/jquery-2.1.1.min.js"></script>
+    <script>
+    //显示与隐藏
+    //点击规格
+    $(".guige").on("click",function(){
+        $(".buy")[0].style.display="block";
+        $(".zhezhao").css("display","block");
+    })
+
+    var les=true
+    //点击加入购物车
+    $(".footer_joinCar").on("click",function(){
+        $(".buy")[1].style.display="block";
+        $(".zhezhao").css("display","block");
+    })
+
+    //点击立即购买
+    $(".footer_mustBuy").on("click",function(){
+        les=false
+        $(".buy").eq(0).css("display","block")
+        $(".zhezhao").css("display","block");
+    })
+
+    //点击删除
+    for(var i=0;i<$(".close").length;i++){
+        $(".close").eq(i).on("click",function(){
+            $(this).parent().css("display","none")
+            $(".zhezhao").css("display","none");
+        })
+    }
+
+    //改变所有数量
+    function nums(val){
+    for(var i=0;i<$(".text").length;i++){
+        $(".text").eq(i).val(val)
+    }
+    }
+
+  //点击加减 改变购物数量
+    $(" .btn1").on("click",function() {
+        var num = ($(this).parent().find(".text").val() * 1);
+        if(num>1){
+            num--;
+        }
+        nums(num)
+    })
+    $(" .btn2").on("click",function() {
+        var num = ($(this).parent().find(".text").val() * 1);
+        num++;
+        nums(num)
+    })
+
+
+    //点击筛选
+    $(".buy_guige_btn div").on("click",function(){
+        $(this).addClass("btn_active").siblings().removeClass("btn_active")
+    })
+
+
+
+    //点击确定
+        $(".buy_sure").on("click", function () {
+            $(".buy").eq(0).css("display", "none")
+            if(les){
+                $(".zhezhao").css("display", "none")
+                $(".buy3").css("display","none")
+            }else{
+                $(".buy3").css("display","block")
+                $(".zhezhao").css("display", "block")
+                les=true
+            }
+
+            // $(".buy3").css("display","block")
+        })
+
+
+    //点击购买
+    $(".buy_sure2_buy").on("click",function(){
+        les=false
+        $(".zhezhao").css("display","block")
+        $(".buy").eq(1).css("display","none")
+        $(".buy").eq(0).css("display","block")
+
+      /*  $(".buy_sure").on("click",function(){
+
+            // $(".buy3").css("display","block")
+        })*/
+        //$(".buy3").css("display","block")
+    })
+    //点击加入购物车
+    $(".buy_sure2_car").on("click",function(){
+        $(".buy").eq(1).css("display","none")
+        $(".zhezhao").css("display","none")
+    })
+
+
+
+    //购买删除
+    $(".buy3 .close3").on("click",function(){
+        $(".buy3").css("display","none")
+        $(".zhezhao").css("display","none")
+    })
+
+    //购买立即支付
+    $(".buy3 .buy_sure3").on("click",function(){
+        $(".buy3").css("display","none")
+        $(".zhezhao").css("display","none")
+    })
+
+//支付切换样式
+    $(".zhifu i").on("click",function(){
+        $(".zhifu i").removeClass("i")
+       $(this).addClass("i")
+    })
+
+
+
+
+
+     /*.on("click",function(){
+            $(".buy").eq[0].style.display="none"
+            $(".zhezhao").css("display","none")
+        })*/
+
+      /*  $(".buy").eq[0].css("display","block")
+
+
+        $(".buy").eq[0].find(" .close").on("click",function(){
+            $(".buy").eq[0].css("display","none")
+            $(".zhezhao").css("display","none")
+        })*/
+
+
+/*
+
+
+$(".footer_joinCar").on("click",function(){
+    $(".buy2").css("display","block")
+    $(".zhezhao").css("display","block")
+    $(".buy2 .close2").on("click",function(){
+        $(".buy2").css("display","none")
+        $(".zhezhao").css("display","none")
+    })
+})
+
+$(".footer_mustBuy").on("click",function(){
+    $(".buy2").css("display","block")
+    $(".zhezhao").css("display","block")
+})*/
+
+/*
+*/
+
+
+/*    //点击时 数量加减
+*/
+    </script>
+</body>
+</html>

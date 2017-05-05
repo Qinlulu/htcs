@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>账号绑定</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="apple-touch-fullscreen" content="yes">
+	<meta name="format-detection" content="telephone=no">
+	<meta http-equiv="x-rim-auto-match" content="none"/>
+	<link rel="stylesheet" type="text/css" href="../css/reset.css">
+	<style>
+	html{font-size: 20px;}
+	body{background: #fff; position: relative;}
+	a{-webkit-tap-highlight-color: #fff; -webkit-tap-highlight-color:transparent;}
+	.other{padding-top: 2.5rem; position: relative; margin-top: 2.5rem;}
+	.icon1{height: 3.05rem; width: 3.05rem; display: block;position: absolute; left: 6.5rem; top: 1.6rem;}
+	.title{height: 4.175rem; position: absolute; top: 4.625rem; padding-top: 1.05rem; padding-left: 3.35rem;}
+	.title p{ font-size: 0.55rem; color: #585c5e; line-height: 1.05rem;}
+	.title p:nth-child(1){padding-left: 0.25rem;}
+	.title p span{color: #00e2cd; padding-left: 0.25rem; font-weight: bold;}
+	#account{height: 8.4rem; width: 9.375rem; position: absolute; top: 8.775rem; left: 3.35rem;}
+	#account input{background-color: transparent;border: none; border-bottom: 0.05rem solid #cdcdcd;height: 1.575rem; width: 9.375rem;display: block; outline: none; font-size: 0.55rem; margin-top: 1rem;}
+	#account input span{font-size: 0.45rem;}
+	#sendCode{ position: absolute;top: 1.25rem; right: 0.15rem; height: 1.05rem; width: 3.6rem; font-size: 0.4rem; color: #ffe9e9; line-height: 1rem; text-align: center;border-radius: 0.15rem; background-color: #ff5a5f}
+	.binding{border: 1px solid #ff4147;height: 1.425rem; width: 9.375rem; border-radius: 4rem; margin-top: 2rem; font-size: 0.6rem; color: #000; text-align: center;line-height: 1.425rem; background-color: #ff5a5f;position: absolute; top: 15.8rem; left: 3.35rem; color: #ffebec;}
+	.jump{ font-size: 0.5rem; color: #ff7275; position: absolute; top: 19.95rem; left: 6.925rem;}
+	.jump img{height: 0.4rem; width: 0.225rem; margin-left: 0.125rem}
+	.jump img:nth-child(1){ margin-left: 0.275rem}
+	/*头部提示下载模块*/
+	.downApp{height: 2.5rem; width: 100%; background-color: #565a5c; overflow: hidden;position: fixed;top: 0; left: 0; margin-bottom: 2.5rem;}
+	.downApp_left{height: 100%; width: 11.25rem; float: left; overflow: hidden;}
+	.downApp_right{height: 100%; width: 4.75rem; background: #ff5a5f; float: left; font-size: 0.65rem; color: #fff;line-height: 2.5rem; text-align: center;}
+	.logo{height: 1.75rem; width: 1.75rem; background: url(../images/logo.png) no-repeat; background-size: 100%; margin-left: 0.5rem; margin-top: 0.4rem; float: left;}
+	.downApp_msg{float: left; padding-left: 0.45rem;}
+	.downApp_msg h3{ color: #fff; font-size: 0.6rem; padding-top: 0.625rem;}
+	.downApp_msg p{ color: #cccdce; font-size: 0.45rem;padding-top: 0.25rem;}
+	</style>
+	<script>
+		;(function (win,doc){
+		function change(){
+			doc.documentElement.style.fontSize=20*doc.documentElement.clientWidth/320+'px';
+		}
+		change();
+		
+		win.addEventListener('resize',change,false);
+		})(window,document);
+	</script>
+</head>
+<body>
+<!--头部提示下载模块-->
+<section class="downApp">
+	<div class="downApp_left">
+		<div class="logo"></div>
+		<div class="downApp_msg">
+			<h3>打开当妈啦App</h3>
+			<p>了解更多优惠服务</p>
+		</div>
+	</div>
+	<div class="downApp_right">立即打开</div>
+</section>
+<section class="other">
+	<img src="../images/icon1.png" alt="" class="icon1">
+	<section class="title">
+		<p>亲爱的当妈啦微信用户<span>Jamie</span></p>
+		<p>为了给您更好的服务，请务必绑定</p>
+	</section>
+	<section id="account">
+		<input type="text" placeholder=" 请输入手机号码" size="22">
+		<input type="text" placeholder=" 请输入短信验证码" size="22">
+		<input type="text" id="account_last" placeholder=" 请输入密码(6-20位数字、英文字母)" size="22">
+		<a href=""><div id="sendCode">发送验证码</div></a>
+	</section>
+	<a href="denglu.html"><section class="binding">绑定</section></a>
+	<a href="fuwu.html"><p class="jump">跳过此步<img src="../images/jiantou.png" alt=""><img src="../images/jiantou.png" alt=""></p></a>
+</section>
+	
+</body>
+</html>

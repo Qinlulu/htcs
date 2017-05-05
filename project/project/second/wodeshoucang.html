@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>我的收藏</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<link rel="stylesheet" type="text/css" href="../css/reset.css">
+	<link rel="stylesheet" href="../css/swiper.min.css" />
+	<style>
+	html{font-size: 20px;}
+	body{background: #fff; position: relative;}
+	a{-webkit-tap-highlight-color: #fff; -webkit-tap-highlight-color:transparent;}
+	/*头部提示下载模块*/
+	.downApp{height: 2.5rem; width: 100%; background-color: #565a5c; overflow: hidden; position: fixed; left: 0; top: 0; z-index: 100}
+	.downApp_left{height: 100%; width: 11.25rem; float: left; overflow: hidden;}
+	.downApp_right{height: 100%; width: 4.75rem; background: #ff5a5f; float: left; font-size: 0.65rem; color: #fff;line-height: 2.5rem; text-align: center;}
+	.logo{height: 1.75rem; width: 1.75rem; background: url(../images/logo.png) no-repeat; background-size: 100%; margin-left: 0.5rem; margin-top: 0.4rem; float: left;}
+	.downApp_msg{float: left; padding-left: 0.45rem;}
+	.downApp_msg h3{ color: #fff; font-size: 0.6rem; padding-top: 0.625rem;}
+	.downApp_msg p{ color: #cccdce; font-size: 0.45rem;padding-top: 0.25rem;}
+	/*头部标题*/
+	.title{height: 1.875rem; width: 100%; background: #fbfbfb; overflow: hidden; margin-top: 2.5rem;}
+	.title a{display: block;height: .7rem; width: 0.375rem; background: url(../images/back.png) no-repeat; background-size: 100%; margin-left: 0.675rem;float: left; margin-top: .6rem;}
+	.title h1{float: left;font-size: .7rem; color: #565c5f; margin-top: .6rem; margin-left: 5.45rem;}
+
+	/*内容选项卡*/
+	.wrap{margin:0 auto;}
+	.tabs{height:1.85rem;background: #fff;width: 100%;text-align: center; border-bottom: 1px solid #f0f0f0; border-top: 1px solid #f0f0f0;}
+	.tabs .part{display:block;float:left;width:33%;text-align:center;height: 1.85rem; line-height: 1.85rem; }
+	.tabs a{width:100%;display:block;color:#5f6264;text-align:center;margin:0 auto;font-size:0.55rem;text-decoration:none; height: 1.75rem}
+	.tabs span.active a{color:#fff; display: block; height: 1.15rem; width: 2.15rem; background-color: #ff5a5f;border-radius: 1rem;line-height: 1.15rem; margin-top: .375rem;}
+	.swiper-container{width:100%;border-top:0;margin-top:10px!important}
+	.swiper-slide{width:100%;background:none;color:#373737;}
+	/*活动*/
+	.huodong{padding-left: .7rem; padding-right: .625rem;}
+	.huodong li{padding-top: .425rem; padding-bottom: .375rem; border-bottom: 1px solid #f0f0f0; overflow: hidden;}
+	.huodong li img{display: block; float: left; height: 4rem; width: 4rem;}
+	.huodong_msg{float: left; padding-left: .55rem; padding-top: .25rem;}
+	.huodong_msg h3{font-size: .6rem; color: #3e4244; }
+	.huodong_msg p{font-size: .5rem; color: #969ea1;padding-top: .4rem;}
+	.huodong_msg div{overflow: hidden;}
+	.huodong_msg div em{font-size: .55rem; color: #ff4e53; padding-top: 1.5rem;float: left; display: block;}
+	.huodong_msg div span{display: block; font-size: .35rem; color: #3e4345; float: left; padding: .1rem .2rem .1rem .2rem;border:1px solid #f0f0f0; margin-top: 1.4rem; margin-left: .4rem;}
+	/*商品*/
+	.shangpin{padding-left: .7rem; padding-right: .625rem;}
+	.shangpin li{padding-top: .45rem; padding-bottom: .375rem; border-bottom: 1px solid #f0f0f0; overflow: hidden;}
+	.shangpin li img{display: block;float: left; height: 4rem; width: 4rem;}
+	.shangpin_msg{float: left;padding-left: .5rem;}
+	.shangpin_msg h3{font-size: .6rem; color: #3e4244;line-height: .95rem; width: 10rem;}
+	.shangpin_msg div{overflow: hidden;}
+	.shangpin_msg div em{display: block; float: left;font-size: .5rem; color: #ff5156;padding-top: 1.1rem;}
+	.shangpin_msg div span{display: block;float: left;border:1px solid #f0f0f0;font-size: .35rem; color: #585d5e; padding: .1rem .2rem; margin-top: .95rem; margin-left: .425rem;}
+	/*店铺*/
+	.dianpu{padding-left: .7rem; padding-right: .625rem;}
+	.dianpu li{padding-top: .375rem; padding-bottom: .325rem; border-bottom: 1px solid #f0f0f0; overflow: hidden;}
+	.dianpu li img{display: block; float: left;width: 2.55rem; height: 2.55rem;border:1px solid #f0f0f0; }
+	.dianpu_msg{float: left; padding-left: .55rem;}
+	.dianpu_msg h3{font-size: .6rem; color: #3e4244;padding-top: .25rem;}
+	.dianpu_msg p{font-size: .55rem; color: #a4abae; padding-top: .35rem;}
+	</style>
+	<script>
+	//rem
+		;(function (win,doc){
+		function change(){
+			doc.documentElement.style.fontSize=20*doc.documentElement.clientWidth/320+'px';
+		}
+		change();
+		
+		win.addEventListener('resize',change,false);
+		})(window,document);
+	</script>
+</head>
+<body>
+	<!--头部提示下载模块-->
+<section class="downApp">
+	<div class="downApp_left">
+		<div class="logo"></div>
+		<div class="downApp_msg">
+			<h3>打开当妈啦App</h3>
+			<p>了解更多优惠服务</p>
+		</div>
+	</div>
+	<div class="downApp_right">立即打开</div>
+</section>
+	<!--头部标题-->
+	<header class="title">
+		<a href="../html/wode.html"></a>
+		<h1>我的收藏</h1>
+	</header>
+	<!--内容选项卡-->
+	<div id="wrapper">
+		<!--header end-->
+		<div class="wrap">
+			<div class="tabs">
+				<span class=" part active"><a href="#" hidefocus="true" >活动</a></span>
+				<span class="part"><a href="#" hidefocus="true">商品</a></span>
+				<span class="part"><a href="#" hidefocus="true">店铺</a></span>
+			</div>
+			<div class="swiper-container">
+				<div class="swiper-wrapper">
+					<div class="swiper-slide swiper-slide-visible swiper-slide-active">
+						<div class="content-slide">
+							<ul class="huodong">
+								<a href=""><li>
+									<img src="../images/shoucang_huodong.png" alt="">
+									<div class="huodong_msg">
+										<h3>时光机宝宝摄影</h3>
+										<p>北京时光机联合宝宝摄影当妈啦十月优惠</p>
+										<div>
+											<em>¥2321</em>
+											<span>¥2132</span>
+										</div>
+									</div>
+								</li></a>
+
+							</ul>
+						</div>
+					</div>
+					<div class="swiper-slide">
+						<div class="content-slide">
+							<ul class="shangpin">
+								<a href=""><li>
+									<img src="../images/shangpin_img.png" alt="">
+									<div class="shangpin_msg">
+										<h3>因会儿散装奶粉跨境电商看了放假快乐的数据反馈可莱丝得积分</h3>
+										<div>
+											<em>¥524</em>
+											<span>¥5214</span>
+										</div>
+									</div>
+								</li></a>
+							</ul>
+						</div>
+					</div>
+					<div class="swiper-slide">
+						<div class="content-slide">
+							<ul class="dianpu">
+								<a href="">
+									<li>
+										<img src="../images/dianpu_logo.png" alt="">
+										<div class="dianpu_msg">
+											<h3>为民福我觉得是看了放假</h3>
+											<p>88个商品</p>
+										</div>
+									</li>
+								</a>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>	
+	<script type="text/javascript" src="../js/zepto.min.js"></script>
+	<script type="text/javascript" src="../js/idangerous.swiper.min.js"></script>
+	<script type="text/javascript">
+			$(function() {
+	
+		var tabsSwiper;
+		tabsSwiper = new Swiper('.swiper-container', {
+			speed : 500,
+			onSlideChangeStart : function() {
+				$(".tabs .active").removeClass('active');
+				$(".tabs span").eq(tabsSwiper.activeIndex).addClass('active');
+			}
+		});
+	
+		$(".tabs span").on('touchstart mousedown', function(e) {
+			e.preventDefault()
+			$(".tabs .active").removeClass('active');
+			$(this).addClass('active');
+			tabsSwiper.swipeTo($(this).index());
+	
+		});
+	
+		$(".tabs span").click(function(e) {
+			e.preventDefault();
+		});
+	});//end
+		</script>
+</body>
+</html>

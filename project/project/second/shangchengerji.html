@@ -1,0 +1,553 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>商城二级</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta http-equiv="x-rim-auto-match" content="none"/>
+    <link rel="stylesheet" type="text/css" href="../css/reset.css">
+    <script src="../js/jquery-2.1.1.min.js"></script>
+    <style media="all">
+        html {
+            font-size: 20px;
+        }
+
+        body {
+            background: #fff;
+            position: relative;
+            -webkit-user-select: none;
+            -webkit-text-size-adjust: none;
+            width: 100%;
+            height: 100%;
+        }
+
+        a {
+            -webkit-tap-highlight-color: #fff;
+            -webkit-tap-highlight-color: transparent;
+        }
+        /*头部提示下载模块*/
+        .downApp {
+            height: 2.5rem;
+            width: 100%;
+            background-color: #565a5c;
+            position: fixed;
+            left: 0;
+            top: 0; 
+            z-index: 100;
+        }
+
+        .downApp_left {
+            height: 100%;
+            width: 11.25rem;
+            float: left;
+        }
+
+        .downApp_right {
+            height: 100%;
+            width: 4.75rem;
+            background: #ff5a5f;
+            float: left;
+            font-size: 0.65rem;
+            color: #fff;
+            line-height: 2.5rem;
+            text-align: center;
+        }
+
+        .logo {
+            height: 1.75rem;
+            width: 1.75rem;
+            background: url(../images/logo.png) no-repeat;
+            background-size: 100%;
+            margin-left: 0.5rem;
+            margin-top: 0.4rem;
+            float: left;
+        }
+
+        .downApp_msg {
+            float: left;
+            padding-left: 0.45rem;
+        }
+
+        .downApp_msg h3 {
+            color: #fff;
+            font-size: 0.6rem;
+            padding-top: 0.625rem;
+        }
+
+        .downApp_msg p {
+            color: #cccdce;
+            font-size: 0.45rem;
+            padding-top: 0.25rem;
+        }
+
+        /*头部搜索模块*/
+        .searchhome {
+            background-color: #f7f7f7;
+            height: 2.1rem;
+            width: 100%;
+            border-top: 1px solid #dfdfdf;
+            padding-top: 0.275rem;
+            padding-left: 0.5rem;
+            box-sizing: border-box;
+            margin-top: 2.5rem;
+        }
+
+        .searchhome div {
+            width: 15rem;
+            height: 1.4rem;
+        }
+
+        .search {
+            display: block;
+            width: 13.4rem;
+            height: 1.35rem;
+            text-align: left;
+            border-radius: 0.2rem;
+            color: #929a9e;
+            font-size: 0.6rem;
+            outline: none;
+            font-family: inherit;
+            border: 1px solid #d1d1d1;
+            float: left;
+            background-color: #fff;
+        }
+
+        .search-icon {
+            float: right;
+            border: 1px solid #d1d1d1;
+            border-radius: 0.2rem;
+            height: 1.025rem;
+            width: 1.025rem;
+            background-color: #fff;
+            padding-left: 0.325rem;
+            padding-top: 0.325rem;
+        }
+
+        .search-icon span {
+            height: 0.7rem;
+            width: 0.7rem;
+            display: block;
+            background: url(../images/search-icon.png) no-repeat;
+            background-size: 100%;
+        }
+
+        /*筛选排序模块*/
+        div.screening {
+            width: 100%;
+            height: 2.05rem;
+            border-bottom: 1px solid #f0f0f0;
+            font-size: 0.6rem;
+            color: #75787a;
+        }
+
+        div.screening > ul > li {
+            float: left;
+            width: 50%;
+            text-align: center;
+            line-height: 2.05rem;
+            background: url("../images/down.png") no-repeat 85% center;
+        }
+
+        div.screening > ul > .i {
+            background: url("../images/up.png") no-repeat 85% center;
+            color: #FF5A5F;
+        }
+
+        /*筛选的详细列表*/
+        .zhezhao {
+            width: 100%;
+            min-height: 1000px;
+            background: rgba(217, 217, 217, 0.58);
+            position: absolute;
+            left:0;
+            top:6.8rem;
+            display: none;
+            z-index: 5;
+        }
+
+        .meishi22 {
+            width: 100%;
+            height: auto;
+            box-sizing: border-box;
+            background: #fafafa;
+            padding: 0 1rem;
+            position: absolute;
+            top:0;
+            left:0;
+            display: none;
+            padding-bottom: 10px;
+        }
+
+        .meishi22 > ul > li {
+            height: 2.036rem;
+            line-height: 2.036rem;
+            font-size: 0.6rem;
+        }
+
+        .meishi22 > ul > .list {
+            color: red;
+        }
+
+        .meishi22 > ul > li > div {
+            float: left;
+        }
+
+        .meishi22 > ul > li > img {
+            float: right;
+            margin-top: 5%;
+            margin-right: 13%;
+            display: inline-block;
+            width: 4%;
+            display:none;
+
+        }
+        .meishi22 > ul > .list > img {
+            display:block;
+        }
+        /*内容部分样式*/
+       .dls{
+           width:100%;
+           height:auto;
+           padding:0.3rem;
+           box-sizing: border-box;
+           overflow: auto;
+       }
+       .dls dl{
+         width:45%;
+           margin:0.30rem;
+           height:auto;
+           float: left;
+       }
+        .dls dl dt{
+            width:100%;
+            height: 7.25rem;
+            position: relative;
+        }
+        .dls dl dt img{ width: 100%; display: block;}
+        .dls dl dt span{
+            border: 1px solid #ff5a5f;
+            font-size: .5rem;
+            color: #ff5a5f;
+            text-align: center;
+            line-height: .7rem;
+            position: absolute;
+            top: 5.8rem;
+            left: 0.375rem;
+            background: transparent;
+        }
+       .dls dl dd{
+            margin-top:0.02rem;
+        }
+        .dls dl dd  .goods_name {
+            width: 100%;
+            line-height: .9rem;
+            padding-top: .2rem;
+            font-size: .6rem;
+            color: #565a5c;
+        }
+        .dls dl dd  .goods_jiage h3 {
+            font-size: .6rem;
+            color: #ff5a5f;
+            font-weight: 600;
+            float: left;
+            padding-top: .2rem;
+        }
+
+        .dls dl dd  .goods_jiage p{
+            float: left;
+            height: .55rem;
+            width: 1.65rem;
+            border: 1px solid #929a9e;
+            border-radius: .1rem;
+            line-height: .55rem;
+            text-align: center;
+            font-size: .4rem;
+            color: #99a0a4;
+            margin-left: .375rem;
+            margin-top: .2rem;
+        }
+         /*商城标题*/
+         header{height: 2rem;background: #fbfbfb; position: relative;}
+         header p{font-size: .65rem;line-height: 2rem; text-align: center;}
+         header a{height: .7rem; width: .375rem; display: block; background: url(../images/back.png) no-repeat; background-size: 100%; position: absolute;top: .65rem; left: .5rem;}
+    </style>
+    <script>
+        ;
+        (function (win, doc) {
+            function change() {
+                doc.documentElement.style.fontSize = 20 * doc.documentElement.clientWidth / 320 + 'px';
+            }
+
+            change();
+
+            win.addEventListener('resize', change, false);
+        })(window, document);
+    </script>
+    <script>
+        //显示下拉
+        $(document).ready(function () {
+            $(".screening ul li").on("click", function () {
+
+                var a = $(this).index()
+                if ($(this).hasClass("i")) {
+                    $(this).removeClass("i")
+                    $("body").css("overflow","auto")
+                    $(".zhezhao").css("display", "none")
+                    $(".zhezhao>div").eq(a).slideUp(300)
+                } else {
+                    $(this).addClass("i").siblings().removeClass("i")
+                    $("body").css("overflow","hidden")
+
+                    $(".zhezhao").css("display", "block")
+                    $(".zhezhao>div").eq(a).slideDown(300).siblings().slideUp(10)
+                }
+
+
+              /*  //点击时 进行接口连接   ajax
+                $(".meishi22").eq(0).find(".meishia-w  li").on("click", function () {
+                    $(".meishi ").html($(this).find("div").html())
+
+                })
+                $(".meishi22").eq(1).find(".meishia-w  li").on("click", function () {
+                    $(".Regional ").html($(this).find("div").html())
+
+                })*/
+            })
+        })
+        //点击li 加对号
+       /* $(document).ready(function () {
+            $(".meishi22 .meishia-w  li").on("click", function () {
+                $(this).addClass("list").siblings().removeClass("list")
+                $(".screening ul li").removeClass("i")
+                $(".zhezhao").css("display", "none")
+                $(".zhezhao>div").slideUp(10)
+            })
+        })*/
+
+
+        //内容部分
+        $(document).ready(function () {
+            $(".meishi22").on("click", "li",function () {
+                var arr=[]
+                if($(this).parent().parent().hasClass("meishi33")){
+                    $(".Regional").text($(this).find("div").text())
+                }else{
+                    $(".meishi").text($(this).find("div").text())
+                }
+
+                arr.push($(".meishi").text())
+                arr.push($(".Regional").text())
+
+                $(".screening ul li").removeClass("i")
+                $(this).addClass("list").siblings().removeClass("list")
+                $(".zhezhao").css("display", "none")
+                $(".zhezhao>div").slideUp(10)
+
+                $("body").css("overflow","auto")
+                //这是最后的数据  数组格式
+                console.log(arr)
+            })
+
+            //点击遮罩消失
+            $(".zhezhao").on("click",function(e){
+
+                if($(e.target).hasClass("zhezhao")){
+                    $(".screening ul li").removeClass("i")
+                    $(".zhezhao").css("display", "none")
+                    $(".zhezhao>div").slideUp(10)
+                }
+            })
+        });
+
+
+
+        
+    </script>
+</head>
+<body>
+<!--头部提示下载模块-->
+<section class="downApp">
+    <div class="downApp_left">
+        <div class="logo"></div>
+        <div class="downApp_msg">
+            <h3>打开当妈啦App</h3>
+
+            <p>了解更多优惠服务</p>
+        </div>
+    </div>
+    <div class="downApp_right">立即打开</div>
+</section>
+<!--头部搜索模块-->
+<form action="" class="searchhome">
+    <div>
+        <input type="text" placeholder=" 搜索" class="search">
+        <a href="javascript:void(0)"
+           style="display: inline; transform-origin: 0px 0px 0px; opacity: 1; transform: scale(1, 1);"
+           class="search-icon">
+            <span></span>
+        </a>
+    </div>
+</form>
+<!--头部标题-->
+<header>
+    <p>优选</p>
+    <a href="../html/shangcheng.html"></a>
+</header>
+<!--排序的的-->
+<div class="screening">
+    <ul>
+        <li class="meishi">精选推荐</li>
+        <li class="Regional">综合排序</li>
+    </ul>
+</div>
+<div class="zhezhao">
+
+    <div class="meishi22">
+        <ul class="meishia-w">
+            <li class="list">
+                <div>精选推荐</div>
+                <img src="../images/yes.png">
+            </li>
+            <li>
+                <div>奶粉</div>
+                <img src="../images/yes.png">
+            </li>
+            <li>
+                <div>童装</div>
+                <img src="../images/yes.png">
+            </li>
+            <li>
+                <div>距离最近</div>
+                <img src="../images/yes.png">
+            </li>
+        </ul>
+    </div>
+    <div class="meishi22 meishi33">
+        <ul class="meishia-w">
+            <li class="list">
+                <div>综合排序</div>
+                <img src="../images/yes.png" class="show">
+            </li>
+            <li>
+                <div>价格最低</div>
+                <img src="../images/yes.png">
+            </li>
+            <li>
+                <div>销量最高</div>
+                <img src="../images/yes.png">
+            </li>
+            <li>
+                <div>距离最近</div>
+                <img src="../images/yes.png">
+            </li>
+        </ul>
+    </div>
+
+</div>
+<!--内容模块-->
+
+<div class="dls">
+    <dl>
+        <dt class="goods_img">
+            <img src="../images/shop_picture1.png" alt="">
+            <span>3.5折</span>
+        </dt>
+        <dd>
+            <h1 class="goods_name">因会儿散装奶粉最健康的优质奶粉</h1>
+            <div class="goods_jiage">
+                <h3>¥499</h3>
+                <p>¥600</p>
+            </div>
+        </dd>
+    </dl>
+    <dl>
+        <dt class="goods_img">
+            <span>3.5折</span>
+        </dt>
+        <dd>
+            <h1 class="goods_name">因会儿散装奶粉最健康的优质奶粉</h1>
+            <div class="goods_jiage">
+                <h3>¥499</h3>
+                <p>¥600</p>
+            </div>
+        </dd>
+    </dl>
+    <dl>
+        <dt class="goods_img">
+            <span>3.5折</span>
+        </dt>
+        <dd>
+            <h1 class="goods_name">因会儿散装奶粉最健康的优质奶粉</h1>
+            <div class="goods_jiage">
+                <h3>¥499</h3>
+                <p>¥600</p>
+            </div>
+        </dd>
+    </dl>
+    <dl>
+        <dt class="goods_img">
+            <span>3.5折</span>
+        </dt>
+        <dd>
+            <h1 class="goods_name">因会儿散装奶粉最健康的优质奶粉</h1>
+            <div class="goods_jiage">
+                <h3>¥499</h3>
+                <p>¥600</p>
+            </div>
+        </dd>
+    </dl>
+    <dl>
+        <dt class="goods_img">
+            <span>3.5折</span>
+        </dt>
+        <dd>
+            <h1 class="goods_name">因会儿散装奶粉最健康的优质奶粉</h1>
+            <div class="goods_jiage">
+                <h3>¥499</h3>
+                <p>¥600</p>
+            </div>
+        </dd>
+    </dl>
+    <dl>
+        <dt class="goods_img">
+            <span>3.5折</span>
+        </dt>
+        <dd>
+            <h1 class="goods_name">因会儿散装奶粉最健康的优质奶粉</h1>
+            <div class="goods_jiage">
+                <h3>¥499</h3>
+                <p>¥600</p>
+            </div>
+        </dd>
+    </dl>
+    <dl>
+        <dt class="goods_img">
+            <span>3.5折</span>
+        </dt>
+        <dd>
+            <h1 class="goods_name">因会儿散装奶粉最健康的优质奶粉</h1>
+            <div class="goods_jiage">
+                <h3>¥499</h3>
+                <p>¥600</p>
+            </div>
+        </dd>
+    </dl>
+    <dl>
+        <dt class="goods_img">
+            <span>3.5折</span>
+        </dt>
+        <dd>
+            <h1 class="goods_name">因会儿散装奶粉最健康的优质奶粉</h1>
+            <div class="goods_jiage">
+                <h3>¥499</h3>
+                <p>¥600</p>
+            </div>
+        </dd>
+    </dl>
+</div>
+</body>
+</html>

@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>直播</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="apple-touch-fullscreen" content="yes">
+	<meta name="format-detection" content="telephone=no">
+	<meta http-equiv="x-rim-auto-match" content="none"/>
+	<link rel="stylesheet" type="text/css" href="../css/reset.css">
+	<style>
+	html{font-size: 20px;}
+	body{background: #fff; position: relative;}
+	a{-webkit-tap-highlight-color: #fff; -webkit-tap-highlight-color:transparent;}
+	/*头部提示下载模块*/
+	.downApp{height: 2.5rem; width: 100%; background-color: #565a5c; overflow: hidden;position: fixed;left: 0; top: 0; z-index: 100;}
+	.downApp_left{height: 100%; width: 11.25rem; float: left; overflow: hidden;}
+	.downApp_right{height: 100%; width: 4.75rem; background: #ff5a5f; float: left; font-size: 0.65rem; color: #fff;line-height: 2.5rem; text-align: center;}
+	.logo{height: 1.75rem; width: 1.75rem; background: url(../images/logo.png) no-repeat; background-size: 100%; margin-left: 0.5rem; margin-top: 0.4rem; float: left;}
+	.downApp_msg{float: left; padding-left: 0.45rem;}
+	.downApp_msg h3{ color: #fff; font-size: 0.6rem; padding-top: 0.625rem;}
+	.downApp_msg p{ color: #cccdce; font-size: 0.45rem;padding-top: 0.25rem;}
+	/*底部模块*/
+	.footer{height: 2.375rem; width: 100%; background-color: #fbfbfb; position: fixed;bottom: 0; left: 0; overflow: hidden; border-top: 1px solid #f0f0f0;z-index: 1000;}
+	.footer figure{float: left; width: 25%; height: 100%; text-align: center; }
+	.footer figure figcaption{color: #595d5f;font-size: 0.5rem;}
+	.fuwu{height: 0.7rem; width: 1.45rem; margin-top: 0.575rem;}
+	.zhibo{height: 0.95rem; width: 1.45rem; margin-top: 0.425rem;}
+	.shangcheng{height: 1.2rem; width: 1.1rem; margin-top: 0.225rem;}
+	.wode{height: 1.25rem; width: 1.25rem; margin-top: 0.225rem;}
+	.word1{padding-top: 0.45rem;}
+	.word2{padding-top: 0.35rem;}
+	.word3{padding-top: 0.3rem;}
+	.word4{padding-top: 0.25rem;}
+	/*直播内容模块*/
+	.live{position: relative; margin-top: 2.5rem;}
+	.list-item{height: 11.775rem; border-top: 1px solid #f0f0f0;}
+	.list-msg{overflow: hidden; height: 2.5rem; padding-top: 0.525rem; padding-left: 0.5rem; background: #fff}
+	.man_picture{height: 2rem; width: 2rem; float: left; border-radius: 50%;}
+	.man_picture img{height: 2rem; width: 2rem;}
+	.man_msg{float: left;padding-left: 0.5rem; padding-top: 0.175rem;}
+	.man_job{font-size: 0.6rem; color: #9da4a8; padding-top: 0.35rem;}
+	.man_name{font-size: 0.75rem; color: #565a5c;}
+	.live_time{float: right; padding-right: 0.5rem; padding-top: 0.25rem;}
+	.day{font-size: 0.6rem; color: #585c5e;}
+	.hour{font-size: 0.55rem; color: #5e6264; padding-top: 0.425rem;}
+	.live-main{height: 8rem; width: 100%; background: url(../images/taocan_picture.png) no-repeat; background-size: 100%; position: relative;}
+
+
+
+	.touming{
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		bottom: 0;
+		left: 0;
+        background: -webkit-linear-gradient(rgba(255, 255, 255, 0.40), rgba(0, 0, 0, 0.47)); /* Safari 5.1 - 6.0 */
+        background: -o-linear-gradient(rgba(255, 255, 255, 0.40), rgba(0, 0, 0, 0.47)); /* Opera 11.1 - 12.0 */
+        background: -moz-linear-gradient(rgba(255, 255, 255, 0.40), rgba(0, 0, 0, 0.47)); /* Firefox 3.6 - 15 */
+        background: linear-gradient(rgba(255, 255, 255, 0.40), rgba(0, 0, 0, 0.47)); /* 标准的语法 */
+
+		}
+
+
+	.title{font-size: .7rem; font-weight: 600; color: #fff;position: absolute; bottom: .4rem; left: .5rem; letter-spacing:.2rem; z-index: 1}
+	.live-main-zhuangtai1{width: 5rem; height: 0.825rem; background-color: #37b9ad; position: absolute;top: 0.75rem; right: 0.525rem; opacity: 0.85; border: 1px solid #fff; border-radius: 0.6rem; padding-top: 0.275rem; overflow: hidden;  z-index: 1 }
+	.live-main-zhuangtai1 img{width: 0.85rem; height: 0.5rem;margin-left: 0.5rem; display: block; float: left;}
+	.live-main-zhuangtai1 p{float: right;font-size: 0.65rem; color: #fff;margin-right: 0.5rem;letter-spacing: 0.05rem; margin-top: -0.1rem;}
+	.live-main-zhuangtai2{width: 3.05rem; height: 1.05rem; background-color: #212121; position: absolute;top: 0.75rem; right: 0.525rem; opacity: 0.7; border: 1px solid #fff; border-radius: 0.6rem; color: #efefee; font-size: 0.65rem; line-height: 1.05rem; text-align: center; z-index: 1}
+	</style>
+	<script>
+		;(function (win,doc){
+		function change(){
+			doc.documentElement.style.fontSize=20*doc.documentElement.clientWidth/320+'px';
+		}
+		change();
+		
+		win.addEventListener('resize',change,false);
+		})(window,document);
+
+	</script>
+	<script src="../js/zepto.min.js"></script>
+	<script>
+        $(document).ready(function () {
+            document.addEventListener('touchmove', function (event) {
+                event.preventDefault();
+            }, false);
+            $("body").on("swipeUp", function () {
+                $(".footer").css("display", "block")
+            })
+            $("body").on("swipeDown", function () {
+                $(".footer").css("display", "none")
+            })
+        })
+	</script>
+</head>
+<body>
+<!--头部提示下载模块-->
+<section class="downApp">
+	<div class="downApp_left">
+		<div class="logo"></div>
+		<div class="downApp_msg">
+			<h3>打开当妈啦App</h3>
+			<p>了解更多优惠服务</p>
+		</div>
+	</div>
+	<div class="downApp_right">立即打开</div>
+</section>
+<!--直播内容模块-->
+	<ul class="live">
+		<li class="list-item">
+			<a href="../second/zhibojian.html">
+				<div class="list-msg">
+					<div class="man_picture">
+						<img src="../images/zhiman1.png" alt="">
+					</div>
+					<div class="man_msg">
+						<h3 class="man_name">刘医生</h3>
+						<p class="man_job">主任医生</p>
+					</div>
+					<div class="live_time">
+						<h3 class="day">2015年3月14日</h3>
+						<p class="hour">12:41:23</p>
+					</div>
+				</div>
+				<div class="live-main">
+					<div class="touming"></div>
+					<h3 class="title">孕妇健身到底多重要呢？</h3>
+					<div class="live-main-zhuangtai1">
+						<img src="../images/zhibo-icon.png" alt="">
+						<p>正在直播</p>
+					</div>
+				</div>
+			</a>
+		</li>
+		
+	</ul>
+	<!--底部-->
+	<footer class="footer">
+		<a href="fuwu.html">
+			<figure>
+				<img src="../images/fuwu1.png" alt="" class="fuwu">
+				<figcaption class="word1">服务</figcaption>
+			</figure>
+		</a>	
+		<a href="">
+			<figure>
+				<img src="../images/zhibo1.png" alt="" class="zhibo">
+				<figcaption class="word2">直播</figcaption>
+			</figure>
+		</a>
+		<a href="shangcheng.html">
+			<figure>
+				<img src="../images/shangcheng.png" alt="" class="shangcheng">
+				<figcaption class="word3">优选</figcaption>
+			</figure>
+		</a>
+		<a href="wode.html">
+			<figure>
+				<img src="../images/wode.png" alt="" class="wode">
+				<figcaption class="word4">我的</figcaption>
+			</figure>
+		</a>
+	</footer>
+</body>
+</html>

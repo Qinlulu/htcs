@@ -1,0 +1,372 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>评论-商品</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta http-equiv="x-rim-auto-match" content="none"/>
+    <link rel="stylesheet" type="text/css" href="../css/reset.css">
+    <style>
+        html {
+            font-size: 20px;
+        }
+
+        body {
+            background: #fff;
+            width: 100%;
+            height: 100%;
+            position: relative;
+            -webkit-user-select: none;
+            -webkit-text-size-adjust: none;
+        }
+
+        a {
+            -webkit-tap-highlight-color: #fff;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        /*头部提示下载模块*/
+        .downApp {
+            height: 2.5rem;
+            width: 100%;
+            background-color: #565a5c;
+            overflow: hidden;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 100;
+        }
+
+        .downApp_left {
+            height: 100%;
+            width: 11.25rem;
+            float: left;
+            overflow: hidden;
+        }
+
+        .downApp_right {
+            height: 100%;
+            width: 4.75rem;
+            background: #ff5a5f;
+            float: left;
+            font-size: 0.65rem;
+            color: #fff;
+            line-height: 2.5rem;
+            text-align: center;
+        }
+
+        .logo {
+            height: 1.75rem;
+            width: 1.75rem;
+            background: url(../images/logo.png) no-repeat;
+            background-size: 100%;
+            margin-left: 0.5rem;
+            margin-top: 0.4rem;
+            float: left;
+        }
+
+        .downApp_msg {
+            float: left;
+            padding-left: 0.45rem;
+        }
+
+        .downApp_msg h3 {
+            color: #fff;
+            font-size: 0.6rem;
+            padding-top: 0.625rem;
+        }
+
+        .downApp_msg p {
+            color: #cccdce;
+            font-size: 0.45rem;
+            padding-top: 0.25rem;
+        }
+
+        /*返回按钮*/
+        .back {
+            background: url(../images/button_left@3x.png) no-repeat;
+            background-size: 100%;
+            height: 1.5rem;
+            width: 1.5rem;
+            position: absolute;
+            top: .3rem;
+            left: .2rem;
+            display: block;
+            z-index: 100;
+        }
+
+        .fenxiang {
+            background: url(../images/button_fenxiang@3x.png) no-repeat;
+            background-size: 100%;
+            height: 1.5rem;
+            width: 1.5rem;
+            position: absolute;
+            top: .3rem;
+            right: .2rem;
+            display: block;
+        }
+
+        /*头部标题*/
+        header {
+            position: relative;
+        }
+
+        .bg {
+            position: relative;
+            margin-top: 2.5rem;
+        }
+
+        .bg img {
+            height: 7.1rem;
+            width: 16rem;
+            display: block;
+        }
+
+        .logo {
+            display: block;
+            height: 2.5rem;
+            width: 2.5rem;
+            border: 1px solid #f0f0f0;
+            position: absolute;
+            top: -1.2rem;
+            left: .85rem;
+        }
+
+        .title {
+            overflow: hidden;
+            padding-left: 3.15rem;
+            width: 11.25rem;
+            border-bottom: 1px solid #f0f0f0;
+            height: 2.5rem;
+            margin-left: .85rem;
+        }
+
+        .title div {
+            float: left;
+            padding-left: .6rem;
+        }
+
+        .title dl {
+            float: right;
+        }
+
+        .title div h1 {
+            font-size: .65rem;
+            color: #292e31;
+            padding-top: .5rem;
+        }
+
+        .title div p {
+            font-size: .55rem;
+            color: #8e969a;
+            padding-top: .3rem;
+        }
+
+        .title div p span {
+            color: #ff6064;
+        }
+
+        .title dl dt {
+            background: url(../images/shoucang2.png) no-repeat;
+            background-size: 100%;
+            height: 1rem;
+            width: 1rem;
+            margin-top: .3rem;
+        }
+
+        .title dl dd {
+            font-size: .45rem;
+            color: #6b6e70;
+            padding-top: .25rem;
+        }
+
+        .msg {
+            height: auto;
+            border-bottom: .45rem solid #f7f7f7;
+            padding-left: .85rem;
+            padding-right: .85rem;
+        }
+
+        .msg p {
+            font-size: .55rem;
+            color: #383c3f;
+            line-height: .85rem;
+            padding-top: .35rem;
+            padding-bottom: .25rem;
+        }
+        .msg .hide{
+            word-break: break-all;
+            text-overflow: ellipsis;
+            display: -webkit-box; /** 对象作为伸缩盒子模型显示 **/
+            -webkit-box-orient: vertical; /** 设置或检索伸缩盒对象的子元素的排列方式 **/
+            -webkit-line-clamp: 2; /** 显示的行数 **/
+            overflow: hidden; /** 隐藏超出的内容 **/
+            height: 1.35rem;
+        }
+
+        .msg div {
+            background: url("../images/up_btn.png") no-repeat;
+            background-size: 100%;
+            height: 1.0rem;
+            width: .65rem;
+            margin: .4rem auto;
+        }
+        .msg .up{
+            background: url("../images/upbtn.png") no-repeat;
+            background-size: 100%;
+            width: 1.65rem;
+        }
+        .conts{
+            width:100%;
+            height:auto;
+            position:relative;
+        }
+        .contss{
+            position:absolute;
+            top:0;
+            left:0;
+            background:#fff;
+
+        }
+        .conts .titles{
+            width:100%;
+            height: 2.5rem;
+            line-height:2.5rem;
+            text-align: center;
+            clear: both;
+            background: rgba(0, 0, 0, 0.12);
+            color:#fff;
+        }
+        .conts .titles p,.conts .titles dl,.conts .titles .logo{
+            display:none;
+        }
+        .conts .titles div {
+            width:100%;
+            height: 2.5rem;
+            text-align: center;
+        }
+        .conts .titles div h1 {
+            width:100%;
+            height: 2.5rem;
+            text-align: center;
+        }
+/** 推荐部分 **/
+    .tuijian{overflow: hidden;}
+    .tuijian li{float: left; padding-left: .85rem;}
+    .tuijian li img{height: 6.85rem; width: 6.85rem; margin-top: .75rem;}
+    .tuijian li h3{font-size: .55rem; color: #4f5355; width: 6.25rem;line-height: .75rem;padding-top: .2rem;}
+    .tuijian li p{font-size: .5rem; color: #ff2d34; padding-top: .6rem;}
+    </style>
+    <script>
+
+        ;
+        (function (win, doc) {
+            function change() {
+                doc.documentElement.style.fontSize = 20 * doc.documentElement.clientWidth / 320 + 'px';
+            }
+
+            change();
+
+            win.addEventListener('resize', change, false);
+        })(window, document);
+    </script>
+    <script>
+        window.onload = function () {
+           /*
+
+            var oLogo = document.getElementById('logo');
+            var oTitle = document.getElementById('title');
+            var oBg = document.getElementById('bg');
+            var oWord = document.getElementById('msg_word');
+            oBtnUp.onclick = function () {
+                oMsg.style.height = '8.05rem';
+                oLogo.style.display = 'none';
+                oTitle.style.display = 'none';
+                oBg.style.height = '2rem';
+                oWord.style.height = '5rem'
+                oWord.style.paddingTop = '1.35rem'
+            }*/
+            var oBtnUp = document.querySelector('#up_btn');
+            var oMsg = document.querySelector('#msg_word');
+            var conts = document.querySelector('#conts');
+            var title = document.querySelector('#title');
+            oBtnUp.onclick = function () {
+                if(oMsg.classList.contains('hide')){
+                    oMsg.classList.remove("hide")
+                    this.classList.add("up")
+                    conts.classList.add("contss")
+                    title.className="titles"
+                }else{
+                    oMsg.classList.add("hide")
+                    this.classList.remove("up")
+                    conts.classList.remove("contss")
+                    title.className="title"
+                }
+
+            }
+
+        }
+    </script>
+</head>
+<body>
+<!--头部提示下载模块-->
+<section class="downApp">
+    <div class="downApp_left">
+        <div class="downApp_msg">
+            <h3>打开当妈啦App</h3>
+            <p>了解更多优惠服务</p>
+        </div>
+    </div>
+    <div class="downApp_right">立即打开</div>
+</section>
+<!--返回按钮-->
+<a href="shangpinxiangqing.html" class="back"></a>
+<!-- <a href="" class="fenxiang"></a> -->
+<!--头部-->
+<header>
+    <div class="bg">
+        <img src="../images/kecheng.png" alt="" id="bg">
+    </div>
+    <div class="conts" id="conts">
+        <div class="title" id="title">
+
+            <div>
+                <img src="../images/shop_logo2.png" alt="" class="logo" id="logo">
+                <h1>美琪玩具</h1>
+                <p><span>88</span>个商品</p>
+            </div>
+            <dl>
+                <dt></dt>
+                <dd>收藏</dd>
+            </dl>
+        </div>
+        <div class="msg" id="msg">
+            <p id="msg_word" class="hide">
+                1991年成立的垃圾是否考虑斯大林客服就上课了的解放路开始就李开复卡里的复健科两三得积分扣篮大赛就李开复老师的复健科两三的解放路看圣诞节快乐放假拉克丝联发科撒娇了就健康的健康浪费就离开大数据啦客服健康绿色就李开复讲的是了减肥了跨境电商啦客服拉克丝建档立卡发拉三等奖李开复快来撒的费卢卡斯克服了是。看看电视剧六块腹肌考拉的设计费爱的世界克服了局领导说捷反馈金卡戴珊就李开复考虑到数据库了放假卡戴珊讲课费了卡的时间风口浪尖爱迪生付款啦第三节课浪费加水煎服了卡戴珊讲课费了解答是阀打开</p>
+            <div id="up_btn"></div>
+        </div>        
+    </div>
+</header>
+<ul class="tuijian">
+    <a href=""><li>
+        <img src="../images/goods_cont_picture.png" alt="">
+        <h3>美琪益智拼乐高休闲超好玩具</h3>
+        <p>¥625</p>
+    </li></a>
+    <a href=""><li>
+        <img src="../images/goods_cont_picture.png" alt="">
+        <h3>美琪益智拼乐高休闲超好玩具</h3>
+        <p>¥625</p>
+    </li></a>
+    <a href=""><li>
+        <img src="../images/goods_cont_picture.png" alt="">
+        <h3>美琪益智拼乐高休闲超好玩具</h3>
+        <p>¥625</p>
+    </li></a>
+</ul>
+</body>
+</html>

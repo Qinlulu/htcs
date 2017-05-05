@@ -1,0 +1,542 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>我的</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" type="text/css" href="../css/reset.css">
+    <style>
+        html {
+            font-size: 20px;
+        }
+
+        body {
+            background: #fff;
+            position: relative;
+        }
+
+        a {
+            -webkit-tap-highlight-color: #fff;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        /*头部提示下载模块*/
+        .downApp {
+            height: 2.5rem;
+            width: 100%;
+            background-color: #565a5c;
+            overflow: hidden;
+            position: fixed;
+            left: 0;
+            top: 0;
+            z-index: 100
+        }
+
+        .downApp_left {
+            height: 100%;
+            width: 11.25rem;
+            float: left;
+            overflow: hidden;
+        }
+
+        .downApp_right {
+            height: 100%;
+            width: 4.75rem;
+            background: #ff5a5f;
+            float: left;
+            font-size: 0.65rem;
+            color: #fff;
+            line-height: 2.5rem;
+            text-align: center;
+        }
+
+        .logo {
+            height: 1.75rem;
+            width: 1.75rem;
+            background: url(../images/logo.png) no-repeat;
+            background-size: 100%;
+            margin-left: 0.5rem;
+            margin-top: 0.4rem;
+            float: left;
+        }
+
+        .downApp_msg {
+            float: left;
+            padding-left: 0.45rem;
+        }
+
+        .downApp_msg h3 {
+            color: #fff;
+            font-size: 0.6rem;
+            padding-top: 0.625rem;
+        }
+
+        .downApp_msg p {
+            color: #cccdce;
+            font-size: 0.45rem;
+            padding-top: 0.25rem;
+        }
+
+        /*底部模块*/
+        .footer {
+            height: 2.375rem;
+            width: 100%;
+            background-color: #fbfbfb;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            overflow: hidden;
+            border-top: 1px solid #d1d1d1;
+            z-index: 1000;
+        }
+
+        .footer figure {
+            float: left;
+            width: 25%;
+            height: 100%;
+            text-align: center;
+        }
+
+        .footer figure figcaption {
+            color: #595d5f;
+            font-size: 0.5rem;
+        }
+
+        .fuwu {
+            height: 0.7rem;
+            width: 1.45rem;
+            margin-top: 0.575rem;
+        }
+
+        .zhibo {
+            height: 0.95rem;
+            width: 1.45rem;
+            margin-top: 0.425rem;
+        }
+
+        .shangcheng {
+            height: 1.2rem;
+            width: 1.1rem;
+            margin-top: 0.225rem;
+        }
+
+        .wode {
+            height: 1.25rem;
+            width: 1.25rem;
+            margin-top: 0.225rem;
+        }
+
+        .word1 {
+            padding-top: 0.45rem;
+        }
+
+        .word2 {
+            padding-top: 0.35rem;
+        }
+
+        .word3 {
+            padding-top: 0.3rem;
+        }
+
+        .word4 {
+            padding-top: 0.25rem;
+        }
+
+        /*上部粉色模块*/
+        .pink {
+            height: 10.95rem;
+            width: 100%;
+            background: -webkit-linear-gradient(45deg, #ff9598, #ffd3d6);
+            position: relative;
+            border-top: 1px solid #eac7c9;
+            text-align: center;
+            margin-top: 2.5rem;
+        }
+
+        .shezhi {
+            position: absolute;
+            background: url(../images/shezhi.png) no-repeat;
+            background-size: 100%;
+            height: 1.1rem;
+            width: 1.1rem;
+            top: 0.55rem;
+            right: 0.6rem;
+        }
+
+        .head_out {
+            height: 4rem;
+            width: 4rem;
+            background: #fff;
+            border-radius: 50%;
+            position: absolute;
+            left: 6rem;
+            top: 1.85rem;
+            opacity: 0.1
+        }
+
+        .head_middle {
+            height: 3.3rem;
+            width: 3.3rem;
+            background: #fff;
+            border-radius: 50%;
+            position: absolute;
+            top: 2.2rem;
+            left: 6.35rem;
+            opacity: 0.3
+        }
+
+        .head {
+            height: 2.6rem;
+            width: 2.6rem;
+            border: 0.1rem solid #fff;
+            border-radius: 50%;
+            position: absolute;
+            top: 2.45rem;
+            left: 6.625rem;
+        }
+
+        .name {
+            font-size: 0.7rem;
+            font-weight: 500;
+            color: #fff;
+            padding-top: 6.075rem;
+        }
+
+        .gongneng {
+            padding-top: 1rem;
+            padding-left: 1.45rem;
+            height: 2.35rem;
+            overflow: hidden;
+        }
+
+        .gongneng li {
+            float: left;
+            height: 2.35rem;
+            width: 3.225rem;
+            text-align: center;
+            overflow: hidden;
+            padding-left: .4rem;
+        }
+
+        .gongneng li div {
+            float: left;
+        }
+
+        .gongneng li .line1 {
+            float: left;
+            height: 1.25rem;
+            width: 1px;
+            background: #fff;
+            opacity: .5;
+            margin-top: .3rem;
+            margin-left: .5rem
+        }
+
+        .gongneng li .line2 {
+            float: left;
+            height: 1.25rem;
+            width: 1px;
+            background: #fff;
+            opacity: .5;
+            margin-top: .3rem;
+            margin-left: 1rem
+        }
+
+        .gongneng li .line3 {
+            float: left;
+            height: 1.25rem;
+            width: 1px;
+            background: #fff;
+            opacity: .5;
+            margin-top: .3rem;
+            margin-left: 1rem
+        }
+
+        .dingdan img {
+            height: 1.05rem;
+            width: 0.85rem;
+            padding-top: 0.05rem;
+        }
+
+        .dingdan p {
+            font-size: 0.5rem;
+            color: #fff;
+            padding-top: 0.3rem;
+        }
+
+        .daifukuan img {
+            height: 0.85rem;
+            width: 1.2rem;
+            padding-top: 0.2rem;
+        }
+
+        .daifukuan p {
+            font-size: 0.5rem;
+            color: #fff;
+            padding-top: 0.375rem;
+        }
+
+        .daishouhuo img {
+            height: 0.95rem;
+            width: 1.15rem;
+            padding-top: 0.15rem;
+        }
+
+        .daishouhuo p {
+            font-size: 0.5rem;
+            color: #fff;
+            padding-top: 0.325rem;
+        }
+
+        .shouhou img {
+            height: 1.2rem;
+            width: 1.2rem;
+            margin-top: .05rem;
+        }
+
+        .shouhou p {
+            font-size: 0.5rem;
+            color: #fff;
+            padding-top: 0.2rem;
+        }
+
+        .gongneng .shouhou {
+            border-right: none;
+        }
+
+        /*按钮跳转*/
+        .mine {
+            height: 5.9rem;
+            width: 100%;
+            background: #fff;
+            border-bottom: .5rem solid #f7f7f7;
+            border-radius: 0.6rem 0.6rem 0 0;
+            margin-top: -0.45rem;
+            z-index: 1;
+            position: relative;
+        }
+
+        .mine_title {
+            height: 1.95rem;
+            border-bottom: 1px solid #f0f0f0;
+            width: 100%;
+            line-height: 1.95rem;
+            font-size: .6rem;
+            color: #929a9e;
+            text-indent: 1rem;
+        }
+
+        .mine_bankuai {
+            height: 3.95rem;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .mine_bankuai li {
+            height: 3.95rem;
+            width: 3.9rem;
+            float: left;
+            border-right: 1px solid #f0f0f0;
+            text-align: center;
+        }
+
+        .yiyuan img {
+            height: 1.25rem;
+            width: 1.25rem;
+            padding-top: 0.9rem;
+        }
+
+        .yiyuan p {
+            font-size: 0.6rem;
+            color: #565a5c;
+            padding-top: 0.55rem;
+        }
+
+        .shoucang img {
+            height: 1.25rem;
+            width: 1.25rem;
+            padding-top: 0.9rem;
+        }
+
+        .shoucang p {
+            font-size: 0.6rem;
+            color: #565a5c;
+            padding-top: 0.55rem;
+        }
+
+        .yaoqing img {
+            height: 1.4rem;
+            width: 1.4rem;
+            padding-top: 0.875rem;
+        }
+
+        .yaoqing p {
+            font-size: 0.6rem;
+            color: #565a5c;
+            padding-top: 0.425rem;
+        }
+
+        .shouhuo img {
+            height: 1.35rem;
+            width: 1rem;
+            padding-top: 0.9rem;
+        }
+
+        .shouhuo p {
+            font-size: 0.6rem;
+            color: #565a5c;
+            padding-top: 0.4rem;
+        }
+
+        .mine_bankuai .shouhuo {
+            border-right: none;
+        }
+
+
+    </style>
+    <script>
+        //rem
+        ;(function (win, doc) {
+            function change() {
+                doc.documentElement.style.fontSize = 20 * doc.documentElement.clientWidth / 320 + 'px';
+            }
+
+            change();
+
+            win.addEventListener('resize', change, false);
+        })(window, document);
+    </script>
+    <script src="../js/zepto.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("body").on("swipeUp", function () {
+                $(".footer").css("display", "block")
+            })
+            $("body").on("swipeDown", function () {
+                $(".footer").css("display", "none")
+            })
+        })
+    </script>
+</head>
+<body>
+<!--头部提示下载模块-->
+<section class="downApp">
+    <div class="downApp_left">
+        <div class="logo"></div>
+        <div class="downApp_msg">
+            <h3>打开当妈啦App</h3>
+            <p>了解更多优惠服务</p>
+        </div>
+    </div>
+    <div class="downApp_right">立即打开</div>
+</section>
+<!--粉色区域-->
+<section class="pink">
+    <a href="">
+        <div class="shezhi"></div>
+    </a>
+    <div class="head_out"></div>
+    <div class="head_middle"></div>
+    <a href="../second/ziliaoka.html">
+        <div class="head"></div>
+    </a>
+    <h1 class="name">董波</h1>
+    <ul class="gongneng">
+        <a href="../second/alldingdan.html">
+            <li class="dingdan">
+                <div>
+                    <img src="../images/dingdan.png" alt="">
+                    <p>全部订单</p>
+                </div>
+                <div class="line1"></div>
+            </li>
+        </a>
+        <a href="../second/alldingdan.html">
+            <li class="daifukuan">
+                <div>
+                    <img src="../images/daifukuan.png" alt="">
+                    <p>代付款</p>
+                </div>
+                <div class="line2"></div>
+            </li>
+        </a>
+        <a href="../second/alldingdan.html">
+            <li class="daishouhuo">
+                <div>
+                    <img src="../images/daishouhuo.png" alt="">
+                    <p>待收货</p>
+                </div>
+                <div class="line3"></div>
+            </li>
+        </a>
+        <a href="">
+            <li class="shouhou">
+                <div>
+                    <img src="../images/shouhou.png" alt="">
+                    <p>售后</p>
+                </div>
+            </li>
+        </a>
+    </ul>
+</section>
+<!--按钮跳转区域-->
+<section class="mine">
+    <h1 class="mine_title">我的</h1>
+    <ul class="mine_bankuai">
+        <a href="">
+            <li class="yiyuan">
+                <img src="../images/yiyuan.png" alt="">
+                <p>我的医院</p>
+            </li>
+        </a>
+        <a href="../second/wodeshoucang.html">
+            <li class="shoucang">
+                <img src="../images/shoucang.png" alt="">
+                <p>我的收藏</p>
+            </li>
+        </a>
+        <a href="">
+            <li class="yaoqing">
+                <img src="../images/yaoqing.png" alt="">
+                <p>邀请孕妈</p>
+            </li>
+        </a>
+        <a href="../second/shouhuodizhi_null.html">
+            <li class="shouhuo">
+                <img src="../images/shouhuo.png" alt="">
+                <p>收货地址</p>
+            </li>
+        </a>
+    </ul>
+</section>
+<!--底部-->
+<footer class="footer">
+    <a href="fuwu.html">
+        <figure>
+            <img src="../images/fuwu1.png" alt="" class="fuwu">
+            <figcaption class="word1">服务</figcaption>
+        </figure>
+    </a>
+    <a href="zhibo.html">
+        <figure>
+            <img src="../images/zhibo.png" alt="" class="zhibo">
+            <figcaption class="word2">直播</figcaption>
+        </figure>
+    </a>
+    <a href="shangcheng.html">
+        <figure>
+            <img src="../images/shangcheng.png" alt="" class="shangcheng">
+            <figcaption class="word3">优选</figcaption>
+        </figure>
+    </a>
+    <a href="">
+        <figure>
+            <img src="../images/wode1.png" alt="" class="wode">
+            <figcaption class="word4">我的</figcaption>
+        </figure>
+    </a>
+</footer>
+</body>
+</html>

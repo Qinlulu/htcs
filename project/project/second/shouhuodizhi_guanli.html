@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>收货地址管理</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="apple-touch-fullscreen" content="yes">
+	<meta name="format-detection" content="telephone=no">
+	<meta http-equiv="x-rim-auto-match" content="none"/>
+	<link rel="stylesheet" type="text/css" href="../css/reset.css">
+	<style>
+	html{font-size: 20px;}
+	body{background: #fff; position: relative;-webkit-user-select:none;
+    -webkit-text-size-adjust:none;}
+	a{-webkit-tap-highlight-color: #fff; -webkit-tap-highlight-color:transparent;}
+	/*头部提示下载模块*/
+	.downApp{height: 2.5rem; width: 100%; background-color: #565a5c; overflow: hidden; position: fixed;left: 0; top: 0; z-index: 100;}
+	.downApp_left{height: 100%; width: 11.25rem; float: left; overflow: hidden;}
+	.downApp_right{height: 100%; width: 4.75rem; background: #ff5a5f; float: left; font-size: 0.65rem; color: #fff;line-height: 2.5rem; text-align: center;}
+	.logo{height: 1.75rem; width: 1.75rem; background: url(../images/logo.png) no-repeat; background-size: 100%; margin-left: 0.5rem; margin-top: 0.4rem; float: left;}
+	.downApp_msg{float: left; padding-left: 0.45rem;}
+	.downApp_msg h3{ color: #fff; font-size: 0.6rem; padding-top: 0.625rem;}
+	.downApp_msg p{ color: #cccdce; font-size: 0.45rem;padding-top: 0.25rem;}
+	/*头部返回*/
+	.back{height: 1.275rem;padding-left: .675rem;padding-top: .6rem; overflow: hidden; z-index: 1; background: #fbfbfb; margin-top: 2.5rem;}
+	.back a{height: .7rem; width: .375rem; display: block; background: url(../images/back.png) no-repeat; background-size: 100%; display: block;float:left;}
+	.back h1{font-size: .7rem; color: #3e4347; float: left; padding-left: 4.8rem;}
+	/*地址*/
+	.address li{height: 5.25rem; padding-left: .675rem; border-bottom: .35rem solid #f0f0f0;}
+	.address_title{height: 1.2rem; width: 15.325rem; overflow: hidden;}
+	.address_title h1{font-size: .65rem; color: #363b3e; float: left; padding-top: .5rem;}
+	.address_title p{font-size: .6rem; color: #3f4446; float: right; padding-top: .55rem; padding-right: .7rem;}
+	.address_msg{height: 1.95rem; border-bottom: 1px solid #dcdcdc;font-size: .6rem; color: #54575a; line-height: 1.95rem;}
+	.address_choice{overflow: hidden; height: 2.1rem;}
+	.address_choice_moren{width: 3.75rem; float: left; overflow: hidden; height: 2.1rem;}
+	.address_choice_moren img{display: block;float: left; height: .75rem; width: .75rem; padding-top: .625rem;}
+	.address_choice_moren p{font-size: .55rem; color: #6c7579; padding-top: .75rem; padding-left: .6rem; float: left;}
+	.address_choice_moren .active{color: #ff373d;}
+	.address_choice_bianji{width: 2.125rem; float: left; overflow: hidden; height: 2.1rem; padding-left: 5.6rem;}
+	.address_choice_bianji img{display: block;float: left; height: .7rem; width: .7rem; padding-top: .675rem;}
+	.address_choice_bianji p{font-size: .55rem; color: #616a6f; padding-top: .75rem; padding-left: .2rem; float: left;}
+	.address_choice_shanchu{width: 2.5rem; float: left; overflow: hidden; height: 2.1rem; padding-left: .6rem;}
+	.address_choice_shanchu img{display: block;float: left; height: .7rem; width: .7rem; padding-top: .675rem;}
+	.address_choice_shanchu p{font-size: .55rem; color: #616a6f; padding-top: .75rem; padding-left: .2rem; float: left;}
+	</style>
+	<script>
+		;(function (win,doc){
+		function change(){
+			doc.documentElement.style.fontSize=20*doc.documentElement.clientWidth/320+'px';
+		}
+		change();
+		
+		win.addEventListener('resize',change,false);
+		})(window,document);
+	</script>
+</head>
+<body>
+<!--头部提示下载模块-->
+<section class="downApp">
+	<div class="downApp_left">
+		<div class="logo"></div>
+		<div class="downApp_msg">
+			<h3>打开当妈啦App</h3>
+			<p>了解更多优惠服务</p>
+		</div>
+	</div>
+	<div class="downApp_right">立即打开</div>
+</section>
+<!--头部返回-->
+<header class="back">
+	<a href="../html/wode.html"></a>
+	<h1>管理收货地址</h1>
+</header>
+<!--地址-->
+	<ul class="address">
+		<li>
+			<div class="address_title">
+				<h1>李玉刚</h1>
+				<p>13288712874</p>
+			</div>
+			<div class="address_msg">北京市北京市海淀区铸成大厦</div>
+			<div class="address_choice">
+				<div class="address_choice_moren">
+					<img src="../images/xuanze_red.png" alt="">
+					<p class="active">默认地址</p>
+				</div>
+				<div class="address_choice_bianji">
+					<img src="../images/bianji.png" alt="">
+					<p>编辑</p>
+				</div>
+				<div class="address_choice_shanchu">
+					<img src="../images/shanchu.png" alt="">
+					<p>删除</p>
+				</div>
+			</div>
+		</li>
+		<li>
+			<div class="address_title">
+				<h1>李玉刚</h1>
+				<p>13288712874</p>
+			</div>
+			<div class="address_msg">北京市北京市海淀区铸成大厦</div>
+			<div class="address_choice">
+				<div class="address_choice_moren">
+					<img src="../images/xuanze_no.png" alt="">
+					<p>设为默认</p>
+				</div>
+				<div class="address_choice_bianji">
+					<img src="../images/bianji.png" alt="">
+					<p>编辑</p>
+				</div>
+				<div class="address_choice_shanchu">
+					<img src="../images/shanchu.png" alt="">
+					<p>删除</p>
+				</div>
+			</div>
+		</li>
+	</ul>
+</body>
+</html>

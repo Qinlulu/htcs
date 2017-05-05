@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>无收货地址</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="apple-touch-fullscreen" content="yes">
+	<meta name="format-detection" content="telephone=no">
+	<meta http-equiv="x-rim-auto-match" content="none"/>
+	<link rel="stylesheet" type="text/css" href="../css/reset.css">
+	<style>
+	html{font-size: 20px;}
+	body{background: #f0f0f0; position: relative;-webkit-user-select:none;
+    -webkit-text-size-adjust:none;}
+	a{-webkit-tap-highlight-color: #fff; -webkit-tap-highlight-color:transparent;}
+	/*头部提示下载模块*/
+	.downApp{height: 2.5rem; width: 100%; background-color: #565a5c; overflow: hidden; position: fixed; left: 0; top: 0; z-index: 100;}
+	.downApp_left{height: 100%; width: 11.25rem; float: left; overflow: hidden;}
+	.downApp_right{height: 100%; width: 4.75rem; background: #ff5a5f; float: left; font-size: 0.65rem; color: #fff;line-height: 2.5rem; text-align: center;}
+	.logo{height: 1.75rem; width: 1.75rem; background: url(../images/logo.png) no-repeat; background-size: 100%; margin-left: 0.5rem; margin-top: 0.4rem; float: left;}
+	.downApp_msg{float: left; padding-left: 0.45rem;}
+	.downApp_msg h3{ color: #fff; font-size: 0.6rem; padding-top: 0.625rem;}
+	.downApp_msg p{ color: #cccdce; font-size: 0.45rem;padding-top: 0.25rem;}
+	/*头部返回*/
+	.back{height: 1.275rem;padding-left: .675rem;padding-top: .6rem; overflow: hidden; z-index: 1; background: #fbfbfb; margin-top: 2.5rem;}
+	.back a{height: .7rem; width: .375rem; display: block; background: url(../images/back.png) no-repeat; background-size: 100%; display: block;float:left;}
+	.back h1{font-size: .7rem; color: #3e4347; float: left; padding-left: 4.8rem;}
+	/*没有收货地址*/
+	.address_picture{height: 3.325rem; width: 3.05rem; background: url(../images/address_none.png) no-repeat; background-size: 100%; margin-top: 5.7rem; margin-left: 6.95rem;}
+	.prompt{font-size: .65rem; color: #656d73;padding-top: 4.2rem; padding-left: 4.7rem;}
+	.button{height: 1.5rem; width: 4.6rem; border: 1px solid #787c7d;border-radius: .1rem; line-height: 1.5rem; text-align: center; font-size: .6rem; color: #646769; margin-left: 5.675rem; margin-top: 1.35rem;}
+	</style>
+	<script>
+		;(function (win,doc){
+		function change(){
+			doc.documentElement.style.fontSize=20*doc.documentElement.clientWidth/320+'px';
+		}
+		change();
+		
+		win.addEventListener('resize',change,false);
+		})(window,document);
+	</script>
+</head>
+<body>
+<!--头部提示下载模块-->
+<section class="downApp">
+	<div class="downApp_left">
+		<div class="logo"></div>
+		<div class="downApp_msg">
+			<h3>打开当妈啦App</h3>
+			<p>了解更多优惠服务</p>
+		</div>
+	</div>
+	<div class="downApp_right">立即打开</div>
+</section>
+<!--头部返回-->
+<header class="back">
+	<a href="../html/wode.html"></a>
+	<h1>管理收货地址</h1>
+</header>
+<!--没有收货地址-->
+	<div class="address_picture"></div>
+	<p class="prompt">您还没有收货地址哦！</p>
+	<a href="shouhuodizhi_fill.html"><div class="button">新建地址</div></a>
+</body>
+</html>

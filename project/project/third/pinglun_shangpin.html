@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>评论-商品</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta http-equiv="x-rim-auto-match" content="none"/>
+    <link rel="stylesheet" type="text/css" href="../css/reset.css">
+    <link href="../css/swiper.min.css" rel="stylesheet"/>
+    <style>
+        html {
+            font-size: 20px;
+        }
+
+        body {
+            background: #fff;
+            width:100%;
+            height:100%;
+            position: relative;
+            -webkit-user-select: none;
+            -webkit-text-size-adjust: none;
+        }
+
+        a {
+            -webkit-tap-highlight-color: #fff;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        /*头部提示下载模块*/
+        .downApp {
+            height: 2.5rem;
+            width: 100%;
+            background-color: #565a5c;
+            overflow: hidden;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 100;
+        }
+
+        .downApp_left {
+            height: 100%;
+            width: 11.25rem;
+            float: left;
+            overflow: hidden;
+        }
+
+        .downApp_right {
+            height: 100%;
+            width: 4.75rem;
+            background: #ff5a5f;
+            float: left;
+            font-size: 0.65rem;
+            color: #fff;
+            line-height: 2.5rem;
+            text-align: center;
+        }
+
+        .logo {
+            height: 1.75rem;
+            width: 1.75rem;
+            background: url(../images/logo.png) no-repeat;
+            background-size: 100%;
+            margin-left: 0.5rem;
+            margin-top: 0.4rem;
+            float: left;
+        }
+
+        .downApp_msg {
+            float: left;
+            padding-left: 0.45rem;
+        }
+
+        .downApp_msg h3 {
+            color: #fff;
+            font-size: 0.6rem;
+            padding-top: 0.625rem;
+        }
+
+        .downApp_msg p {
+            color: #cccdce;
+            font-size: 0.45rem;
+            padding-top: 0.25rem;
+        }
+
+        /*头部标题*/
+    .title{height: 1.8rem; overflow: hidden;width: 100%; background-color: #fbfbfb; margin-top: 2.5rem;}
+    .title img{display: block; height: .7rem; width: .375rem; float: left; margin-top: .55rem; margin-left: .675rem;}
+    .title h1{font-size: .7rem; color: #51575a; float: left; padding-top: .55rem; padding-left: 5.825rem;}
+     /*评论内容*/
+     .pinglun{padding-left: .675rem; padding-right: .675rem; }
+     .pinglun li{ padding-top: .76rem; border-bottom: 1px solid #f0f0f0;  padding-right: .75rem; padding-bottom: 1.05rem;}
+     .pinglun_head{overflow: hidden;padding-left: 1.75rem;}
+     .touxiang{height: 1.3rem; width: 1.3rem; float: left; margin-left: -1.75rem; display: block;}
+     .name{font-size: .6rem; color: #5b5f61; float: left;}
+     .day{font-size: .5rem; color: #8d9397; float: right;}
+     .neirong{font-size: .6rem; color: #494d4f; line-height: .9rem;width: 12.55rem; padding-left: 1.75rem;}
+     .img{overflow: hidden; padding-top: .6rem; padding-left: 1.7rem;}
+     .img li{float: left; margin-right: .4rem; border-bottom: none; padding:0;}
+     .img li img{height: 3.35rem; width: 3.35rem;}
+     .other{width: 12.875rem;  background-color: #f7f7f7; margin-left: 1.75rem; margin-top: .95rem; padding-bottom: .85rem;}
+     .other_title{overflow: hidden; padding-top: .6rem; padding-left: .8rem; padding-right: .75rem;}
+     .other_title h3{font-size: .5rem; color: #979c9f; float: left;}
+     .other_title p{font-size: .5rem; color: #979c9f; float: right;}
+     .other p{font-size: .6rem; color: #858c8f; padding-left: .8rem; padding-right: .75rem; line-height: .75rem;}
+    </style>
+    <script src="../js/swiper.min.js"></script>
+    <script>
+
+        ;
+        (function (win, doc) {
+            function change() {
+                doc.documentElement.style.fontSize = 20 * doc.documentElement.clientWidth / 320 + 'px';
+            }
+
+            change();
+
+            win.addEventListener('resize', change, false);
+        })(window, document);
+    </script>
+</head>
+<body>
+<!--头部提示下载模块-->
+<section class="downApp">
+    <div class="downApp_left">
+        <div class="logo"></div>
+        <div class="downApp_msg">
+            <h3>打开当妈啦App</h3>
+
+            <p>了解更多优惠服务</p>
+        </div>
+    </div>
+    <div class="downApp_right">立即打开</div>
+</section>
+<!--头部标题-->
+    <section class="title">
+        <a href="../second/alldingdan.html"><img src="../images/back.png" alt=""></a>
+        <h1>写评论</h1>
+    </section>
+<!--评论内容-->
+    <ul class="pinglun">
+        <li>
+            <div class="pinglun_head">
+                <img src="../images/quanzi_head.png" alt="" class="touxiang">
+                <h3 class="name">嘿嘿嘿</h3>
+                <p class="day">1天前</p>
+            </div>
+            <p class="neirong">垃圾筐分开了啥家乐福奥斯卡了副经理说极度分裂看爱睡懒觉客服杰拉德节流阀</p>
+            <ul class="img">
+                <li>
+                    <img src="../images/pinglun_img.png" alt="">
+                </li>
+                <li>
+                    <img src="../images/pinglun_img.png" alt="">
+                </li>
+                <li>
+                    <img src="../images/pinglun_img.png" alt="">
+                </li>
+            </ul>
+            <div class="other">
+                <div class="other_title">
+                    <h3>嘿嘿</h3>
+                    <p>2天前</p>
+                </div>
+                <p>昆仑决抵抗力发就拉第三款减肥了卡扣式了困死了就爱付款啦离开</p>
+            </div>
+        </li>
+    </ul>
+</body>
+</html>

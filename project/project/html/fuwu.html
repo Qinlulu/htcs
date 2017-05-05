@@ -1,0 +1,805 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>服务</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta http-equiv="x-rim-auto-match" content="none"/>
+    <link rel="stylesheet" type="text/css" href="../css/reset.css">
+    <script src="../js/jquery-2.1.1.min.js"></script>
+    <script src="../js/zepto.min.js"></script>
+    <style media="all">
+        html {
+            font-size: 20px;
+        }
+
+        body {
+            background: #fff;
+            position: relative;
+            -webkit-user-select: none;
+            -webkit-text-size-adjust: none;
+            box-sizing: border-box;
+        }
+
+        a {
+            -webkit-tap-highlight-color: #fff;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        /*头部提示下载模块*/
+        .downApp {
+            height: 2.5rem;
+            width: 100%;
+            background-color: #565a5c;
+            overflow: hidden;
+            position: fixed;
+            left: 0;
+            top: 0;
+        }
+
+        .downApp_left {
+            height: 100%;
+            width: 11.25rem;
+            float: left;
+            overflow: hidden;
+        }
+
+        .downApp_right {
+            height: 100%;
+            width: 4.75rem;
+            background: #ff5a5f;
+            float: left;
+            font-size: 0.65rem;
+            color: #fff;
+            line-height: 2.5rem;
+            text-align: center;
+        }
+
+        .logo {
+            height: 1.75rem;
+            width: 1.75rem;
+            background: url(../images/logo.png) no-repeat;
+            background-size: 100%;
+            margin-left: 0.5rem;
+            margin-top: 0.4rem;
+            float: left;
+        }
+
+        .downApp_msg {
+            float: left;
+            padding-left: 0.45rem;
+        }
+
+        .downApp_msg h3 {
+            color: #fff;
+            font-size: 0.6rem;
+            padding-top: 0.625rem;
+        }
+
+        .downApp_msg p {
+            color: #cccdce;
+            font-size: 0.45rem;
+            padding-top: 0.25rem;
+        }
+
+        /*底部模块*/
+        .footer {
+            height: 2.375rem;
+            width: 100%;
+            background-color: #fbfbfb;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            overflow: hidden;
+            border-top: 1px solid #d1d1d1;
+            z-index: 1000;
+            
+        }
+
+        .footer figure {
+            float: left;
+            width: 25%;
+            height: 100%;
+            text-align: center;
+        }
+
+        .footer figure figcaption {
+            color: #595d5f;
+            font-size: 0.5rem;
+        }
+
+        .fuwu {
+            height: 0.7rem;
+            width: 1.45rem;
+            margin-top: 0.575rem;
+        }
+
+        .zhibo {
+            height: 0.95rem;
+            width: 1.45rem;
+            margin-top: 0.425rem;
+        }
+
+        .shangcheng {
+            height: 1.2rem;
+            width: 1.1rem;
+            margin-top: 0.225rem;
+        }
+
+        .wode {
+            height: 1.25rem;
+            width: 1.25rem;
+            margin-top: 0.225rem;
+        }
+
+        .word1 {
+            padding-top: 0.45rem;
+        }
+
+        .word2 {
+            padding-top: 0.35rem;
+        }
+
+        .word3 {
+            padding-top: 0.3rem;
+        }
+
+        .word4 {
+            padding-top: 0.25rem;
+        }
+
+        /*头部搜索模块*/
+        .searchhome {
+            background-color: #f7f7f7;
+            height: 2.1rem;
+            width: 100%;
+            border-top: 1px solid #dfdfdf;
+            padding-top: 0.275rem;
+            padding-left: 0.5rem;
+            box-sizing: border-box;
+            margin-top: 2.5rem;
+        }
+
+        .searchhome div {
+            width: 15rem;
+            height: 1.4rem;
+        }
+
+        .search {
+            display: block;
+            width: 13.4rem;
+            height: 1.35rem;
+            text-align: left;
+            border-radius: 0.2rem;
+            color: #929a9e;
+            font-size: 0.6rem;
+            outline: none;
+            font-family: inherit;
+            border: 1px solid #d1d1d1;
+            float: left;
+            background-color: #fff;
+        }
+
+        .search-icon {
+            float: right;
+            border: 1px solid #d1d1d1;
+            border-radius: 0.2rem;
+            height: 1.025rem;
+            width: 1.025rem;
+            background-color: #fff;
+            padding-left: 0.325rem;
+            padding-top: 0.325rem;
+        }
+
+        .search-icon span {
+            height: 0.7rem;
+            width: 0.7rem;
+            display: block;
+            background: url(../images/search-icon.png) no-repeat;
+            background-size: 100%;
+        }
+
+
+        /*筛选排序模块*/
+        div.screening {
+            width: 100%;
+            overflow: hidden;
+            background: #fff;
+            top: 1.9rem;
+            height: 2.05rem;
+            border-bottom: 1px solid #f0f0f0;
+            font-size: 0.6rem;
+            color: #75787a;
+        }
+
+        div.screening > ul {
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+            overflow: hidden;
+        }
+
+        div.screening > ul > li {
+            float: left;
+            width: 33%;
+            text-align: center;
+            line-height: 2.05rem;
+            background: url("../images/down.png") no-repeat 85% center;
+        }
+
+        div.screening > ul > li:nth-child(3){
+            background: url("../images/down.png") no-repeat 74% center;
+        }
+
+        div.screening > ul > li:nth-child(3).i{
+            background: url("../images/up.png") no-repeat 74% center;
+        }
+
+        div.screening > ul > .i {
+            background: url("../images/up.png") no-repeat 85% center;
+            color: #FF5A5F;
+        }
+
+        /*筛选的详细列表*/
+        .zhezhao {
+            width: 100%;
+            min-height: 1000px;
+            background: rgba(217, 217, 217, 0.75);
+            position: absolute;
+            display: none;
+            z-index: 5;
+        }
+
+        .meishi22 .meishia-w{
+            width:100%;
+            height:10.0rem;
+            overflow: auto;
+        }
+        .meishi22, .grade-eject, .Category-eject {
+            width: 100%;
+            height: auto;
+            overflow: hidden;
+            background: #fafafa;
+            padding: 0 1rem;
+            position: absolute;
+            display: none;
+            padding-bottom: 10px;
+            box-sizing: border-box;
+        }
+
+        .meishi22 > ul > li, .grade-eject > ul > li, .Category-eject > ul > li, .Sort-eject > ul > li {
+            height: 2.036rem;
+            line-height: 2.036rem;
+            font-size: 0.6rem;
+        }
+
+        .meishi22 > ul > li > div {
+            float: left;
+        }
+        .meishi22 ul li img{
+            float: right;
+            margin-top: 5%;
+            margin-right: 13%;
+            display:none;
+            width: 4%;
+        }
+        .meishi22 ul .list {
+            color: #FF5A5F;
+        }
+        .meishi22   ul  .list  img{
+            display:inline-block;
+        }
+
+        .Category-eject {
+            padding-bottom: 3.0rem;;
+        }
+
+        .Category-eject > ul > li {
+            width: 100%;
+            height: 3.3rem;
+        }
+
+        .Category-eject > ul > li > h1 {
+            width: 100%;
+            height: 1.2rem;
+            color: #565A5C;
+            font-size: 100%;
+            font-weight: bold;
+            line-height: 1.6rem;
+        }
+
+        .Category-eject > ul > li > p > span, .Category-eject > ul > li > p > i {
+            display: inline-block;
+            width: 2.5rem;
+            height: 1.2rem;
+            border-radius: 5px;
+            line-height: 1.2rem;
+            text-align: center;
+            margin-top: 3px;
+            border: 1px solid #979797;
+            background: #fff;
+            color: #65696B;
+        }
+
+        .Category-eject > ul > p {
+            width: 100%;
+            height: 2.0rem;
+            line-height: 2.0rem;
+            background: #fff;
+            border-top: 1px solid #ccc;
+            text-align: center;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+        }
+
+        .Category-eject > ul > p > em {
+            display: inline-block;
+            width: 50%;
+            float: left;
+            font-size: 0.6rem;
+        }
+
+        .Category-eject .em {
+            background: #FF5A5F;
+            color: #fff;
+            border: none;
+        }
+
+
+
+        .choose .btn-img {
+            overflow: hidden;
+            background: #fff;
+            cursor: pointer;
+            border: 0;
+        }
+
+        .choose .btn-img span {
+            font-size: 18px;
+            font-weight: 800;
+            color: #e23a46;
+            font-family: "微软雅黑", "宋体";
+        }
+
+        /*内容部分样式*/
+
+        .contes{
+            width:100%;
+            height:auto;
+            padding-bottom:2.375rem;
+        }
+        .goods{
+            box-sizing: border-box;
+            width:100%;
+            height:auto;
+        }
+        .goods li {
+            height: 6.55rem;
+            width: 100%;
+            overflow: hidden;
+            border-bottom: 1px solid #f3f3f3;
+        }
+
+        .goods-banner {
+            height: 5rem;
+            width: 5rem;
+            margin-top: 0.75rem;
+            margin-left: 0.5rem;
+            float: left;
+            background-size:cover;
+        }
+
+        .goods-msg {
+            height: 5rem;
+            width: 9.3rem;
+            padding-left: 0.7rem;
+            float: left;
+        }
+
+        .goods-msg h3 {
+            font-size: 0.65rem;
+            font-weight: bold;
+            color: #565a5c;
+            padding-top: 1.05rem;
+            line-height: 1rem;
+        }
+
+        .goods-msg p {
+            font-size: 0.6rem;
+            color: #98a0a3;
+            padding-top: 0.5rem;
+        }
+
+        .goods-msg-more {
+            overflow: hidden;
+        }
+
+        .goods-msg-more b {
+            font-size: 0.6rem;
+            color: #ff5a5f;
+            font-weight: bold;
+            padding-top: 1.15rem;
+            display: block;
+            float: left;
+        }
+
+        .goods-msg-more em {
+            font-size: 0.45rem;
+            color: #a9afb3;
+            margin-top: 1.05rem;
+            display: block;
+            float: left;
+            border: 1px solid #929a9e;
+            border-radius: 4px;
+            text-align: center;
+            line-height: 0.55rem;
+            margin-left: 0.5rem;
+            padding:.1rem .1rem .1rem .1rem;
+        }
+
+        .goods-msg-more span {
+            font-size: 0.45rem;
+            color: #565a5c;;
+            padding-top: 1.15rem;
+            display: block;
+            float: right;
+        }
+    </style>
+    <script>
+        ;
+        (function (win, doc) {
+            function change() {
+                doc.documentElement.style.fontSize = 20 * doc.documentElement.clientWidth / 320 + 'px';
+            }
+
+            change();
+
+            win.addEventListener('resize', change, false);
+        })(window, document);
+    </script>
+    <script>
+        //显示下拉
+        $(document).ready(function () {
+            $(".screening ul li").on("click", function () {
+                var a = $(this).index()
+                if ($(this).hasClass("i")) {
+                    $(this).removeClass("i")
+                    $("body").css("overflow","auto")
+                    $(".zhezhao").css("display", "none")
+                    $(".zhezhao>div").eq(a).slideUp(300)
+                } else {
+                    $("body").css("overflow","hidden")
+                    $(this).addClass("i").siblings().removeClass("i")
+                    $(".zhezhao").css("display", "block")
+                    $(".zhezhao>div").eq(a).slideDown(300).siblings().slideUp(10)
+                }
+            })
+
+        })
+
+        //点击完成
+        $(document).ready(function () {
+            $(".em").on("click", function () {
+                $(".screening ul li").removeClass("i")
+                $(".zhezhao").css("display", "none")
+                $(".zhezhao>div").slideUp(10)
+
+                $("body").css("overflow","auto")
+
+                var arr1=[]
+
+                arr1.push($(".meishi").text())
+                arr1.push($(".Regional").text())
+               for(var i=0;i<$(".em").length-1;i++){
+                    arr1.push($(".em").eq(i).text())
+               }
+
+               //完成时的数据
+               console.log(arr1)
+
+            })
+            $(".ems").on("click", function () {
+                $(".Category-eject ul li i").removeClass("em")
+                $(".Category-eject ul li span").removeClass("em")
+            })
+
+        })
+
+        //点击筛选改变样式
+        $(document).ready(function () {
+            $(".Category-eject ul li p span").on("click", function () {
+                if ($(this).hasClass("em")) {
+                    $(this).removeClass("em")
+                } else {
+                    $(this).addClass("em")
+                }
+            })
+            $(".Category-eject ul li p i").on("click", function () {
+                $(this).addClass("em").siblings().removeClass("em")
+            })
+        })
+
+
+        //点击li 加对号
+        $(document).ready(function () {
+            $(".meishi22 li").on("click", function () {
+                var arr=[]
+                if($(this).parent().parent().hasClass("grade-eject")){
+                    $(".Regional").text($(this).find("div").text())
+                }else{
+                    $(".meishi").text($(this).find("div").text())
+                }
+
+
+
+                arr.push($(".meishi").text())
+                arr.push($(".Regional").text())
+                for(var i=0;i<$(".em").length-1;i++){
+                    arr.push($(".em").eq(i).text())
+                }
+
+
+                $(".screening ul li").removeClass("i")
+                $(this).addClass("list").siblings().removeClass("list")
+                $(".zhezhao").css("display", "none")
+                $(".zhezhao>div").slideUp(10)
+
+                $("body").css("overflow","auto")
+
+                
+                //这是最后的数据  数组格式
+                console.log(arr)
+
+
+            })
+            //点击遮罩消失
+            $(".zhezhao").on("click",function(e){
+
+                if($(e.target).hasClass("zhezhao")){
+                    $(".screening ul li").removeClass("i")
+                    $(".zhezhao").css("display", "none")
+                    $(".zhezhao>div").slideUp(10)
+                }
+            })
+
+            //footer显示与隐藏
+
+            /*touchstart:手指触摸屏幕上的时候触发
+             touchmove*/
+            $("body").on("swipeUp",function(){
+                $(".footer").css("display","block")
+            })
+            $("body").on("swipeDown",function(){
+                $(".footer").css("display","none")
+            })
+
+        })
+
+        //内容部分
+
+    </script>
+</head>
+<body>
+<!--头部提示下载模块-->
+<section class="downApp">
+    <div class="downApp_left">
+        <div class="logo"></div>
+        <div class="downApp_msg">
+            <h3>打开当妈啦App</h3>
+            <p>了解更多优惠服务</p>
+        </div>
+    </div>
+    <div class="downApp_right">立即打开</div>
+</section>
+<!--头部搜索模块-->
+<form action="" class="searchhome">
+    <div>
+        <input type="text" placeholder=" 搜索" class="search">
+        <a href="javascript:void(0)"
+           style="display: inline; transform-origin: 0px 0px 0px; opacity: 1; transform: scale(1, 1);"
+           class="search-icon">
+            <span></span>
+        </a>
+    </div>
+</form>
+<!--排序的的-->
+<div class="screening">
+    <ul>
+        <li class="meishi">精选推荐</li>
+        <li class="Regional">综合排序</li>
+        <li class="Brand">筛选</li>
+    </ul>
+</div>
+<div class="zhezhao">
+
+    <div class="meishi22">
+        <ul class="meishia-w" id="meishia">
+            <li>
+                <div class="meishi1">精选推荐</div>
+                <img src="../images/yes.png">
+            </li>
+            <li>
+                <div>产前检查</div>
+                <img src="../images/yes.png"></li>
+            <li>
+                <div>分娩套餐</div>
+                <img src="../images/yes.png"></li>
+            <li>
+                <div>产后塑性</div>
+                <img src="../images/yes.png"></li>
+            <li>
+                <div>医疗美容</div>
+                <img src="../images/yes.png"></li>
+            <li>
+                <div>孕前优生</div>
+                <img src="../images/yes.png"></li>
+            <li>
+                <div>生殖助孕</div>
+                <img src="../images/yes.png"></li> <li>
+                <div>生殖助孕</div>
+                <img src="../images/yes.png"></li> <li>
+                <div>生殖助孕</div>
+                <img src="../images/yes.png"></li>
+        </ul>
+    </div>
+    <div class="meishi22 grade-eject">
+        <ul class="grade-w" id="gradew">
+            <li>
+                <div>综合排序</div>
+                <img src="../images/yes.png"></li>
+            <li>
+                <div>价格最低</div>
+                <img src="../images/yes.png"></li>
+            <li>
+                <div>销量最高</div>
+                <img src="../images/yes.png"></li>
+            <li>
+                <div>距离最近</div>
+                <img src="../images/yes.png"></li>
+        </ul>
+    </div>
+    <div class="Category-eject">
+        <ul class="Category-w" id="Categorytw">
+            <li>
+                <h1>价格</h1>
+                <p>
+                    <span>免费</span>
+                </p>
+
+            </li>
+            <li>
+                <h1>热门城市</h1>
+                <p>
+                    <i>北京</i>
+                    <i>河北</i>
+                </p>
+
+            </li>
+            <p>
+                <em class="ems">清除筛选</em>
+                <em class="em">完成</em>
+            </p>
+
+            <!-- <li onclick="Categorytw(this)">
+                <div class="choose" id="dress-size">
+                    <form action="" method="get">
+                        <div><button type="submit" class="btn-img"><span>完成</span></button></div>
+                    </form>
+                    </li>
+                </div> -->
+
+        </ul>
+    </div>
+</div>
+<!--内容模块-->
+<div class="contes">
+    <ul class="goods">
+        <a href="../second/fuwuxiangqing_dingjin.html">
+            <li>
+                <img src="../images/goods-banner1.png" alt="" class="goods-banner">
+                <div class="goods-msg">
+                    <h3>宝岛妇产孕期产检套餐给您最惊喜的优惠哦，快来参加吧</h3>
+                    <p>免费名额，快来吧</p>
+                    <div class="goods-msg-more">
+                        <b>¥9173</b>
+                        <em>¥10192</em>
+                        <span>1.8km</span>
+                    </div>
+                </div>
+            </li>
+        </a>
+    </ul>
+    
+</div>
+
+<!--底部-->
+<footer class="footer">
+    <a href="">
+        <figure>
+            <img src="../images/fuwu.png" alt="" class="fuwu">
+            <figcaption class="word1">服务</figcaption>
+        </figure>
+    </a>
+    <a href="zhibo.html">
+        <figure>
+            <img src="../images/zhibo.png" alt="" class="zhibo">
+            <figcaption class="word2">直播</figcaption>
+        </figure>
+    </a>
+    <a href="shangcheng.html">
+        <figure>
+            <img src="../images/shangcheng.png" alt="" class="shangcheng">
+            <figcaption class="word3">优选</figcaption>
+        </figure>
+    </a>
+    <a href="wode.html">
+        <figure>
+            <img src="../images/wode.png" alt="" class="wode">
+            <figcaption class="word4">我的</figcaption>
+        </figure>
+    </a>
+</footer>
+
+
+<script src="http://api.map.baidu.com/api?v=1.2" type="text/javascript"></script>
+<script>
+    function getLocation(){
+        var options={
+            enableHighAccuracy:true,
+            maximumAge:1000
+        }
+        if(navigator.geolocation){
+            //浏览器支持geolocation
+            navigator.geolocation.getCurrentPosition(onSuccess,onError,options);
+            alert("支持浏览器获取位置")
+        }else{
+            //浏览器不支持geolocation
+        }
+    }
+
+    //成功时
+    function onSuccess(position){
+
+        var lat = position.coords.latitude; //纬度
+        var lag = position.coords.longitude; //经度
+        alert("成功获取 ")
+        alert('纬度:'+lat+',经度:'+lag);
+
+
+    }
+
+
+    //失败时
+    function onError(error){
+        alert(" 获取位置  失败了")
+        switch(error.code){
+            case 1:
+                alert("位置服务被拒绝");
+                break;
+
+            case 2:
+                alert("暂时获取不到位置信息");
+                break;
+
+            case 3:
+                alert("获取信息超时");
+                break;
+
+            case 4:
+                alert("未知错误");
+                break;
+        }
+
+
+
+    }
+
+    window.onload=getLocation;
+</script>
+</body>
+</html>

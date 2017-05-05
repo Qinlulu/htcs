@@ -1,0 +1,77 @@
+﻿<html>
+<head>
+<title>资料卡</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="apple-touch-fullscreen" content="yes">
+	<meta name="format-detection" content="telephone=no">
+	<meta http-equiv="x-rim-auto-match" content="none"/>
+	<link rel="stylesheet" href="../css/reset.css">
+	<style>
+	html{font-size: 20px;}
+	body{background: #fff; position: relative;overflow-x: hidden;}
+	a{-webkit-tap-highlight-color: #fff; -webkit-tap-highlight-color:transparent;}
+		#allmap{width:100%;height:100%;}
+		/*头部提示下载模块*/
+	.downApp{height: 2.5rem; width: 100%; background-color: #565a5c; overflow: hidden; position: fixed;left: 0; top: 0; z-index: 100;}
+	.downApp_left{height: 100%; width: 11.25rem; float: left; overflow: hidden;}
+	.downApp_right{height: 100%; width: 4.75rem; background: #ff5a5f; float: left; font-size: 0.65rem; color: #fff;line-height: 2.5rem; text-align: center;}
+	.logo{height: 1.75rem; width: 1.75rem; background: url(../images/logo.png) no-repeat; background-size: 100%; margin-left: 0.5rem; margin-top: 0.4rem; float: left;}
+	.downApp_msg{float: left; padding-left: 0.45rem;}
+	.downApp_msg h3{ color: #fff; font-size: 0.6rem; padding-top: 0.625rem;}
+	.downApp_msg p{ color: #cccdce; font-size: 0.45rem;padding-top: 0.25rem;}
+	/*头部*/
+	header{height: .7rem; padding: .6rem 6.15rem .6rem .675rem; overflow: hidden; margin-top: 2.5rem; background: #f0f0f0;}
+	header h1{font-size: .7rem; color: #40474a; float: right;}
+	header a{height: .7rem; width: .375rem; background: url(../images/back.png) no-repeat;display: block; background-size: 100%; float: left;}
+
+	.account{padding-left: .825rem; padding-top: 2rem;}
+	.phone{background-color: #f7f7f7;border: none;height: 1.9rem; width: 14.25rem;display: block; outline: none; font-size: .6rem;color: #848a8e; text-indent: 2em;}
+	.yanzheng{background-color: #f7f7f7;border: none;height: 1.9rem; width: 9.05rem;display: block; outline: none;  text-indent: 2em; float: left; font-size: .6rem;color: #848a8e;}
+	.account div{overflow: hidden; padding-top: .45rem;}
+	.btn{outline: none; height: 1.9rem; width: 4.8rem; float: left; margin-left: .4rem; color: #fff; background: #ff5a5f; font-size: .6rem; border:none;}
+	.btn_sure{outline: none; height: 1.9rem; width: 14.25rem; color: #fff; background: #ff5a5f; font-size: .6rem; border:none; margin-top: 1.45rem;}
+	</style>
+	<script>
+		;(function (win,doc){
+		function change(){
+			doc.documentElement.style.fontSize=20*doc.documentElement.clientWidth/320+'px';
+		}
+		change();
+		
+		win.addEventListener('resize',change,false);
+		})(window,document);
+	</script>
+	
+</head>
+<body>
+	<!--头部提示下载模块-->
+<section class="downApp">
+	<div class="downApp_left">
+		<div class="logo"></div>
+		<div class="downApp_msg">
+			<h3>打开当妈啦App</h3>
+			<p>了解更多优惠服务</p>
+		</div>
+	</div>
+	<div class="downApp_right">立即打开</div>
+</section>
+	<!--头部-->
+	<header>
+		<a href="../second/ziliaoka.html"></a>
+		<h1>绑定手机号</h1>
+	</header>
+	<!--输入-->
+	<section class="account">
+		<input type="text" placeholder=" 请输入想要绑定的手机号" size="22" class="phone">
+		<div>
+			<input type="text" placeholder=" 验证码" size="22" class="yanzheng">
+			<input type="button" value="获取验证码" class="btn">
+		</div>
+		<input type="button" value="确定" class="btn_sure">
+	</section>
+</body>
+</html>
+
