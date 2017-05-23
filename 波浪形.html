@@ -1,0 +1,115 @@
+<!doctype
+html>
+
+<html
+lang="en">
+
+<head>
+
+	<meta
+	charset="UTF-8">
+
+	<title>Document</title>
+
+	<style>
+
+		.container{width:500px;height:500px;border:1px
+			solid 
+			#DEDEDE; display:flex;}
+
+			.container
+			span{width:1px;height:300px;background:red;margin:0 1px;line-height:100%; align-self:center;}
+
+			</style>
+
+		</head>
+
+		<body>
+
+			<div
+			class="container">
+
+		</div>
+
+	</body>
+
+	<script>
+
+		var
+
+		i = 0;
+
+		(function
+
+			abc() {
+
+				setTimeout(function
+
+					() {
+
+						if
+
+							(i++ < 500) {
+
+								var
+
+								me = document.getElementsByClassName("container");
+
+								var
+
+								j = document.createElement('span');
+							
+								var
+
+								th = document.getElementsByTagName("span");
+
+								var
+
+								h = 300;
+
+								if
+
+									(i > 1) {
+
+										var
+
+										l = i - 2;
+
+										var
+
+										h = th[l].clientHeight;
+
+				
+									}{h= 300;}
+
+									var
+
+									arr = new
+
+									Array(-200,-125,0,145,280,125,0,145,280,145,280,125,0);
+
+									var
+
+									k = Math.floor((Math.random() * 5));
+console.log(h)
+									j.style.height
+									= h + arr[k] + "px";
+									j.style.display="block"
+									j.style.alignitems=' center';
+
+									me[0].appendChild(j);
+
+									
+
+									abc();
+
+								}
+
+							},
+							50);
+
+			})()
+
+		</script>
+
+		</html>

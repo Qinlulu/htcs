@@ -1,0 +1,71 @@
+﻿<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="apple-touch-fullscreen" content="yes">
+	<meta name="format-detection" content="telephone=no">
+	<meta http-equiv="x-rim-auto-match" content="none"/>
+	<link rel="stylesheet" href="../css/reset.css">
+	<style type="text/css">
+	html{font-size: 20px;}
+	body{background: #fff; position: relative}
+	a{-webkit-tap-highlight-color: #fff; -webkit-tap-highlight-color:transparent;}
+		#allmap{width:100%;height:100%;}
+		/*头部按钮*/
+	.head_button{
+		height: 3rem;
+		width:100%;
+		background-color: #708085;
+		
+		box-sizing: border-box;
+		position: fixed;
+		left: 0; top: 0;
+		z-index: 100;
+	}
+	.head_button a {
+		height: 1.3rem;
+		width: 1.3rem;
+		display: block;
+		margin-left: 1rem;
+		margin-top: 1.2rem;
+		background: url(../img/hospital_back1.png) no-repeat;
+		background-size: 100%;
+	}
+	</style>
+	<script>
+		;(function (win,doc){
+		function change(){
+			doc.documentElement.style.fontSize=20*doc.documentElement.clientWidth/320+'px';
+		}
+		change();
+		
+		win.addEventListener('resize',change,false);
+		})(window,document);
+	</script>
+	<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=EAc9690e060a06cfe50a260d491afd15"></script>
+	<title>医院地点</title>
+</head>
+<body>
+	<!--头部按钮-->
+	<header class="head_button">
+		<a href="hospital.html"></a>
+	</header>
+	<div id="allmap"></div>
+</body>
+</html>
+<script type="text/javascript">
+	// 百度地图API功能
+	var map = new BMap.Map("allmap");          
+	map.centerAndZoom(new BMap.Point(116.404, 39.915), 11);
+	var local = new BMap.LocalSearch(map, {
+		renderOptions:{map: map}
+	});
+	local.search("120.23,39.8274");
+
+
+
+	
+
+</script>

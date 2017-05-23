@@ -1,6 +1,6 @@
 	var $ = jQuery,    // just in case. Make sure it's not an other libaray.
 	
-	$wrap = $('#uploader'),
+	$wrap = $('#uploaders'),
 	
 	// 图片容器
 	$queue = $('<ul class="filelist"></ul>')

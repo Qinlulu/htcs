@@ -1,0 +1,760 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>医院详情</title>
+    <meta content="target-densitydpi=320,width=640,user-scalable=no" name="viewport">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="viewport"content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta http-equiv="x-rim-auto-match" content="none"/>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../lib/css/swiper.min.css">
+    <style>
+        /* iphone6 plus */
+        @media (min-device-width: 414px) and (max-device-width: 736px) and (-webkit-min-device-pixel-ratio: 3) {
+            html {
+                font-size: 129.375px;
+            }
+        }
+
+        html, body, * {
+            font-family: "Microsoft YaHei" ! important;
+        }
+
+        code {
+            font-family: "Consolas" ! important;
+        }
+
+        html {
+            font-size: 20px;
+        }
+
+        body {
+            background: #fff;
+            position: relative;
+        }
+
+        a {
+            -webkit-tap-highlight-color: #fff;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        /*头部医院信息*/
+        .head_msg {
+            height: 4rem;
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+            z-index: 1;
+            margin-top: 2.275rem;
+        }
+
+        .head_msg_picture {
+            float: left;
+            height: 100%;
+            width: 3rem;
+        }
+
+        .head_msg_picture img {
+            height: 3rem;
+            width: 3rem;
+            margin-top: 1rem;
+            margin-left: .3rem;
+            display: block;
+            border-radius: 50%;
+        }
+
+        .head_msg_word {
+            float: left;
+            padding-left: .65rem;
+            width: 12.35rem;
+        }
+
+        .head_msg_word h1 {
+            font-size: .6rem;
+            font-weight: bold;
+            color: #44484b;
+            padding-top: 1.3rem;
+        }
+
+        .head_msg_word h3 {
+            font-size: .5rem;
+            color: #575b5c;
+            padding-top: .3rem;
+        }
+
+        .head_msg_word_label {
+            overflow: hidden;
+        }
+
+        .head_msg_word_label em {
+            display: block;
+            float: left;
+            height: .8rem;
+            width: 2.3rem;
+            background: #83ddd4;
+            line-height: .8rem;
+            text-align: center;
+            color: #fff;
+            border-radius: .15rem;
+            font-size: .4rem;
+            margin-top: .55rem;
+            margin-right: .5rem;
+        }
+
+        .head_msg_word_label span {
+            display: block;
+            float: left;
+            height: .8rem;
+            width: 2.3rem;
+            background: #f6d07a;
+            line-height: .8rem;
+            text-align: center;
+            color: #fff;
+            border-radius: .15rem;
+            font-size: .4rem;
+            margin-top: .55rem;
+            margin-left: .1rem;
+        }
+
+        /*医院介绍*/
+        .introduce {
+            width: 14.55rem;
+            padding-left: .75rem;
+            line-height: 1.05rem;
+            font-size: .55rem;
+            color: #595d5f;
+            padding-bottom: 1rem;
+        }
+
+        /*医院图片轮播*/
+        /*地理位置*/
+        .map {
+            height: 1.65rem;
+            padding-left: .75rem;
+            overflow: hidden;
+            margin-top: .4rem;
+        }
+
+        .map_msg {
+            height: 1.3rem;
+            margin-top: 1px;
+            width: 12.5rem;
+            border-right: 1px solid #dbdbdb;
+            font-size: .6rem;
+            color: #979fa3;
+            line-height: 1.3rem;
+            text-align: left;
+            float: left;
+        }
+
+        .map_button {
+            float: left;
+            text-align: center;
+            height: 100%;
+            width: 2.7rem;
+        }
+
+        .map_button img {
+            height: .775rem;
+            width: .55rem;
+        }
+
+        .map_button p {
+            font-size: .55rem;
+            color: #9aa2a6;
+            padding-top: .25rem;
+        }
+
+        /*知名专家*/
+        .expert {
+            width: 100%;
+            border-top: .425rem solid #f7f7f7;
+            border-bottom: .425rem solid #f7f7f7;
+            margin-top: .5rem;
+        }
+
+        .expert_title {
+            height: 1.975rem;
+            width: 100%;
+            font-size: .6rem;
+            color: #2a2f32;
+            text-align: center;
+            line-height: 1.975rem;
+            margin-top: .25rem
+        }
+
+        .expert_details {
+            overflow: hidden;
+            margin-left: 0.725rem;
+            padding-bottom: 1rem;
+        }
+
+        .expert_details li {
+            height: 3.4rem;
+            float: left;
+            margin-left: .75rem;
+            margin-bottom: .8rem;
+        }
+
+        .expert_details li:nth-child(even) {
+            height: 3.4rem;
+            float: left;
+            margin-left: 1.1rem;
+        }
+
+        .expert_details_msg {
+            height: 2.45rem;
+            width: 6.7rem;
+            overflow: hidden;
+        }
+
+        .expert_details li p {
+            font-size: .6rem;
+            color: #565a5c;
+            padding-top: .3rem;
+        }
+
+        .expert_details_msg_head {
+            height: 2.5rem;
+            width: 2.5rem;
+            background-size: 100%;
+            border-radius: 50%;
+            float: left;
+            display: block;
+        }
+
+        .expert_details_msg_position {
+            float: left;
+            height: 100%;
+            padding-left: .45rem;
+        }
+
+        .expert_details_msg_position p {
+            font-size: .6rem;
+            font-weight: bold;
+            color: #404547;
+            padding-top: .35rem;
+        }
+
+        .expert_details_msg_position div {
+            text-align: center;
+            height: .6rem;
+            padding-right: .2rem;
+            padding-left: .2rem;
+            padding-top: .05rem;
+            padding-bottom: .05rem;
+            border: .5px solid #ff8084;
+            margin-top: .4rem;
+            line-height: .6rem;
+            font-size: .45rem;
+            color: #ff8084;
+            border-radius: .2rem;
+
+        }
+
+        /*底部选项卡*/
+
+
+       /* !*解决bug*!
+        .list,.contse{
+            width:100%;
+            height:auto;
+        }
+        .list .swiper-wrapper,.contse .swiper-wrapper{
+            width:100%;
+            height:auto;
+        }
+        !*解决bug*!*/
+
+
+        .imgs {
+            width: 13.9rem;
+            margin-left: 1.05rem;
+        }
+
+        .imgs .swiper-wrapper img {
+            
+            height: 7.75rem;
+            display: block;
+        }
+
+        .conts .swiper-container .swiper-wrapper .li {
+            text-align: center;
+            height: 1.675rem;
+            line-height: 1.675rem;
+            color: #54585a;
+            font-size: .6rem;
+        }
+        .swiper-wrapper .swiper-slide{
+            width:100%;
+        }
+        .swiper-wrapper .swiper-slide{
+            height:10px
+        }
+        .swiper-wrapper .swiper-slide-active {
+            height:auto
+        }
+
+        .conts .swiper-container .swiper-wrapper .click {
+            color: #ff373d;
+            border: 1px solid #FF5156;
+            border-right: none;
+            border-left: none;
+        }
+
+        .conts {
+            width: 100%;
+            height: auto;
+            padding-top: 0.825rem;
+            padding-left: 1.05rem;
+            padding-right: 0.675rem;
+            box-sizing: border-box;
+            font-size: .4rem;
+        }
+
+
+        .conts .Ctext {
+            width: 100%;
+            line-height: 1.05rem;
+            font-size: .55rem;
+            color: #525557;
+            margin-top: .5rem;
+        }
+        .dlst dl{
+           padding:0.1rem 0;
+        }
+        .dlst  dl dt {
+            width: 100%;
+            height:2.5rem;
+            margin: .25rem auto;
+            overflow: hidden;
+            margin-bottom: 0;
+        }
+
+        .dlst  dl dt img {
+            display:block;
+           height: 1.7rem;
+            border-radius: 50%;
+            margin:0 auto;
+            width: 1.7rem;
+        }
+
+        .dlst  dl dd {
+            width: 100%;
+            height:.6rem;
+            text-align: center;
+            color: #5b5f61;
+            font-size: .625rem;
+            line-height: .6rem;
+            overflow: hidden;
+            text-overflow:ellipsis;
+            white-space: nowrap;
+        }
+
+        .dlst dl dd:last-child {
+            text-align: center;
+            margin-top: .3rem;
+            font-size: .4rem;
+            color: #9da5a8;
+
+        }
+
+
+.head_button{
+        height: 3rem;
+        width:100%;
+        background-color: #708085;
+        box-sizing: border-box;
+        position: fixed;
+        left: 0; top: 0;
+        z-index: 100;
+    }
+    .head_button a {
+        height: 1.3rem;
+        width: 1.3rem;
+        display: block;
+        margin-left: 13.5rem;
+        margin-top: 1.2rem;
+        background: url(../img/hospital_back.png) no-repeat;
+        background-size: 100%;
+    }
+    .dibu{height: .6rem; width: 100%;}
+    </style>
+    <script>
+        ;
+        (function (win, doc) {
+            function change() {
+                doc.documentElement.style.fontSize = 20 * doc.documentElement.clientWidth / 320 + 'px';
+            }
+
+            change();
+            win.addEventListener('resize', change, false);
+        })(window, document);
+    </script>
+    <script>
+        //按钮链接
+                var share = JSON.stringify({"title": "",
+                                           "desc": "",
+                                           "shareUrl": ""
+                                           });
+
+            //IOS
+            function cLoseH5(){
+                    window.app.cLoseH5()//android
+            }
+
+            function toDoctorDetailPages(d_id){
+                window.app.toDoctorDetailPages(d_id);
+            }
+    </script>
+</head>
+<body>
+<header class="head_button">
+        <a href="javascript:;" onClick="cLoseH5()"></a>
+    </header>
+<!--头部医院信息-->
+<section class="head_msg">
+    <div class="head_msg_picture">
+        <img src="../img/hospital_picture.png" alt="">
+    </div>
+    <div class="head_msg_word">
+        <h1>北京妇产医院</h1>
+
+
+        <div class="head_msg_word_label">
+            <em>私立医院</em>
+            <span>合作医院</span>
+        </div>
+    </div>
+</section>
+<!--头部医院信息-->
+<section class="introduce">
+    北京宝岛妇产医院是在我也USD斐林试剂大富科技了单身快乐复健科第三节课富家大室看九分裤圣诞节疯狂刘三姐反馈是荆防颗粒山东矿机克服了思考的捷反馈圣诞节快乐放假就考虑到撒娇福克斯的垃圾福利卡是否收到。
+</section>
+<!--医院图片轮播-->
+<div class="swiper-container imgs">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide">
+            <img src="../img/map.png"/>
+        </div>
+        
+    </div>
+</div>
+<!--地理位置-->
+<section class="map">
+    <div class="map_msg">三里屯</div>
+    <a href="map.html">
+        <div class="map_button">
+            <img src="../img/map.png" alt="">
+
+            <p>地图</p>
+        </div>
+    </a>
+</section>
+<!--知名专家-->
+<section class="expert">
+    <div class="expert_title">知名专家</div>
+    <ul class="expert_details">
+        <a href="">
+            <li onClick="toDoctorDetailPages('');">
+                <div class="expert_details_msg">
+                    <img src="../img/dt.png" alt="" class="expert_details_msg_head">
+                    <div class="expert_details_msg_position">
+                        <p>毛毛</p>
+
+                        <div>产科专家</div>
+                    </div>
+                </div>
+                <p>原台北市立联合医院</p>
+            </li>
+        </a>
+        
+    </ul>
+</section>
+<!--底部选项卡-->
+<div class="conts">
+    <div class="swiper-container list">
+        <ul class="swiper-wrapper">
+            <li class="swiper-slide li click">妇科专家</li>
+            <li class="swiper-slide li">产科专家</li>
+            <li class="swiper-slide li">生殖专家</li>
+            <li class="swiper-slide li">儿科专家</li>
+            <li class="swiper-slide li">妇科专家</li>
+            <li class="swiper-slide li">产科专家</li>
+            <li class="swiper-slide li">生殖专家</li>
+            <li class="swiper-slide li">儿科专家</li>
+        </ul>
+    </div>
+    <div class="swiper-container contse">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <div class="Ctext">
+
+                </div>
+                <div class="dlst swiper-container">
+                    <div class="swiper-wrapper">
+                        <dl class="swiper-slide">
+                            <dt onClick="toDoctorDetailPages('');">
+                                <img src="../img/map.png"/>
+                            </dt>
+                            <dd>度烧范</dd>
+                            <dd>主任医师支招</dd>
+                        </dl>
+                        <dl class="swiper-slide">
+                            <dt onClick="toDoctorDetailPages('');">
+                                <img src="../img/hospital_picture.png"/>
+                            </dt>
+                            <dd>度烧范</dd>
+                            <dd>主任医师</dd>
+                        </dl>
+                        <dl class="swiper-slide">
+                            <dt onClick="toDoctorDetailPages('');">
+                                <img src="../img/yiyu.png"/>
+                            </dt>
+                            <dd>度烧范</dd>
+                            <dd>主任医师</dd>
+                        </dl>
+                        <dl class="swiper-slide">
+                            <dt onClick="toDoctorDetailPages('');">
+                                <img src="../img/dl.png"/>
+                            </dt>
+                            <dd>度烧范</dd>
+                            <dd>主任医师</dd>
+                        </dl>
+                        <dl class="swiper-slide">
+                            <dt onClick="toDoctorDetailPages('');">
+                                <img src="../img/dl.png"/>
+                            </dt>
+                            <dd>度烧范</dd>
+                            <dd>主任医师</dd>
+                        </dl>
+                        <dl class="swiper-slide">
+                            <dt onClick="toDoctorDetailPages('');">
+                                <img src="../img/dl.png"/>
+                            </dt>
+                            <dd>度烧范</dd>
+                            <dd>主任医师</dd>
+                        </dl>
+
+                    </div>
+                </div>
+                </div>
+            <div class="swiper-slide">
+                <div class="Ctext">
+                    第三方回家水电费计划第三方回家水电费计划第三方回家
+                    水电费计划第三方回家水电费计划第三方回家水电费计划第三方
+                    回家水电费计划第三方回家水电费
+                    计划第三方回家水电费计划第三方回家水电费计划第三方回家水电费计划
+                </div>
+                <div class="dlst swiper-container">
+                    <div class="swiper-wrapper">
+                        <dl class="swiper-slide">
+                            <dt onClick="toDoctorDetailPages('');">
+                                <img src="../img/dl.png"/>
+                            </dt>
+                            <dd>度烧范</dd>
+                            <dd>主任医师支招</dd>
+                        </dl>
+                        <dl class="swiper-slide">
+                            <dt onClick="toDoctorDetailPages('');">
+                                <img src="../img/dl.png"/>
+                            </dt>
+                            <dd>度烧范</dd>
+                            <dd>主任医师</dd>
+                        </dl>
+                        <dl class="swiper-slide">
+                            <dt onClick="toDoctorDetailPages('');">
+                                <img src="../img/dl.png"/>
+                            </dt>
+                            <dd>度烧范</dd>
+                            <dd>主任医师</dd>
+                        </dl>
+                        <dl class="swiper-slide">
+                            <dt onClick="toDoctorDetailPages('');">
+                                <img src="../img/dl.png"/>
+                            </dt>
+                            <dd>度烧范</dd>
+                            <dd>主任医师</dd>
+                        </dl>
+                        <dl class="swiper-slide">
+                            <dt onClick="toDoctorDetailPages('');">
+                                <img src="../img/dl.png"/>
+                            </dt>
+                            <dd>度烧范</dd>
+                            <dd>主任医师</dd>
+                        </dl>
+                        <dl class="swiper-slide">
+                            <dt onClick="toDoctorDetailPages('');">
+                                <img src="../img/dl.png"/>
+                            </dt>
+                            <dd>度烧范</dd>
+                            <dd>主任医师</dd>
+                        </dl>
+
+                    </div>
+                </div>
+
+            </div>
+            <div class="swiper-slide">
+                <div class="Ctext">
+                    第三方回家水电费计划第三方回家水电费计划第三方回家
+                    水电费计划第三方回家水电费计划第三方回家水电费计划第三方
+                    回家水电费计划第三方回家水电费
+                    计划第三方回家水电费计划第三方回家水电费计划第三方回家水电费计划
+                </div>
+
+            </div>
+            <div class="swiper-slide">
+                <div class="Ctext">
+                    第三方回家水电费计划第三方回家水电费计划第三方回家
+                    水电费计划第三方回家水电费计划第三方回家水电费计划第三方
+                    回家水电费计划第三方回家水电费
+                    计划第三方回家水电费计划第三方回家水电费计划第三方回家水电费计划
+                </div>
+
+            </div>
+            <div class="swiper-slide">
+                <div class="Ctext">
+                    第三方回家水电费计划第三方回家水电费计划第三方回家
+                    水电费计划第三方回家水电费计划第三方回家水电费计划第三方
+                    回家水电费计划第三方回家水电费
+                    计划第三方回家水电费计划第三方回家水电费计划第三方回家水电费计划
+                </div>
+                <div class="dlst swiper-container">
+                    <div class="swiper-wrapper">
+                        <dl class="swiper-slide">
+                            <dt onClick="toDoctorDetailPages('');">
+                                <img src="../img/dl.png"/>
+                            </dt>
+                            <dd>度烧范</dd>
+                            <dd>主任医师支招</dd>
+                        </dl>
+                        <dl class="swiper-slide">
+                            <dt onClick="toDoctorDetailPages('');">
+                                <img src="../img/dl.png"/>
+                            </dt>
+                            <dd>度烧范</dd>
+                            <dd>主任医师</dd>
+                        </dl>
+                        <dl class="swiper-slide">
+                            <dt onClick="toDoctorDetailPages('');">
+                                <img src="../img/dl.png"/>
+                            </dt>
+                            <dd>度烧范</dd>
+                            <dd>主任医师</dd>
+                        </dl>
+                        <dl class="swiper-slide">
+                            <dt onClick="toDoctorDetailPages('');">
+                                <img src="../img/dl.png"/>
+                            </dt>
+                            <dd>度烧范</dd>
+                            <dd>主任医师</dd>
+                        </dl>
+                        <dl class="swiper-slide">
+                            <dt onClick="toDoctorDetailPages('');">
+                                <img src="../img/dl.png"/>
+                            </dt>
+                            <dd>度烧范</dd>
+                            <dd>主任医师</dd>
+                        </dl>
+                        <dl class="swiper-slide">
+                            <dt onClick="toDoctorDetailPages('');">
+                                <img src="../img/dl.png"/>
+                            </dt>
+                            <dd>度烧范</dd>
+                            <dd>主任医师</dd>
+                        </dl>
+
+                    </div>
+                </div>
+
+            </div>
+            <div class="swiper-slide">
+                <div class="Ctext">
+                    第三方回家水电费计划第三方回家水电费计划第三方回家
+                    水电费计划第三方回家水电费计划第三方回家水电费计划第三方
+                    回家水电费计划第三方回家水电费
+                    计划第三方回家水电费计划第三方回家水电费计划第三方回家水电费计划
+                </div>
+
+            </div>
+            <div class="swiper-slide">
+                <div class="Ctext">
+                    第三方回家水电费计划第三方回家水电费计划第三方回家
+                    水电费计划第三方回家水电费计划第三方回家水电费计划第三方
+                    回家水电费计划第三方回家水电费
+                    计划第三方回家水电费计划第三方回家水电费计划第三方回家水电费计划
+                </div>
+
+            </div>
+            <div class="swiper-slide">
+                <div class="Ctext">
+                    第三方回家水电费计划第三方回家水电费计划第三方回家
+                    水电费计划第三方回家水电费计划第三方回家水电费计划第三方
+                    回家水电费计划第三方回家水电费
+                    计划第三方回家水电费计划第三方回家水电费计划第三方回家水电费计划
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+<script src="../js/jquery-2.1.1.min.js"></script>
+<script src="../lib/js/swiper.min.js"></script>
+<script src="../js/iscroll.js"></script>
+<script>
+
+    //图片滑动
+    $(document).ready(function () {
+        new Swiper('.list', {
+            slidesPerView: 4.11,
+            paginationClickable: true,
+            spaceBetween: 20,
+            freeMode: true
+        });
+        new Swiper('.imgs', {
+            slidesPerView: 1.3,
+            paginationClickable: true,
+            spaceBetween: 10,
+            freeMode: true
+        });
+
+
+        new Swiper('.dlst', {
+            slidesPerView: 4,
+            paginationClickable: true,
+            spaceBetween: 10,
+            freeMode: true
+        });
+
+    })
+    //点击选项卡
+    $(function () {
+        var mySwiper = new Swiper('.contse', {
+            onSlideChangeEnd: function (swiper) {
+                var j = mySwiper.activeIndex;
+                $('.list ul li').eq(j).addClass('click').siblings().removeClass('click');
+            }
+        })
+        /*列表切换*/
+        $('.list ul li').on('click', function (e) {
+            e.preventDefault();
+            //得到当前索引
+            var i = $(this).index();
+
+            $(this).addClass('click').siblings().removeClass('click');
+            mySwiper.slideTo(i, 1000, false);
+        });
+    });
+
+
+</script>
+<div class="dibu"></div>
+</body>
+</html>

@@ -1,0 +1,132 @@
+<!doctype html>
+<html>
+<head>
+<title>建档攻略</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="apple-touch-fullscreen" content="yes">
+	<meta name="format-detection" content="telephone=no">
+	<meta http-equiv="x-rim-auto-match" content="none"/>
+	<link rel="stylesheet" href="../css/reset.css?v=1998">
+	<link rel="stylesheet" href="../css/swiper.min.css" />
+	<style>
+	.only{font-size: .75rem; color: #565a5c; padding-left: 1.4rem; line-height: 1rem;padding-right: 1rem; padding-top: 1.25rem;}
+	
+	</style>
+	<script type="text/javascript">
+	//动态加载
+	
+	 function loadStyles(url) {
+          var link = document.createElement("link");
+          link.type = "text/css";
+          link.rel = "stylesheet";
+          link.href = url+'?v=Math.random()';
+          document.getElementsByTagName("head")[0].appendChild(link);
+      }
+      loadStyles("../css/jiandang.css"); 
+	    //按钮链接
+	      var share = JSON.stringify({"title": "",
+	                                 "desc": "",
+	                                 "shareUrl": ""
+	                                 });
+	
+	  //IOS
+	  function taoCanLian(){
+				window.app.taoCanLian()//android		
+		}
+      </script>
+	<script>
+		;(function (win,doc){
+		function change(){
+			doc.documentElement.style.fontSize=20*doc.documentElement.clientWidth/320+'px';
+		}
+		change();
+		
+		win.addEventListener('resize',change,false);
+		})(window,document);
+	</script>
+	
+</head>
+<body >
+	<!--内容选项卡-->
+	<div id="wrapper">
+		<!--header end-->
+		<div class="wrap">
+			<div class="tabs">
+				<span class=" part active" id="raiders"><a href="#" hidefocus="true" >建档攻略</a></span>
+				<span class="part" id="cost"><a href="#" hidefocus="true">费用计算</a></span>
+				
+			</div>
+			<div class="swiper-container">
+				<div class="swiper-wrapper">
+					<div class="swiper-slide swiper-slide-visible swiper-slide-active">
+						<div class="content-slide">
+								                		
+                       			<h1 class="only">孕6-8周携带可见胎心胎芽的B超单子即可预约建档</h1>             	                       
+	                        
+	                        								
+						</div>
+					</div>
+					
+					<div class="swiper-slide" style="width: 1308px; height: 248px;">
+						<div class="content-slide">
+							<section class="example">
+								<h1><span>生育津贴：最低可领18141.87元</span></h1>
+								<p>从出院到产假结束，这段就归生育保险管了，要发生育津贴。</p>
+								<h2>1、什么是生育津贴？</h2>
+								<p>生育津贴相当于女职工在生育期间的工资，是由社保基金支付到公司账户，再由公司发放给女员工。</p>	
+								<h2>2、生育津贴有多少？</h2>
+								<p>生育津贴=职工所在用人单位月缴费平均工资/30*产假天数</p>
+								<p>产假天数为98天，生育奖励假30天；剖宫产再加15天；多胞胎每多一胎加15天。</p>
+								<h2>3、举个例子：</h2>
+								<p>一位女性所在单位上一年月缴平均工资就是最低标准4252元（2016.7-2017.6的最低标准，若不足此数，按此计算），其产假就是98天，生育奖励假30天，那么她能享受的生育津贴的标准就是4252/30*（98+30），则她产假期间所得工资应为18141.87元。</p>
+							</section>
+							<div class="view">
+								<input type="button" value="查看套餐" onclick="taoCanLian()" class="wailian">
+							</div>
+						</div>
+					</div>
+					
+					
+				</div>
+			</div>
+		</div>
+	</div>	
+	<script type="text/javascript" src="../js/zepto.min.js"></script>
+	<script type="text/javascript" src="../js/idangerous.swiper.min.js"></script>
+	<script type="text/javascript">
+			$(function() {
+	
+		var tabsSwiper;
+		tabsSwiper = new Swiper('.swiper-container', {
+			speed : 500,
+			onSlideChangeStart : function() {
+				$(".tabs .active").removeClass('active');
+				$(".tabs span").eq(tabsSwiper.activeIndex).addClass('active');
+			}
+		});
+	
+		$(".tabs span").on('touchstart mousedown', function(e) {
+			e.preventDefault()
+			$(".tabs .active").removeClass('active');
+			$(this).addClass('active');
+			tabsSwiper.swipeTo($(this).index());
+	
+		});
+	
+		$(".tabs span").click(function(e) {
+			e.preventDefault();
+		});
+	});
+			//套餐链接
+		//function taoCanLian(eve,url){
+			//$(eve).on("click",function(){
+				//location.href=url
+			//})
+		//}
+		//taoCanLian(".view",url)
+		</script>
+</body>
+</html>

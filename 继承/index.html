@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+
+
+
+
+<script>
+//原型链继承
+//共享实力与方法
+    /*function A(){
+        this.name="san";
+        this.eag="444";
+    }
+
+    A.prototype.sun=function(){
+        alert(this.name)
+    }
+    function B (){
+        this.name="si"
+    }
+
+   B.prototype=new A()
+
+    BS=new B()
+
+    BS.sun()
+*/
+
+//构造函数继承
+////共享实力 不共享方法
+
+/*function A (){
+    this.name="san"
+    this.eag="444";
+}
+
+A.prototype.sun=function(){
+        alert(this.name)
+    }
+
+function B(){
+    A.call(this)
+}
+
+
+var BS=new B()
+
+//alert(BS.name)
+
+BS.sun()*/
+
+//组合式继承
+
+</script>
+</body>
+</html>

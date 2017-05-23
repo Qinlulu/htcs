@@ -1,0 +1,47 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div id="box" >
+		<h1>{{day.msg}}</h1>
+		<lists :list="day" ></lists>	
+	</div>
+	<script src="vue.min.js"></script>
+	<script>
+		new Vue({
+			el:"#box",
+			data:{
+				day:{
+					msg:"秦璐璐"
+				}
+				
+			},
+			components:{
+				'lists':{
+					'template':"<div @click='lists'>{{child}}</div>",
+					props:["list"],
+					data(){
+						return {
+							child:""
+						
+						}
+					},
+					mounted(){
+						this.child=this.list
+					},
+					methods:{
+						lists(){
+							this.child="sdd"
+						}
+					}
+				} 
+				
+			
+			}
+		})
+	</script>
+</body>
+</html> 
